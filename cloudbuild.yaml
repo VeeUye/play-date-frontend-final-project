@@ -1,0 +1,9 @@
+steps:
+  - name: node
+    entrypoint: npm
+    args: ["install"]
+  - name: node
+    entrypoint: npm
+    args: ["run", "build"]
+  - name: gcr.io/mc-play-date-scheduler/firebase
+    args: ["deploy", "--project=mc-play-date-scheduler", "--only=hosting"]
