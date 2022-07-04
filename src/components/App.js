@@ -1,4 +1,4 @@
-import "../styles/App.css";
+import "../styles/app.css";
 
 function App() {
   return <h2>Playdate</h2>;
