@@ -1,6 +1,5 @@
 .text {
   position: absolute;
-  /* width: 214px; */
   height: 23px;
   left: 80px;
   top: 212px;
@@ -10,7 +9,6 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 155.4%;
-  /* or 23px */
 
   text-align: center;
   letter-spacing: 0.105em;

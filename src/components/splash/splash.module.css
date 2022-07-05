@@ -2,8 +2,6 @@
   position: relative;
   width: 375px;
   height: 812px;
-
-  background: #f0c000;
 }
 
 img {
@@ -12,4 +10,54 @@ img {
   right: 24.52%;
   top: 32.27%;
   bottom: 45.41%;
+}
+
+button {
+  position: absolute;
+  width: 315px;
+  height: 54px;
+
+  border-radius: 30px;
+}
+
+.signIn {
+  left: 30px;
+  top: 531px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 155.4%;
+  /* identical to box height, or 25px */
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #835932;
+
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+
+.signUp {
+  position: absolute;
+  left: 30px;
+  top: 609px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  background-color: transparent;
 }

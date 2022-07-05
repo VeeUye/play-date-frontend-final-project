@@ -19,6 +19,16 @@ exports[`Splash renders correctly 1`] = `
       alt="girl on a swing"
       src="swinging.svg"
     />
+    <button
+      class="signIn"
+    >
+      Sign In
+    </button>
+    <button
+      class="signUp"
+    >
+      Sign Up
+    </button>
   </div>
 </DocumentFragment>
 `;

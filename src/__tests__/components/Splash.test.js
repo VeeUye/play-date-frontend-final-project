@@ -37,15 +37,15 @@ describe("Splash", () => {
   it("displays a sign in button", () => {
     render(<Splash />);
 
-    const signInButton = screen.getByRole("button", { name: /submit/i });
+    const signInButton = screen.getByRole("button", { name: /sign in/i });
 
-    expect(signInButton).toHaveTextContent(/Submit/i);
+    expect(signInButton).toHaveTextContent(/sign in/i);
   });
 
   it("displays a sign up button", () => {
     render(<Splash />);
 
-    const signUpButton = screen.getByRole("button", { name: /sign in/i });
+    const signUpButton = screen.getByRole("button", { name: /sign up/i });
 
     expect(signUpButton).toHaveTextContent(/sign up/i);
   });
