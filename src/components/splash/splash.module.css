@@ -28,7 +28,6 @@ button {
   font-weight: 700;
   font-size: 16px;
   line-height: 155.4%;
-  /* identical to box height, or 25px */
 
   text-align: center;
   letter-spacing: 0.02em;
@@ -39,6 +38,13 @@ button {
   background: #ffffff;
   border-radius: 20px;
   border: none;
+}
+
+.signIn:hover,
+.signIn:active {
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  background: #f0c000;
 }
 
 .signUp {
@@ -60,4 +66,12 @@ button {
   border: 3px solid #ffffff;
   border-radius: 20px;
   background-color: transparent;
+}
+
+.signUp:hover,
+.signUp:active {
+  color: #835932;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
 }
