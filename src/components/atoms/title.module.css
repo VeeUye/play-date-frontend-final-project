@@ -1,0 +1,17 @@
+.text {
+  position: absolute;
+  width: 296px;
+  height: 99px;
+  left: 39px;
+  top: 138px;
+
+  /* font-family: "Baloo"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 99px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}

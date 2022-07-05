@@ -2,8 +2,14 @@
 
 exports[`Splash renders correctly 1`] = `
 <DocumentFragment>
-  <div>
-    Splash
+  <div
+    class="background"
+  >
+    <div
+      class="text"
+    >
+      Playdate
+    </div>
   </div>
 </DocumentFragment>
 `;
