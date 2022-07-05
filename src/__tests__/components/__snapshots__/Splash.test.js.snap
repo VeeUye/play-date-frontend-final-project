@@ -10,6 +10,11 @@ exports[`Splash renders correctly 1`] = `
     >
       Playdate
     </div>
+    <div
+      class="text"
+    >
+      Scheduler for parents
+    </div>
   </div>
 </DocumentFragment>
 `;

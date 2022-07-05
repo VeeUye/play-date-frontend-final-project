@@ -19,7 +19,7 @@ describe("Splash", () => {
     render(<Splash />);
 
     expect(screen.getByText(/Scheduler/i).textContent).toBe(
-      /scheduler for parents/i
+      "Scheduler for parents"
     );
   });
 
