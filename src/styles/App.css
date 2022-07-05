@@ -1,60 +1,38 @@
-/*  GOOGLE FONTS IMPORT URL */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@300;400;500&display=swap');
-
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
-html, body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  padding: 0;
-  font-family: 'Baloo 2', cursive;
-  font-family: 'Poppins', sans-serif;
-  background-color: whitesmoke;
-
-  -webkit-font-smoothing: antialiased;
-}
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-input, button, textarea, select {
-  font: inherit;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-#root, #__next {
-  isolation: isolate;
+.App {
+  text-align: center;
 }
 
-/* ///////////////////////////////////////////////////////////////////// */
-/* ////////////////////// GLOBAL BODY CSS ////////////////////////////// */
-/* ///////////////////////////////////////////////////////////////////// */
-
-p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Baloo 2', cursive;
-  font-weight: bold;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-h5, h6 {
-  font-family: 'Baloo 2', cursive;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-a {
-  font-family: 'Baloo 2', cursive;
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
