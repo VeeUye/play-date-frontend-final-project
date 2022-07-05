@@ -5,3 +5,11 @@
 
   background: #f0c000;
 }
+
+img {
+  position: absolute;
+  left: 24%;
+  right: 24.52%;
+  top: 32.27%;
+  bottom: 45.41%;
+}

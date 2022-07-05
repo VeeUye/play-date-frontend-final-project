@@ -15,6 +15,10 @@ exports[`Splash renders correctly 1`] = `
     >
       Scheduler for parents
     </div>
+    <img
+      alt="girl on a swing"
+      src="swinging.svg"
+    />
   </div>
 </DocumentFragment>
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Splash from "../../components/splash/Splash";
+import Image from "../../assets/swinging.svg";
 
 describe("Splash", () => {
   it("renders correctly", () => {
@@ -24,12 +25,12 @@ describe("Splash", () => {
   });
 
   it("displays the splash image", () => {
-    render(<Splash />);
+    render(<Splash src={Image} />);
 
     const image = screen.getByRole("img");
 
-    expect(image).toHaveAttribute("src", "/some-image-path.png");
-    expect(image).toHaveAttribute("alt", "some alt text");
+    expect(image).toHaveAttribute("src", "swinging.svg");
+    expect(image).toHaveAttribute("alt", "girl on a swing");
     expect(image).toBeVisible();
   });
 
