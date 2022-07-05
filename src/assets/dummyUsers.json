@@ -1,0 +1,69 @@
+{
+    "users": [
+        {
+            "userId": 1,
+            "name": "Chrissy Elwes",
+            "children": [
+                "Tom", "Jerry"
+            ],
+            "location": "London",
+            "picture": "/url",
+            "email": "chrissy@mail.com",
+            "friends": [
+                2, 3, 4, 5
+            ]
+        },
+        {
+            "userId": 2,
+            "name": "Ed Atkins",
+            "children": [
+                "Bart", "Lisa", "Maggie"
+            ],
+            "location": "Manchester",
+            "picture": "/url",
+            "email": "ed@mail.com",
+            "friends": [
+                1, 3, 4, 5
+            ]
+        },
+        {
+            "userId": 3,
+            "name": "Paul Beard",
+            "children": [
+                "Chris", "Meg", "Stewie"
+            ],
+            "location": "Manchester",
+            "picture": "/url",
+            "email": "paul@mail.com",
+            "friends": [
+                1, 2, 4, 5
+            ]
+        },
+        {
+            "userId": 4,
+            "name": "Steven Lomax",
+            "children": [
+                "Spongebob"
+            ],
+            "location": "Wigan",
+            "picture": "/url",
+            "email": "steven@mail.com",
+            "friends": [
+                1, 2, 3, 5
+            ]
+        },
+        {
+            "userId": 5,
+            "name": "Vee Uye",
+            "children": [
+                "Summer","Morty"
+            ],
+            "location": "Atherton",
+            "picture": "/url",
+            "email": "vee@mail.com",
+            "friends": [
+                1, 2, 3, 4
+            ]
+        }
+    ]
+}
