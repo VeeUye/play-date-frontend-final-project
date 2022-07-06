@@ -6,7 +6,7 @@ exports[`Splash renders correctly 1`] = `
     class="background"
   >
     <div
-      class="text"
+      class="splash__title"
     >
       Playdate
     </div>

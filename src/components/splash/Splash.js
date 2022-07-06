@@ -8,7 +8,7 @@ import styles from "./splash.module.css";
 const Splash = () => {
   return (
     <div className={styles.background}>
-      <Title />
+      <Title text="Playdate" />
       <Subheading />
       <img src={Image} alt="girl on a swing" />
       <Button className={styles.signIn} label="Sign In"></Button>

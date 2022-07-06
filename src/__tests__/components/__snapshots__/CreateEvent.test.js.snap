@@ -2,8 +2,14 @@
 
 exports[`CreateEvent renders correctly 1`] = `
 <DocumentFragment>
-  <div>
-    CreateEvent
+  <div
+    class="background"
+  >
+    <div
+      class="create-event__title--white"
+    >
+      Create Event
+    </div>
   </div>
 </DocumentFragment>
 `;

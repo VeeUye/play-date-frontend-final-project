@@ -1,11 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
+import SmallTitle from "../atoms/small-title/SmallTitle";
+
 import "./create-event.module.css";
 
 const CreateEvent = (props) => {
-  return <div>CreateEvent</div>;
+  return (
+    <div className="background">
+      <SmallTitle className="create-event__title--white" text="Create Event" />
+    </div>
+  );
 };
-
-CreateEvent.propTypes = {};
 
 export default CreateEvent;
