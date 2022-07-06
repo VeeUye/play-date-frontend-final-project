@@ -6,7 +6,7 @@ exports[`CreateEvent renders correctly 1`] = `
     class="background"
   >
     <div
-      class="create-event__title--white"
+      class="default"
     >
       Create Event
     </div>

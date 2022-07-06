@@ -1,6 +1,6 @@
 /* TODO: refactor to have a base class then use 'composes' to derive varients */
 
-.create-event__title--white {
+.default {
   position: absolute;
   width: 178px;
   height: 40px;

@@ -3,16 +3,17 @@ import Subheading from "../atoms/subheading/Subheading";
 import Title from "../atoms/title/Title";
 import Image from "../../assets/swinging.svg";
 import Button from "../atoms/button/Button";
-import styles from "./splash.module.css";
+import splash from "./splash.module.css";
+import button from "../atoms/button/button.module.css";
 
 const Splash = () => {
   return (
-    <div className={styles.background}>
+    <div className={splash.background}>
       <Title text="Playdate" />
       <Subheading />
       <img src={Image} alt="girl on a swing" />
-      <Button className={styles.signIn} label="Sign In"></Button>
-      <Button className={styles.signUp} label="Sign Up"></Button>
+      <Button className={button.signIn} label="Sign In"></Button>
+      <Button className={button.signUp} label="Sign Up"></Button>
     </div>
   );
 };
