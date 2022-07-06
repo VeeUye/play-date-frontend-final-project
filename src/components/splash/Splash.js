@@ -1,7 +1,7 @@
 import React from "react";
 import Subheading from "../atoms/subheading/Subheading";
 import Title from "../atoms/title/Title";
-import Image from "../../assets/swinging.svg";
+import Image from "../../assets/images/swinging.svg";
 import Button from "../atoms/button/Button";
 import styles from "./splash.module.css";
 
