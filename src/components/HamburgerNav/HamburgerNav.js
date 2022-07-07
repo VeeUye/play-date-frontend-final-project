@@ -5,7 +5,7 @@ import { stack as Menu } from "react-burger-menu";
 const HamburgerNav = (props) => {
   return (
     // Pass on our props
-    <Menu {...props} right >
+    <Menu {...props} right>
       <a className="bm-item" href="/">
         My Profile
       </a>
