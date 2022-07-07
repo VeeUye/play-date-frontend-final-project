@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const EventCard = ([
+const EventCard = ({
     owner,
     date,
     location,
     description,
     friendsConfirmed,
     friendsInvited
-]) => {
+}) => {
     return (
         <div className="event-card">
             Event Card
-            <div className="owner">owner</div>
+            <div className="owner">{owner}</div>
             <div className="date">{date}</div>
             <div className="location">{location}</div>
             <div className="description">{description}</div>
