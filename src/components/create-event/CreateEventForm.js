@@ -7,7 +7,7 @@ import buttonStyles from "../atoms/button/button.module.css";
 const CreateEventForm = () => {
   const initialState = {
     fields: {
-      name: "",
+      name: "test",
       date: "",
       startTime: "",
       endTime: "",
@@ -21,6 +21,7 @@ const CreateEventForm = () => {
   const handleCreateEvent = (event) => {
     event.preventDefault();
     console.log(fields);
+    setFields(initialState.fields);
   };
 
   const handleFieldChange = (event) => {
@@ -35,7 +36,7 @@ const CreateEventForm = () => {
             <FormInput
               label="Event Name"
               type="text"
-              name="Event Name"
+              name="name"
               value={fields.name}
               onChange={handleFieldChange}
             />
@@ -43,7 +44,7 @@ const CreateEventForm = () => {
             <FormInput
               label="Date"
               type="text"
-              name="Date"
+              name="date"
               value={fields.date}
               onChange={handleFieldChange}
             />
@@ -51,14 +52,14 @@ const CreateEventForm = () => {
               <FormInput
                 label="Start"
                 type="text"
-                name="Start"
+                name="startTime"
                 value={fields.startTime}
                 onChange={handleFieldChange}
               />
               <FormInput
                 label="End"
                 type="text"
-                name="End"
+                name="endTime"
                 value={fields.endTime}
                 onChange={handleFieldChange}
               />
@@ -67,7 +68,7 @@ const CreateEventForm = () => {
             <FormInput
               label="Location"
               type="text"
-              name="Location"
+              name="location"
               value={fields.location}
               onChange={handleFieldChange}
             />
@@ -75,7 +76,7 @@ const CreateEventForm = () => {
             <FormInput
               label="Invite"
               type="text"
-              name="Invite"
+              name="invite"
               value={fields.invite}
               onChange={handleFieldChange}
             />

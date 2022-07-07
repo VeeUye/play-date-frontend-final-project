@@ -52,15 +52,15 @@ exports[`Splash renders correctly 1`] = `
             >
               <label
                 class="label"
-                for="Event Name"
+                for="name"
               >
                 Event Name
                 <input
                   class="input"
-                  id="Event Name"
-                  name="Event Name"
+                  id="name"
+                  name="name"
                   type="text"
-                  value=""
+                  value="test"
                 />
               </label>
             </div>
@@ -69,13 +69,13 @@ exports[`Splash renders correctly 1`] = `
             >
               <label
                 class="label"
-                for="Date"
+                for="date"
               >
                 Date
                 <input
                   class="input"
-                  id="Date"
-                  name="Date"
+                  id="date"
+                  name="date"
                   type="text"
                   value=""
                 />
@@ -89,13 +89,13 @@ exports[`Splash renders correctly 1`] = `
               >
                 <label
                   class="label"
-                  for="Start"
+                  for="startTime"
                 >
                   Start
                   <input
                     class="input"
-                    id="Start"
-                    name="Start"
+                    id="startTime"
+                    name="startTime"
                     type="text"
                     value=""
                   />
@@ -106,13 +106,13 @@ exports[`Splash renders correctly 1`] = `
               >
                 <label
                   class="label"
-                  for="End"
+                  for="endTime"
                 >
                   End
                   <input
                     class="input"
-                    id="End"
-                    name="End"
+                    id="endTime"
+                    name="endTime"
                     type="text"
                     value=""
                   />
@@ -124,13 +124,13 @@ exports[`Splash renders correctly 1`] = `
             >
               <label
                 class="label"
-                for="Location"
+                for="location"
               >
                 Location
                 <input
                   class="input"
-                  id="Location"
-                  name="Location"
+                  id="location"
+                  name="location"
                   type="text"
                   value=""
                 />
@@ -141,13 +141,13 @@ exports[`Splash renders correctly 1`] = `
             >
               <label
                 class="label"
-                for="Invite"
+                for="invite"
               >
                 Invite
                 <input
                   class="input"
-                  id="Invite"
-                  name="Invite"
+                  id="invite"
+                  name="invite"
                   type="text"
                   value=""
                 />
