@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "../styles/App.css";
 
 import Splash from "./splash/Splash";
+import CreateEventForm from "./create-event/CreateEventForm";
 import "../styles/App.css";
 
 import HamburgerNav from "./HamburgerNav/HamburgerNav";
@@ -20,12 +21,11 @@ function App() {
           <div id={"page-wrap"}>
             <Switch>
             <div className="wrapper">
-              <Route exact path="/" />
+              <Route exact path="/" component={Splash} />
               <Route exact path="/my-profile" />
-              <Route exact path="/create-event" />
+              <Route exact path="/create-event" component={CreateEventForm}/>
               <Route exact path="/my-events" />
-              <Route exact path="/sign-out" />
-              <Splash />
+              <Route exact path="/sign-out" component={Splash} />
             </div>
             </Switch>
           </div>
