@@ -20,8 +20,10 @@ function App({ events }) {
               <Route exact path="/" component={Splash} />
               <Route exact path="/my-profile" />
               <Route exact path="/create-event" component={CreateEventForm} />
-              <Route exact path="/my-events" componment={MyEvents} />
-              <Route exact path="/sign-out" component={Splash} />
+              <Route exact path="/my-events">
+                <MyEvents events={events}/>
+              </Route>
+              <Route exact path="/sign-out" />
             </div>
             </Switch>
           </div>
