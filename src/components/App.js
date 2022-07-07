@@ -6,8 +6,8 @@ import Splash from "./splash/Splash";
 import CreateEventForm from "./create-event/CreateEventForm";
 import "../styles/App.css";
 
-import HamburgerNav from "./HamburgerNav/HamburgerNav";
-import "./HamburgerNav/hamburgernav.css";
+import HamburgerNav from "./hamburger-nav/HamburgerNav";
+import "./hamburger-nav/hamburgernav.css";
 
 
 
@@ -17,7 +17,6 @@ function App() {
       <div id={"App"}>
         <Router>
           <HamburgerNav className="burgernav" pageWrapId={"page-wrap"} outerContainerId={"App"} />
-
           <div id={"page-wrap"}>
             <Switch>
             <div className="wrapper">
