@@ -4,6 +4,7 @@ import Title from "../atoms/title/Title";
 import Image from "../../assets/images/swinging.svg";
 import Button from "../atoms/button/Button";
 import CreateEvent from "../create-event/CreateEvent";
+import CreateEventForm from "../create-event/CreateEventForm";
 import splash from "./splash.module.css";
 import button from "../atoms/button/button.module.css";
 
@@ -19,6 +20,7 @@ const Splash = () => {
       </div>
       <div className={splash.background}>
         <CreateEvent />
+        <CreateEventForm />
       </div>
     </>
   );

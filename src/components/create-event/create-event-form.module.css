@@ -1,0 +1,14 @@
+.field1 {
+  position: relative;
+  top: 9rem;
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.splitInput {
+  display: flex;
+  gap: 0;
+  padding-right: 0;
+  justify-content: space-between;
+  width: 25.5rem;
+}
