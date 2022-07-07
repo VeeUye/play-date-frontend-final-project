@@ -6,7 +6,7 @@ exports[`Splash renders correctly 1`] = `
     class="background"
   >
     <div
-      class="text"
+      class="splash__title"
     >
       Playdate
     </div>
@@ -17,6 +17,7 @@ exports[`Splash renders correctly 1`] = `
     </div>
     <img
       alt="girl on a swing"
+      class="img"
       src="swinging.svg"
     />
     <button
@@ -29,6 +30,143 @@ exports[`Splash renders correctly 1`] = `
     >
       Sign Up
     </button>
+  </div>
+  <div
+    class="background"
+  >
+    <div
+      class="background"
+    >
+      <div
+        class="default"
+      >
+        Create Event
+      </div>
+      <form>
+        <div
+          class="field1"
+        >
+          <div>
+            <div
+              class="field"
+            >
+              <label
+                class="label"
+                for="name"
+              >
+                Event Name
+                <input
+                  class="input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  value="test"
+                />
+              </label>
+            </div>
+            <div
+              class="field"
+            >
+              <label
+                class="label"
+                for="date"
+              >
+                Date
+                <input
+                  class="input"
+                  id="date"
+                  name="date"
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+            <div
+              class="splitInput"
+            >
+              <div
+                class="field"
+              >
+                <label
+                  class="label"
+                  for="startTime"
+                >
+                  Start
+                  <input
+                    class="input"
+                    id="startTime"
+                    name="startTime"
+                    type="text"
+                    value=""
+                  />
+                </label>
+              </div>
+              <div
+                class="field"
+              >
+                <label
+                  class="label"
+                  for="endTime"
+                >
+                  End
+                  <input
+                    class="input"
+                    id="endTime"
+                    name="endTime"
+                    type="text"
+                    value=""
+                  />
+                </label>
+              </div>
+            </div>
+            <div
+              class="field"
+            >
+              <label
+                class="label"
+                for="location"
+              >
+                Location
+                <input
+                  class="input"
+                  id="location"
+                  name="location"
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+            <div
+              class="field"
+            >
+              <label
+                class="label"
+                for="invite"
+              >
+                Invite
+                <input
+                  class="input"
+                  id="invite"
+                  name="invite"
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          class="createEvent"
+        >
+          Create Event
+        </button>
+      </form>
+      <img
+        alt="girl floating"
+        class="img"
+        src="float.svg"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

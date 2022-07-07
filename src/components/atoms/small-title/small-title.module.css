@@ -1,0 +1,20 @@
+/* TODO: refactor to have a base class then use 'composes' to derive varients */
+
+.default {
+  position: absolute;
+  width: 178px;
+  height: 40px;
+  left: 98px;
+  top: 86px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
