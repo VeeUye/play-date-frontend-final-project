@@ -76,7 +76,7 @@ exports[`Splash renders correctly 1`] = `
                   class="input"
                   id="date"
                   name="date"
-                  type="text"
+                  type="date"
                   value=""
                 />
               </label>
@@ -96,7 +96,7 @@ exports[`Splash renders correctly 1`] = `
                     class="input"
                     id="startTime"
                     name="startTime"
-                    type="text"
+                    type="time"
                     value=""
                   />
                 </label>
@@ -113,7 +113,7 @@ exports[`Splash renders correctly 1`] = `
                     class="input"
                     id="endTime"
                     name="endTime"
-                    type="text"
+                    type="time"
                     value=""
                   />
                 </label>
@@ -148,7 +148,7 @@ exports[`Splash renders correctly 1`] = `
                   class="input"
                   id="invite"
                   name="invite"
-                  type="text"
+                  type="email"
                   value=""
                 />
               </label>
