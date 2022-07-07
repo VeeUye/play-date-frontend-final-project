@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
+import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
+import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = () => {
   const initialState = {
@@ -15,6 +17,7 @@ const CreateEventForm = () => {
   };
 
   const [fields, setFields] = useState(initialState.fields);
+
   const handleCreateEvent = (event) => {
     event.preventDefault();
     console.log(fields);
@@ -78,8 +81,11 @@ const CreateEventForm = () => {
             />
           </div>
         </div>
-
-        <div className={formStyles.field2}></div>
+        <Button
+          className={buttonStyles.createEvent}
+          type="submit"
+          label="Create Event"
+        />
       </form>
     </>
   );

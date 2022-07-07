@@ -123,15 +123,12 @@ exports[`CreateEvent renders correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="field2"
-      />
+      <button
+        class="createEvent"
+      >
+        Create Event
+      </button>
     </form>
-    <button
-      class="createEvent"
-    >
-      Create Event
-    </button>
     <img
       alt="girl floating"
       class="img"
