@@ -1,0 +1,53 @@
+.field {
+  position: relative;
+  margin-bottom: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  height: 46px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background: #ffffff;
+  border: none;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 92.4%;
+
+  color: #835932;
+}
+
+.input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+.label {
+  display: block;
+  width: calc(100% - 2rem);
+  height: 25px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 155.4%;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #835932;
+}

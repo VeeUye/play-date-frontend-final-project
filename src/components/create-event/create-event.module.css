@@ -6,8 +6,10 @@
 
 .img {
   position: absolute;
-  left: 24%;
-  right: 24.52%;
-  top: 32.27%;
-  bottom: 45.41%;
+  left: 51.14%;
+  right: 5.31%;
+  top: 81.65%;
+  bottom: 4.02%;
+
+  transform: rotate(6.81deg);
 }

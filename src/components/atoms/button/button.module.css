@@ -1,4 +1,4 @@
-.button {
+button {
   position: absolute;
   width: 315px;
   height: 54px;
@@ -6,7 +6,7 @@
   border-radius: 30px;
 }
 
-.sign-in {
+.signIn {
   left: 30px;
   top: 531px;
 
@@ -14,7 +14,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 155.4%;
-  /* identical to box height, or 25px */
 
   text-align: center;
   letter-spacing: 0.02em;
@@ -27,8 +26,46 @@
   border: none;
 }
 
-.sign-up {
-  /* position: absolute;
+.signIn:hover,
+.signIn:active {
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  background: #f0c000;
+}
+
+.signUp {
+  position: absolute;
   left: 30px;
-  top: 609px; */
+  top: 609px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.signUp:hover,
+.signUp:active {
+  color: #835932;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+
+.createEvent {
+  composes: signIn;
+  margin-top: 4.5rem;
+  color: #f0c000;
+  font-size: 20px;
+  font-weight: 800;
 }

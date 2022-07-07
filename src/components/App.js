@@ -1,18 +1,33 @@
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "../styles/App.css";
-import Splash from "./splash/Splash";
-import "../styles/App.css";
+import HamburgerNav from "./hamburger-nav/HamburgerNav";
+import "./hamburger-nav/hamburgernav.css";import Splash from "./splash/Splash";
 import PropTypes from "prop-types";
 import MyEvents from "./myEvents/MyEvents";
+import CreateEventForm from "./create-event/CreateEventForm";
+import "../styles/App.css";
 
 function App({ events }) {
   return (
-    <>
-      <div className="wrapper">
-        <Splash />
-        <div>My Events</div>
-        <MyEvents events={events}/>
+    <div>
+      <div id={"App"}>
+        <Router>
+          <HamburgerNav className="burgernav" pageWrapId={"page-wrap"} outerContainerId={"App"} />
+          <div id={"page-wrap"}>
+            <Switch>
+            <div className="wrapper">
+              <Route exact path="/" component={Splash} />
+              <Route exact path="/my-profile" />
+              <Route exact path="/create-event" component={CreateEventForm} />
+              <Route exact path="/my-events" componment={MyEvents} />
+              <Route exact path="/sign-out" component={Splash} />
+            </div>
+            </Switch>
+          </div>
+        </Router>
       </div>
-    </>
+    </div>
   );
 }
 

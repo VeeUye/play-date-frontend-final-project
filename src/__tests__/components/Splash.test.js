@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Splash from "../../components/splash/Splash";
-import Image from "../../assets/swinging.svg";
+import Image from "../../assets/images/swinging.svg";
 
 describe("Splash", () => {
   it("renders correctly", () => {
