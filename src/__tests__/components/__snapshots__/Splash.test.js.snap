@@ -17,6 +17,7 @@ exports[`Splash renders correctly 1`] = `
     </div>
     <img
       alt="girl on a swing"
+      class="img"
       src="swinging.svg"
     />
     <button
@@ -41,61 +42,23 @@ exports[`Splash renders correctly 1`] = `
       >
         Create Event
       </div>
-    </div>
-    <form>
-      <div
-        class="field1"
-      >
-        <div>
-          <div
-            class="field"
-          >
-            <label
-              class="label"
-              for="Event Name"
-            >
-              Event Name
-              <input
-                class="input"
-                id="Event Name"
-                name="Event Name"
-                type="text"
-                value=""
-              />
-            </label>
-          </div>
-          <div
-            class="field"
-          >
-            <label
-              class="label"
-              for="Date"
-            >
-              Date
-              <input
-                class="input"
-                id="Date"
-                name="Date"
-                type="text"
-                value=""
-              />
-            </label>
-          </div>
-          <div
-            class="splitInput"
-          >
+      <form>
+        <div
+          class="field1"
+        >
+          <div>
             <div
               class="field"
             >
               <label
                 class="label"
-                for="Start"
+                for="Event Name"
               >
-                Start
+                Event Name
                 <input
                   class="input"
-                  id="Start"
-                  name="Start"
+                  id="Event Name"
+                  name="Event Name"
                   type="text"
                   value=""
                 />
@@ -106,59 +69,102 @@ exports[`Splash renders correctly 1`] = `
             >
               <label
                 class="label"
-                for="End"
+                for="Date"
               >
-                End
+                Date
                 <input
                   class="input"
-                  id="End"
-                  name="End"
+                  id="Date"
+                  name="Date"
                   type="text"
                   value=""
                 />
               </label>
             </div>
-          </div>
-          <div
-            class="field"
-          >
-            <label
-              class="label"
-              for="Location"
+            <div
+              class="splitInput"
             >
-              Location
-              <input
-                class="input"
-                id="Location"
-                name="Location"
-                type="text"
-                value=""
-              />
-            </label>
-          </div>
-          <div
-            class="field"
-          >
-            <label
-              class="label"
-              for="Invite"
+              <div
+                class="field"
+              >
+                <label
+                  class="label"
+                  for="Start"
+                >
+                  Start
+                  <input
+                    class="input"
+                    id="Start"
+                    name="Start"
+                    type="text"
+                    value=""
+                  />
+                </label>
+              </div>
+              <div
+                class="field"
+              >
+                <label
+                  class="label"
+                  for="End"
+                >
+                  End
+                  <input
+                    class="input"
+                    id="End"
+                    name="End"
+                    type="text"
+                    value=""
+                  />
+                </label>
+              </div>
+            </div>
+            <div
+              class="field"
             >
-              Invite
-              <input
-                class="input"
-                id="Invite"
-                name="Invite"
-                type="text"
-                value=""
-              />
-            </label>
+              <label
+                class="label"
+                for="Location"
+              >
+                Location
+                <input
+                  class="input"
+                  id="Location"
+                  name="Location"
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+            <div
+              class="field"
+            >
+              <label
+                class="label"
+                for="Invite"
+              >
+                Invite
+                <input
+                  class="input"
+                  id="Invite"
+                  name="Invite"
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="field2"
+        <div
+          class="field2"
+        />
+      </form>
+      <img
+        alt="girl floating"
+        class="img"
+        src="float.svg"
       />
-    </form>
+    </div>
   </div>
 </DocumentFragment>
 `;

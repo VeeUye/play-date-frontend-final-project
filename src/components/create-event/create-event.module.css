@@ -3,3 +3,13 @@
   width: 375px;
   height: 812px;
 }
+
+.img {
+  position: absolute;
+  left: 51.14%;
+  right: 5.31%;
+  top: 81.65%;
+  bottom: 4.02%;
+
+  transform: rotate(6.81deg);
+}
