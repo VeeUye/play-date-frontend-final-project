@@ -43,7 +43,7 @@ const CreateEventForm = () => {
 
             <FormInput
               label="Date"
-              type="text"
+              type="date"
               name="date"
               value={fields.date}
               onChange={handleFieldChange}

@@ -31,6 +31,10 @@
   background: none;
 }
 
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
 .label {
   display: block;
   width: calc(100% - 2rem);
