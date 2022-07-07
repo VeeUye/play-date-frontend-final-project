@@ -61,3 +61,11 @@ button {
   border-radius: 20px;
   border: none;
 }
+
+.createEvent {
+  composes: signIn;
+  margin-top: 4.5rem;
+  color: #f0c000;
+  font-size: 20px;
+  font-weight: 800;
+}

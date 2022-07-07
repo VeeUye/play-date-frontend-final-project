@@ -127,6 +127,11 @@ exports[`CreateEvent renders correctly 1`] = `
         class="field2"
       />
     </form>
+    <button
+      class="createEvent"
+    >
+      Create Event
+    </button>
     <img
       alt="girl floating"
       class="img"
