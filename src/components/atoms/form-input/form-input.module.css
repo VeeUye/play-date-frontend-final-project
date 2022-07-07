@@ -13,6 +13,7 @@
   padding: 0;
   height: 46px;
   padding-left: 1rem;
+  padding-right: 1rem;
 
   background: #ffffff;
   border: none;
@@ -22,9 +23,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 92.4%;
-  /* identical to box height, or 15px */
 
   color: #835932;
+}
+
+.input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
 }
 
 .label {

@@ -51,14 +51,14 @@ const CreateEventForm = () => {
             <div className={formStyles.splitInput}>
               <FormInput
                 label="Start"
-                type="text"
+                type="time"
                 name="startTime"
                 value={fields.startTime}
                 onChange={handleFieldChange}
               />
               <FormInput
                 label="End"
-                type="text"
+                type="time"
                 name="endTime"
                 value={fields.endTime}
                 onChange={handleFieldChange}
@@ -75,7 +75,7 @@ const CreateEventForm = () => {
 
             <FormInput
               label="Invite"
-              type="text"
+              type="email"
               name="invite"
               value={fields.invite}
               onChange={handleFieldChange}
