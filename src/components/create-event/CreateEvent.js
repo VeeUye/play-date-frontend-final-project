@@ -4,7 +4,7 @@ import titleStyles from "../atoms/small-title/small-title.module.css";
 
 import "./create-event.module.css";
 
-const CreateEvent = (props) => {
+const CreateEvent = () => {
   return (
     <div className="background">
       <SmallTitle className={titleStyles.default} text="Create Event" />
