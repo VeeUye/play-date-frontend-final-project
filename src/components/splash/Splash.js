@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import screenSize from "../../functions/screenSize";
 import Subheading from "../atoms/subheading/Subheading";
 import Title from "../atoms/title/Title";
 import Image from "../../assets/images/swinging.svg";
@@ -7,18 +8,7 @@ import splash from "./splash.module.css";
 import button from "../atoms/button/button.module.css";
 
 const Splash = () => {
-  const [isSmall, setIsSmall] = useState(window.innerWidth < 600);
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
-        const issmall = window.innerWidth < 600;
-        if (issmall !== isSmall) setIsSmall(issmall);
-      },
-      false
-    );
-  }, [isSmall]);
-
+  const isSmall = screenSize();
   return (
     <>
       <div className={isSmall ? splash.smallScreen : splash.bigScreen}>
