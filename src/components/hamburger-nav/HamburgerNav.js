@@ -14,7 +14,7 @@ const HamburgerNav = (props) => {
         Create Event
       </a>
 
-      <a className="bm-item" href="/myevents">
+      <a className="bm-item" href="/my-events">
         My Events
       </a>
 
