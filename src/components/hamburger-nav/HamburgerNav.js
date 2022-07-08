@@ -19,21 +19,6 @@ const HamburgerNav = (props) => {
       <Link id="sign-out" className="bm-item" to="/sign-out">
         Sign Out
       </Link>
-      {/* <a className="bm-item" href="/">
-        My Profile
-      </a>
-
-      <a className="bm-item" href="/createevent">
-        Create Event
-      </a>
-
-      <a className="bm-item" href="/my-events">
-        My Events
-      </a>
-
-      <a className="bm-item" href="/signout">
-        Sign Out
-      </a> */}
     </Menu>
   );
 };
