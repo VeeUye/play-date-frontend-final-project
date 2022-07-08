@@ -7,7 +7,7 @@ const HamburgerNav = (props) => {
   return (
     // Pass on our props
     <Menu {...props} right>
-      <Link id="home" className="bm-item" to="/">
+      <Link id="home" className="bm-item" to="/my-profile">
         My Profile
       </Link>
       <Link id="create-event" className="bm-item" to="/create-event">
