@@ -1,4 +1,8 @@
 .background {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   position: relative;
   width: 375px;
   height: 812px;
@@ -12,4 +16,8 @@
   bottom: 4.02%;
 
   transform: rotate(6.81deg);
+}
+
+.button-container {
+  text-align: center;
 }

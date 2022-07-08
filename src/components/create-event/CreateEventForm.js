@@ -81,12 +81,14 @@ const CreateEventForm = () => {
               onChange={handleFieldChange}
             />
           </div>
+          <div className="button-container">
+            <Button
+              className={buttonStyles.createEvent}
+              type="submit"
+              label="Create Event"
+            />
+          </div>
         </div>
-        <Button
-          className={buttonStyles.createEvent}
-          type="submit"
-          label="Create Event"
-        />
       </form>
     </>
   );
