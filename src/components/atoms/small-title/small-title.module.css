@@ -1,7 +1,7 @@
 /* TODO: refactor to have a base class then use 'composes' to derive varients */
 
 .default {
-  position: absolute;
+  position: relative;
   width: 178px;
   height: 40px;
   left: 98px;
