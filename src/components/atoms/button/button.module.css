@@ -63,12 +63,15 @@ button {
 }
 
 .createEvent {
-  composes: signIn;
+  composes: signUp;
   position: relative;
   display: block;
-  top: 1rem;
+  top: 1.5rem;
   left: 1rem;
-  color: #f0c000;
+  margin-right: 2rem;
+  color: #ffffff;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
+  width: calc(100% - 2rem);
+  height: 3rem;
 }

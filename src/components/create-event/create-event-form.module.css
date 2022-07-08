@@ -10,12 +10,16 @@
   gap: 0;
   padding-right: 0;
   justify-content: space-between;
-  width: 24rem;
+  width: 98vw;
 }
 
 @media only screen and (min-width: 769px) {
   .field1 {
-    width: 40vw;
+    width: 22rem;
+  }
+
+  .splitInput {
+    width: 24rem;
   }
 }
 

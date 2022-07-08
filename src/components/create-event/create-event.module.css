@@ -10,12 +10,11 @@
 
 .img {
   position: relative;
-  left: 51.14%;
-  right: 5.31%;
-  top: 81.65%;
-  bottom: 4.02%;
-
+  left: 15%;
+  bottom: 1rem;
   transform: rotate(6.81deg);
+
+  width: 20rem;
 }
 
 .img2 {
