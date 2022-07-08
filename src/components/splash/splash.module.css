@@ -16,10 +16,35 @@
   align-items: center;
 }
 
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 30rem;
+  gap: 1.5rem;
+}
+
+.bigScreenButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
+  top: 30rem;
+}
+
 .img {
   position: absolute;
   left: 24%;
   right: 24.52%;
   top: 32.27%;
+  bottom: 45.41%;
+}
+
+.bigScreenImg {
+  position: absolute;
+  left: 24%;
+  right: 24.52%;
+  top: 14rem;
   bottom: 45.41%;
 }

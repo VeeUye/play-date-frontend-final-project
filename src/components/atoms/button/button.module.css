@@ -1,15 +1,13 @@
 button {
   position: relative;
   width: 315px;
-  height: 54px;
+  height: 2.5rem;
 
   border-radius: 30px;
 }
 
 .signIn {
-  left: 30px;
-  top: 531px;
-
+  position: relative;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -34,10 +32,6 @@ button {
 }
 
 .signUp {
-  position: absolute;
-  left: 30px;
-  top: 609px;
-
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

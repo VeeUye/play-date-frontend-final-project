@@ -15,9 +15,19 @@ const Splash = () => {
         <div className={splash.background}>
           <Title text="Playdate" />
           <Subheading />
-          <img className={splash.img} src={Image} alt="girl on a swing" />
-          <Button className={button.signIn} label="Sign In"></Button>
-          <Button className={button.signUp} label="Sign Up"></Button>
+          <img
+            className={isSmall ? splash.img : splash.bigScreenImg}
+            src={Image}
+            alt="girl on a swing"
+          />
+          <div
+            className={
+              isSmall ? splash.buttonWrapper : splash.bigScreenButtonWrapper
+            }
+          >
+            <Button className={button.signIn} label="Sign In"></Button>
+            <Button className={button.signUp} label="Sign Up"></Button>
+          </div>
         </div>
       </div>
     </>

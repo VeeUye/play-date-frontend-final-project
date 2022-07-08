@@ -1,9 +1,15 @@
 import React from "react";
+import screenSize from "../../../functions/screenSize";
 import PropTypes from "prop-types";
 import styles from "./title.module.css";
 
 const Title = (props) => {
-  return <div className={styles.splash__title}>{props.text}</div>;
+  const isSmall = screenSize();
+  return (
+    <div className={isSmall ? styles.splash__title : styles.splash__bigTitle}>
+      {props.text}
+    </div>
+  );
 };
 
 Title.propTypes = {
