@@ -8,6 +8,23 @@
   height: 812px;
 }
 
+.smallScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bigScreen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 .img {
   position: relative;
   left: 15%;

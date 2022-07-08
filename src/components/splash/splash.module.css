@@ -4,6 +4,18 @@
   height: 812px;
 }
 
+.smallScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bigScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .img {
   position: absolute;
   left: 24%;
