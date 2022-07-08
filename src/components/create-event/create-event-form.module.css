@@ -10,5 +10,16 @@
   gap: 0;
   padding-right: 0;
   justify-content: space-between;
-  width: 25.5rem;
+  width: 24rem;
 }
+
+@media only screen and (min-width: 769px) {
+  .field1 {
+    width: 40vw;
+  }
+}
+
+/* 320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens */

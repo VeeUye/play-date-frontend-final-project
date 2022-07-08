@@ -67,6 +67,7 @@ button {
   position: relative;
   display: block;
   top: 1rem;
+  left: 1rem;
   color: #f0c000;
   font-size: 20px;
   font-weight: 800;

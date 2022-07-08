@@ -9,11 +9,18 @@ import "./create-event.module.css";
 
 const CreateEvent = () => {
   return (
-    <div className="background">
-      <SmallTitle className={titleStyles.default} text="Create Event" />
-      <CreateEventForm />
-      <img className={createEventStyles.img} src={Image} alt="girl floating" />
-    </div>
+    <>
+      <div className="background">
+        <SmallTitle className={titleStyles.default} text="Create Event" />
+        <CreateEventForm />
+        <img
+          className={createEventStyles.img}
+          src={Image}
+          alt="girl floating"
+        />
+      </div>
+      <img className={createEventStyles.img2} src={Image} alt="girl floating" />
+    </>
   );
 };
 

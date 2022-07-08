@@ -80,8 +80,6 @@ const CreateEventForm = () => {
               value={fields.invite}
               onChange={handleFieldChange}
             />
-          </div>
-          <div className="button-container">
             <Button
               className={buttonStyles.createEvent}
               type="submit"
