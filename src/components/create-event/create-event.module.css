@@ -19,8 +19,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 4rem;
   margin-left: 5rem;
   margin-right: 5rem;
 }
@@ -45,13 +45,8 @@
 
   .img2 {
     display: inline-block;
-    width: 20rem;
-    /* position: relative;
-    left: 51.14%;
-    right: 5.31%;
-    top: 81.65%;
-    bottom: 4.02%; */
-
+    flex-shrink: 0;
+    width: 25rem;
     transform: rotate(6.81deg);
   }
 }

@@ -20,13 +20,13 @@
 .bigScreenText {
   position: absolute;
   height: 23px;
-  left: 2.5rem;
-  top: 10rem;
+  left: 1.4rem;
+  top: 13.5rem;
 
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 155.4%;
 
   text-align: center;

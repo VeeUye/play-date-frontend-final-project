@@ -16,15 +16,14 @@
 }
 
 .splash__bigTitle {
-  position: absolute;
-  width: 296px;
+  position: relative;
   height: 99px;
-  left: 0rem;
-  top: 5rem;
+  left: -2rem;
+  top: 8rem;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 6rem;
   line-height: 99px;
   text-align: center;
   text-transform: uppercase;
