@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
+import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = () => {
@@ -31,6 +32,7 @@ const CreateEventForm = () => {
         <div className={formStyles.field1}>
           <div>
             <FormInput
+              className={inputStyles.input}
               label="Your Name"
               type="text"
               name="name"
@@ -39,6 +41,7 @@ const CreateEventForm = () => {
             />
 
             <FormInput
+              className={inputStyles.input}
               label="Child's Name"
               type="text"
               name="Child's Name"
@@ -47,6 +50,7 @@ const CreateEventForm = () => {
             />
 
             <FormInput
+              className={inputStyles.input}
               label="Location"
               type="text"
               name="location"

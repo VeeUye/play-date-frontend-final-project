@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
+import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = () => {
@@ -34,6 +35,7 @@ const CreateEventForm = () => {
         <div className={formStyles.field1}>
           <div>
             <FormInput
+              className={inputStyles.input}
               label="Event Name"
               type="text"
               name="name"
@@ -42,6 +44,7 @@ const CreateEventForm = () => {
             />
 
             <FormInput
+              className={inputStyles.input}
               label="Date"
               type="date"
               name="date"
@@ -50,6 +53,7 @@ const CreateEventForm = () => {
             />
             <div className={formStyles.splitInput}>
               <FormInput
+                className={inputStyles.input}
                 label="Start"
                 type="time"
                 name="startTime"
@@ -57,6 +61,7 @@ const CreateEventForm = () => {
                 onChange={handleFieldChange}
               />
               <FormInput
+                className={inputStyles.input}
                 label="End"
                 type="time"
                 name="endTime"
@@ -66,6 +71,7 @@ const CreateEventForm = () => {
             </div>
 
             <FormInput
+              className={inputStyles.input}
               label="Location"
               type="text"
               name="location"
@@ -74,6 +80,7 @@ const CreateEventForm = () => {
             />
 
             <FormInput
+              className={inputStyles.input}
               label="Invite"
               type="email"
               name="invite"
