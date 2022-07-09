@@ -10,6 +10,10 @@ import CreateEvent from "./create-event/CreateEvent";
 import "../styles/App.css";
 
 function App({ events }) {
+  // const handleClick = () => {
+  //   history.push("/create-event");
+  // };
+
   return (
     <div>
       <div id={"App"}>

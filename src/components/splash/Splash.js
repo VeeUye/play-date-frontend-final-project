@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import screenSize from "../../functions/screenSize";
 import Subheading from "../atoms/subheading/Subheading";
 import Title from "../atoms/title/Title";
@@ -9,6 +10,11 @@ import button from "../atoms/button/button.module.css";
 
 const Splash = () => {
   const isSmall = screenSize();
+  const history = useHistory();
+  const handleSignUp = () => {
+    history.push("/create-event");
+  };
+
   return (
     <>
       <div className={isSmall ? splash.smallScreen : splash.bigScreen}>
@@ -26,7 +32,11 @@ const Splash = () => {
             }
           >
             <Button className={button.signIn} label="Sign In"></Button>
-            <Button className={button.signUp} label="Sign Up"></Button>
+            <Button
+              className={button.signUp}
+              label="Sign Up"
+              onClick={handleSignUp}
+            ></Button>
           </div>
         </div>
       </div>
