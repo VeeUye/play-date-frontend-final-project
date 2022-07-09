@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
+import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
-import formStyles from "../create-profile/create-profile-form.module.css";
+import formStyles from "./sign-up-form.module.css";
+import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const SignUpForm = () => {
   const initialState = {
     fields: {
-      name: "test name",
-      childName: "",
-      Location: "",
+      username: "test name",
+      email: "",
+      password: "",
     },
   };
 
@@ -25,13 +27,16 @@ const SignUpForm = () => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  const isSmall = screenSize();
+
   return (
     <>
       <form onSubmit={handleCreateEvent}>
         <div className={formStyles.field1}>
           <div>
             <FormInput
-              label="Your Name"
+              className={inputStyles.inputSignUp}
+              label="Username"
               type="text"
               name="name"
               value={fields.name}
@@ -39,26 +44,40 @@ const SignUpForm = () => {
             />
 
             <FormInput
-              label="Child's Name"
-              type="text"
-              name="Child's Name"
-              value={fields.date}
+              className={inputStyles.inputSignUp}
+              label="email"
+              type="email"
+              name="email"
+              value={fields.email}
               onChange={handleFieldChange}
             />
 
             <FormInput
-              label="Location"
-              type="text"
-              name="location"
-              value={fields.location}
+              className={inputStyles.inputSignUp}
+              label="Password"
+              type="password"
+              name="password"
+              value={fields.password}
               onChange={handleFieldChange}
             />
-
-            <Button
-              className={buttonStyles.createEvent}
-              type="submit"
-              label="Create Profile"
-            />
+            <div
+              className={
+                isSmall
+                  ? formStyles.buttonWrapper
+                  : formStyles.bigScreenButtonWrapper
+              }
+            >
+              <Button
+                className={buttonStyles.signUp2}
+                type="submit"
+                label="Sign Up"
+              />
+              <Button
+                className={buttonStyles.signIn2}
+                type="submit"
+                label="Sign In"
+              />
+            </div>
           </div>
         </div>
       </form>
