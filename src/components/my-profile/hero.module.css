@@ -1,0 +1,13 @@
+.header {
+    position: absolute;
+    width: 100vw;
+    height: 25vh;
+    left: 0px;
+    top: 0px;
+    background: black;
+
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; */
+}

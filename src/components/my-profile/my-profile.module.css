@@ -1,0 +1,40 @@
+#container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#profileCard {
+  /* margin-top: 300px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.smallTitle {
+  position: absolute;
+  width: 193px;
+  height: 40px;
+  left: 91px;
+  top: 207px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 155.4%;
+  /* or 40px */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.img {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  left: 135px;
+  top: 99px;
+}
