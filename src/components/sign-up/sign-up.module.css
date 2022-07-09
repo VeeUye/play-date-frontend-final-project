@@ -1,0 +1,11 @@
+.smallScreenImg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.bigScreenImg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

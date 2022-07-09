@@ -7,6 +7,7 @@ import Image from "../../assets/images/swinging.svg";
 import Button from "../atoms/button/Button";
 import splash from "./splash.module.css";
 import button from "../atoms/button/button.module.css";
+import titleStyles from "../atoms/title/title.module.css";
 
 const Splash = () => {
   const isSmall = screenSize();
@@ -19,7 +20,12 @@ const Splash = () => {
     <>
       <div className={isSmall ? splash.smallScreen : splash.bigScreen}>
         <div className={splash.background}>
-          <Title text="Playdate" />
+          <Title
+            className={
+              isSmall ? titleStyles.splash__title : titleStyles.splash__bigTitle
+            }
+            text="Playdate"
+          />
           <Subheading />
           <img
             className={isSmall ? splash.img : splash.bigScreenImg}

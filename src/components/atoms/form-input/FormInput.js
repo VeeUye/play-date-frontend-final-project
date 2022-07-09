@@ -8,7 +8,7 @@ const FormInput = (props) => {
       <label className={inputStyles.label} htmlFor={props.name}>
         {props.label}
         <input
-          className={inputStyles.input}
+          className={props.className}
           id={props.name}
           type={props.type}
           name={props.name}
@@ -22,6 +22,7 @@ const FormInput = (props) => {
 };
 
 FormInput.propTypes = {
+  className: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
