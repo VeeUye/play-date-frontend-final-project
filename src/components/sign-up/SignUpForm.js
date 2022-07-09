@@ -32,7 +32,7 @@ const SignUpForm = () => {
   return (
     <>
       <form onSubmit={handleCreateEvent}>
-        <div className={formStyles.field1}>
+        <div className={formStyles.signUpField1}>
           <div>
             <FormInput
               className={inputStyles.inputSignUp}
