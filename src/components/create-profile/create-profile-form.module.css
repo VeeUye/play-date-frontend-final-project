@@ -1,4 +1,5 @@
 .field1 {
+  flex-shrink: 1;
   position: relative;
   margin-top: 7rem;
   margin-bottom: 5rem;
@@ -13,17 +14,13 @@
   width: 98vw;
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 600px) {
   .field1 {
     width: 22rem;
+    margin-top: 12rem;
   }
 
   .splitInput {
     width: 24rem;
   }
 }
-
-/* 320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens */
