@@ -14,3 +14,20 @@
 
   color: #ffffff;
 }
+
+.splash__bigTitle {
+  position: absolute;
+  width: 296px;
+  height: 99px;
+  left: 0rem;
+  top: 5rem;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 99px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
