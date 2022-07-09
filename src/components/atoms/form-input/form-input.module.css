@@ -1,6 +1,6 @@
 .field {
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   margin-left: 1rem;
   margin-right: 1rem;
   text-align: left;
@@ -11,7 +11,7 @@
   display: block;
   width: 100%;
   padding: 0;
-  height: 46px;
+  height: 2.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
 
@@ -21,7 +21,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 92.4%;
 
   color: #835932;
@@ -50,4 +50,10 @@
   text-transform: uppercase;
 
   color: #835932;
+}
+
+@media only screen and (min-width: 769px) {
+  .field1 {
+    width: 40vw;
+  }
 }

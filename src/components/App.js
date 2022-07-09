@@ -7,7 +7,11 @@ import Splash from "./splash/Splash";
 import PropTypes from "prop-types";
 import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
+<<<<<<< HEAD
 import MyProfile from "./my-profile/MyProfile";
+=======
+import CreateProfile from "./create-profile/CreateProfile";
+>>>>>>> e935ba7123f622fc1e8af0aa50746cce46ae7024
 import "../styles/App.css";
 
 function App({ events }) {
@@ -25,6 +29,7 @@ function App({ events }) {
               <Route exact path="/" component={Splash} />
               <Route exact path="/my-profile" component={MyProfile}/>
               <Route exact path="/create-event" component={CreateEvent} />
+              <Route exact path="/create-profile" component={CreateProfile} />
               <Route exact path="/my-events">
                 <MyEvents events={events} />
               </Route>

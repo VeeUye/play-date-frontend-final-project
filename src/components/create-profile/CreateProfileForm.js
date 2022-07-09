@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
-import formStyles from "./create-event-form.module.css";
+import formStyles from "./create-profile-form.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = () => {
   const initialState = {
     fields: {
-      name: "test",
-      date: "",
-      startTime: "",
-      endTime: "",
-      location: "",
-      invite: "",
+      name: "test name",
+      childName: "",
+      Location: "",
     },
   };
 
@@ -34,7 +31,7 @@ const CreateEventForm = () => {
         <div className={formStyles.field1}>
           <div>
             <FormInput
-              label="Event Name"
+              label="Your Name"
               type="text"
               name="name"
               value={fields.name}
@@ -42,28 +39,12 @@ const CreateEventForm = () => {
             />
 
             <FormInput
-              label="Date"
-              type="date"
-              name="date"
+              label="Child's Name"
+              type="text"
+              name="Child's Name"
               value={fields.date}
               onChange={handleFieldChange}
             />
-            <div className={formStyles.splitInput}>
-              <FormInput
-                label="Start"
-                type="time"
-                name="startTime"
-                value={fields.startTime}
-                onChange={handleFieldChange}
-              />
-              <FormInput
-                label="End"
-                type="time"
-                name="endTime"
-                value={fields.endTime}
-                onChange={handleFieldChange}
-              />
-            </div>
 
             <FormInput
               label="Location"
@@ -73,17 +54,10 @@ const CreateEventForm = () => {
               onChange={handleFieldChange}
             />
 
-            <FormInput
-              label="Invite"
-              type="email"
-              name="invite"
-              value={fields.invite}
-              onChange={handleFieldChange}
-            />
             <Button
               className={buttonStyles.createEvent}
               type="submit"
-              label="Create Event"
+              label="Create Profile"
             />
           </div>
         </div>

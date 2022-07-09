@@ -4,10 +4,46 @@
   height: 812px;
 }
 
+.smallScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bigScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 30rem;
+  gap: 1.5rem;
+}
+
+.bigScreenButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
+  top: 17rem;
+}
+
 .img {
   position: absolute;
   left: 24%;
   right: 24.52%;
   top: 32.27%;
   bottom: 45.41%;
+}
+
+.bigScreenImg {
+  position: relative;
+  left: 3rem;
+  top: 13rem;
+  width: 20rem;
 }
