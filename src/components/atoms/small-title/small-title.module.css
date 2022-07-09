@@ -1,4 +1,4 @@
-/* TODO: refactor to have a base class then use 'composes' to derive varients */
+/* TODO: refactor default to work with screensize hook*/
 
 .default {
   position: relative;
@@ -26,4 +26,23 @@
     font-size: 2rem;
     width: max-content;
   }
+}
+
+.createProfile {
+  position: relative;
+  width: max-content;
+  height: 40px;
+  left: 4rem;
+  top: 86px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
 }
