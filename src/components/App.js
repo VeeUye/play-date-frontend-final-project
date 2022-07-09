@@ -6,6 +6,7 @@ import "./hamburger-nav/hamburgernav.css";
 import Splash from "./splash/Splash";
 import SignUp from "./sign-up/SignUp";
 import PropTypes from "prop-types";
+import MyProfile from "./my-profile/MyProfile";
 import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
@@ -25,7 +26,7 @@ function App({ events }) {
             <Switch>
               <Route exact path="/" component={Splash} />
               <Route exact path="/sign-up" component={SignUp} />
-              <Route exact path="/my-profile" />
+              <Route exact path="/my-profile" component={MyProfile}/>
               <Route exact path="/create-event" component={CreateEvent} />
               <Route exact path="/create-profile" component={CreateProfile} />
               <Route exact path="/my-events">
