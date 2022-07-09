@@ -12,7 +12,7 @@ const Splash = () => {
   const isSmall = screenSize();
   const history = useHistory();
   const handleSignUp = () => {
-    history.push("/create-event");
+    history.push("/create-profile");
   };
 
   return (
