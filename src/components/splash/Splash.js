@@ -42,7 +42,6 @@ const Splash = () => {
               isSmall ? splash.buttonWrapper : splash.bigScreenButtonWrapper
             }
           >
-            {/* <Button className={button.signIn} label="Sign In"></Button> */}
             <Button
               className={button.signIn}
               label="Sign In"
