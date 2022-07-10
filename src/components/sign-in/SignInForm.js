@@ -3,14 +3,13 @@ import FormInput from "../atoms/form-input/FormInput";
 import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
 import Divider from "../../assets/images/or-divider.svg";
-import formStyles from "./sign-up-form.module.css";
+import formStyles from "./sign-in-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
-const SignUpForm = () => {
+const SigninForm = () => {
   const initialState = {
     fields: {
-      username: "test name",
       email: "",
       password: "",
     },
@@ -37,15 +36,6 @@ const SignUpForm = () => {
           <div>
             <FormInput
               className={inputStyles.inputSignUp}
-              label="Username"
-              type="text"
-              name="name"
-              value={fields.name}
-              onChange={handleFieldChange}
-            />
-
-            <FormInput
-              className={inputStyles.inputSignUp}
               label="email"
               type="email"
               name="email"
@@ -68,16 +58,17 @@ const SignUpForm = () => {
                   : formStyles.bigScreenButtonWrapper
               }
             >
+              <p className={formStyles.password}>FORGOT PASSWORD?</p>
               <Button
                 className={buttonStyles.signUp2}
                 type="submit"
-                label="Sign Up"
+                label="Sign In"
               />
               <img className={formStyles.divider} src={Divider} alt="divider" />
               <Button
                 className={buttonStyles.signIn2}
                 type="submit"
-                label="Sign In"
+                label="Sign Up"
               />
             </div>
           </div>
@@ -87,4 +78,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SigninForm;

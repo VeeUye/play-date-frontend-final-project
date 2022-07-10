@@ -12,8 +12,13 @@ import titleStyles from "../atoms/title/title.module.css";
 const Splash = () => {
   const isSmall = screenSize();
   const history = useHistory();
+
   const handleSignUp = () => {
-    history.push("/create-profile");
+    history.push("/sign-up");
+  };
+
+  const handleSignIn = () => {
+    history.push("/sign-in");
   };
 
   return (
@@ -37,7 +42,11 @@ const Splash = () => {
               isSmall ? splash.buttonWrapper : splash.bigScreenButtonWrapper
             }
           >
-            <Button className={button.signIn} label="Sign In"></Button>
+            <Button
+              className={button.signIn}
+              label="Sign In"
+              onClick={handleSignIn}
+            ></Button>
             <Button
               className={button.signUp}
               label="Sign Up"
