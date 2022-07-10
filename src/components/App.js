@@ -13,6 +13,7 @@ import CreateProfile from "./create-profile/CreateProfile";
 import "../styles/App.css";
 
 function App({ events }) {
+
   return (
     <div>
       <div id={"App"}>
@@ -26,7 +27,7 @@ function App({ events }) {
             <Switch>
               <Route exact path="/" component={Splash} />
               <Route exact path="/sign-up" component={SignUp} />
-              <Route exact path="/my-profile" component={MyProfile}/>
+              <Route exact path="/my-profile" component={MyProfile} />
               <Route exact path="/create-event" component={CreateEvent} />
               <Route exact path="/create-profile" component={CreateProfile} />
               <Route exact path="/my-events">

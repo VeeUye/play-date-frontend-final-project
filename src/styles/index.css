@@ -29,18 +29,19 @@ code {
 }
 * {
   margin: 0;
+  padding: 0;
 }
 html,
 body {
   height: 100%;
 }
 body {
+  margin: 0;
+  height: 100%;
   line-height: 1.5;
-  padding: 0;
   font-family: "Baloo 2", cursive;
   /* font-family: "Poppins", sans-serif; */
-  background-color: #f0c000;
-
+  background-color: #F0C000;
   -webkit-font-smoothing: antialiased;
 }
 img,
@@ -74,6 +75,7 @@ h6 {
 /* ///////////////////////////////////////////////////////////////////// */
 /* ////////////////////// GLOBAL BODY CSS ////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////// */
+
 
 p {
   font-family: "Poppins", sans-serif;

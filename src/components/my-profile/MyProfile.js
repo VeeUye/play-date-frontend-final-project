@@ -3,22 +3,25 @@ import Image from "../../assets/images/avatar.svg";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import myProfileStyles from "../my-profile/my-profile.module.css";
 // import PropTypes from "prop-types";
-import Hero from "./Hero";
 
 const MyProfile = () => {
     return (
-        <div classID={"container"}>
+        <div className={myProfileStyles.background}>
             HELLO
-            <Hero />
-            <div classID={myProfileStyles.profileCard}>
+            <div className={myProfileStyles.hero}>
+            </div>
+            <div className={myProfileStyles.profileCard}>
+                <h1> HELLO </h1>
                 <img className={myProfileStyles.img} src={Image} alt="user profile picture" />
                 <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
+
             </div>
             <div className={myProfileStyles.friendAlert}>
                 You are invited!
             </div>
             <div className={myProfileStyles.friendList}>
                 <SmallTitle />
+
             </div>
         </div>
     );
