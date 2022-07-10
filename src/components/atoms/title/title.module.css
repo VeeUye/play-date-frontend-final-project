@@ -32,16 +32,31 @@
 }
 
 .signUp__small {
-  position: absolute;
-  width: 296px;
+  position: relative;
+  width: 19rem;
   height: 99px;
-  left: 39px;
-  top: 138px;
+  top: 7rem;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 64px;
-  line-height: 3.5rem;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.signUp__big {
+  position: relative;
+  width: 19rem;
+  height: 99px;
+  top: 7rem;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
   text-align: center;
   text-transform: uppercase;
 

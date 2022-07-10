@@ -69,3 +69,39 @@ button {
   width: calc(100% - 2rem);
   height: 3rem;
 }
+
+.signUp2 {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #835932;
+
+  background: #f0c000;
+  border-radius: 20px;
+  border: none;
+}
+
+.signIn2 {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: rgba(0, 0, 0, 0.25);
+
+  background: #ffffff;
+  border: 3px solid rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}

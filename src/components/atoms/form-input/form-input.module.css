@@ -35,6 +35,31 @@
   background: none;
 }
 
+.inputSignUp {
+  display: block;
+  width: 100%;
+  padding: 0;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background: #ffffff;
+  border: none;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 92.4%;
+
+  color: #835932;
+
+  border: none;
+  border-bottom: 1px solid #835932;
+  padding: 5px 10px;
+  outline: none;
+}
+
 .label {
   display: block;
   width: calc(100% - 2rem);
