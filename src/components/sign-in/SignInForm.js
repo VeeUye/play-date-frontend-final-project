@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import FormInput from "../atoms/form-input/FormInput";
 import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
@@ -17,6 +18,8 @@ const SigninForm = () => {
 
   const [fields, setFields] = useState(initialState.fields);
 
+  const history = useHistory();
+
   const handleCreateEvent = (event) => {
     event.preventDefault();
     console.log(fields);
@@ -25,6 +28,11 @@ const SigninForm = () => {
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    history.push("/sign-up");
   };
 
   const isSmall = screenSize();
@@ -69,6 +77,7 @@ const SigninForm = () => {
                 className={buttonStyles.signIn2}
                 type="submit"
                 label="Sign Up"
+                onClick={handleSignUp}
               />
             </div>
           </div>
