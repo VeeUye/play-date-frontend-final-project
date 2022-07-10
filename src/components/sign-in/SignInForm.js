@@ -57,6 +57,7 @@ const SigninForm = () => {
                   : formStyles.bigScreenButtonWrapper
               }
             >
+              <p className={formStyles.password}>FORGOT PASSWORD?</p>
               <Button
                 className={buttonStyles.signUp2}
                 type="submit"
