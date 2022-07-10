@@ -61,12 +61,12 @@ const SigninForm = () => {
               <Button
                 className={buttonStyles.signUp2}
                 type="submit"
-                label="Sign Up"
+                label="Sign In"
               />
               <Button
                 className={buttonStyles.signIn2}
                 type="submit"
-                label="Sign In"
+                label="Sign Up"
               />
             </div>
           </div>
