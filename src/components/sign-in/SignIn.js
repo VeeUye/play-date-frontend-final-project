@@ -17,7 +17,7 @@ const SignIn = () => {
         <div className={signInStyles.background}>
           <Title
             className={isSmall ? title.signUp__small : title.signUp__big}
-            text="Create Account"
+            text="Welcome Back"
           />
           <div className={signInStyles.waveDiv}>
             <svg
