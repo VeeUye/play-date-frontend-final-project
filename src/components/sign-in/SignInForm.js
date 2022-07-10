@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
 import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
+import Divider from "../../assets/images/or-divider.svg";
 import formStyles from "./sign-in-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
@@ -63,6 +64,7 @@ const SigninForm = () => {
                 type="submit"
                 label="Sign In"
               />
+              <img className={formStyles.divider} src={Divider} alt="divider" />
               <Button
                 className={buttonStyles.signIn2}
                 type="submit"

@@ -60,3 +60,9 @@
   top: 2.5rem;
   gap: 2rem;
 }
+
+.divider {
+  position: relative;
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
+}

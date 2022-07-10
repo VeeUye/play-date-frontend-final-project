@@ -73,3 +73,9 @@
   font-weight: 600;
   font-size: 0.9rem;
 }
+
+.divider {
+  position: relative;
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
+}
