@@ -1,0 +1,62 @@
+.field1 {
+  flex-shrink: 1;
+  position: relative;
+  margin-top: 25rem;
+  margin-left: 1rem;
+  margin-bottom: 5rem;
+  width: 90vw;
+}
+
+.splitInput {
+  display: flex;
+  gap: 0;
+  padding-right: 0;
+  justify-content: space-between;
+  width: 98vw;
+}
+
+.signUpField1 {
+  flex-shrink: 1;
+  position: relative;
+  margin-top: 8rem;
+  margin-bottom: 22rem;
+  width: 90vw;
+}
+
+@media only screen and (min-width: 600px) {
+  .field1 {
+    width: 22rem;
+    margin-top: 12rem;
+  }
+
+  .splitInput {
+    width: 24rem;
+  }
+
+  .signUpField1 {
+    flex-shrink: 1;
+    position: relative;
+    margin-top: 10rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    width: 22rem;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 2.5rem;
+  gap: 2rem;
+}
+
+.bigScreenButtonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 2.5rem;
+  gap: 2rem;
+}
