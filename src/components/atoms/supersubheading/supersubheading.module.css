@@ -1,0 +1,31 @@
+.default {
+  position: absolute;
+  width: 86px;
+  height: 19px;
+  left: 141px;
+  top: 236px;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 155.4%;
+  /* identical to box height, or 19px */
+  
+  letter-spacing: 0.02em;
+  
+  color: #835932;
+  }
+
+.myProfile {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 155.4%;
+  /* identical to box height, or 19px */
+  
+  letter-spacing: 0.02em;
+  
+  color: #835932;
+}

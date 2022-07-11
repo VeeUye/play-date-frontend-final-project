@@ -38,6 +38,19 @@
   color: #ffffff;
 }
 
+.smallTitleFriend {
+  font-family: "Baloo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 155.4%;
+  /* identical to box height, or 31px */
+
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
 @media only screen and (min-width: 600px) {
   .default {
     text-align: left;
