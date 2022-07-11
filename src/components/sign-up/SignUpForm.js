@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext";
 import FormInput from "../atoms/form-input/FormInput";
 import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
@@ -17,13 +18,20 @@ const SignUpForm = () => {
     },
   };
 
+  const { createUser } = UserAuth();
+
   const [fields, setFields] = useState(initialState.fields);
   const history = useHistory();
 
-  const handleCreateEvent = (event) => {
+  const handleCreateEvent = async (event) => {
     event.preventDefault();
     console.log(fields);
     setFields(initialState.fields);
+    try {
+      await createUser(fields.email, fields.password);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   const handleFieldChange = (event) => {
