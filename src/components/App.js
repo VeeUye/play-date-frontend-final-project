@@ -11,6 +11,7 @@ import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
 import "../styles/App.css";
+import { AuthContextProvider } from "../contexts/AuthContext";
 
 function App({ events }) {
   return (
@@ -23,18 +24,20 @@ function App({ events }) {
             outerContainerId={"App"}
           />
           <div className="wrapper">
-            <Switch>
-              <Route exact path="/" component={Splash} />
-              <Route exact path="/sign-up" component={SignUp} />
-              <Route exact path="/sign-in" component={SignIn} />
-              <Route exact path="/my-profile" />
-              <Route exact path="/create-event" component={CreateEvent} />
-              <Route exact path="/create-profile" component={CreateProfile} />
-              <Route exact path="/my-events">
-                <MyEvents events={events} />
-              </Route>
-              <Route exact path="/sign-out" />
-            </Switch>
+            <AuthContextProvider>
+              <Switch>
+                <Route exact path="/" component={Splash} />
+                <Route exact path="/sign-up" component={SignUp} />
+                <Route exact path="/sign-in" component={SignIn} />
+                <Route exact path="/my-profile" />
+                <Route exact path="/create-event" component={CreateEvent} />
+                <Route exact path="/create-profile" component={CreateProfile} />
+                <Route exact path="/my-events">
+                  <MyEvents events={events} />
+                </Route>
+                <Route exact path="/sign-out" />
+              </Switch>
+            </AuthContextProvider>
           </div>
         </Router>
       </div>
