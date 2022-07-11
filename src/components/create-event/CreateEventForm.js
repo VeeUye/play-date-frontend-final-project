@@ -9,9 +9,9 @@ const CreateEventForm = () => {
   const initialState = {
     fields: {
       name: "test",
-      date: "",
-      startTime: "",
-      endTime: "",
+      description: "",
+      startDate: "",
+      endDate: "",
       location: "",
       invite: "",
     },
@@ -45,30 +45,31 @@ const CreateEventForm = () => {
 
             <FormInput
               className={inputStyles.input}
-              label="Date"
-              type="date"
-              name="date"
-              value={fields.date}
+              label="Description"
+              type="text"
+              name="description"
+              value={fields.description}
               onChange={handleFieldChange}
             />
-            <div className={formStyles.splitInput}>
-              <FormInput
-                className={inputStyles.input}
-                label="Start"
-                type="time"
-                name="startTime"
-                value={fields.startTime}
-                onChange={handleFieldChange}
-              />
-              <FormInput
-                className={inputStyles.input}
-                label="End"
-                type="time"
-                name="endTime"
-                value={fields.endTime}
-                onChange={handleFieldChange}
-              />
-            </div>
+            {/* <div className={formStyles.splitInput}> */}
+            <FormInput
+              id="cal"
+              className={inputStyles.input}
+              label="Start"
+              type="datetime-local"
+              name="startDate"
+              value={fields.startDate}
+              onChange={handleFieldChange}
+            />
+            <FormInput
+              className={inputStyles.input}
+              label="End"
+              type="datetime-local"
+              name="endDate"
+              value={fields.endDate}
+              onChange={handleFieldChange}
+            />
+            {/* </div> */}
 
             <FormInput
               className={inputStyles.input}
