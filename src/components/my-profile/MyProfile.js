@@ -7,11 +7,9 @@ import myProfileStyles from "../my-profile/my-profile.module.css";
 const MyProfile = () => {
     return (
         <div className={myProfileStyles.background}>
-            HELLO
             <div className={myProfileStyles.hero}>
             </div>
             <div className={myProfileStyles.profileCard}>
-                <h1> HELLO </h1>
                 <img className={myProfileStyles.img} src={Image} alt="user profile picture" />
                 <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
 

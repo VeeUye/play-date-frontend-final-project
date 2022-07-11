@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   background: #f5f5f5;
   height: 100vh;
 }
@@ -13,8 +13,22 @@
   height: 25vh;
   left: 0px;
   top: 0px;
-  background: black;
+  background: #F0C000;
   overflow: hidden;
+}
+
+.profileCard {
+  margin-top: 280px;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  top: 160px;
 }
 
 .smallTitle {
@@ -32,19 +46,7 @@
   /* or 40px */
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: white;
-}
-
-.profileCard {
-  margin-top: 500px;
-}
-
-.img {
-  position: absolute;
-  width: 104px;
-  height: 104px;
-  left: 135px;
-  top: 99px;
+  color: #F0C000;
 }
 
 .friendAlert {
