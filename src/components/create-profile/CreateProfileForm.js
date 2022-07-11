@@ -19,9 +19,9 @@ const CreateProfileForm = () => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    console.log(fields);
+    // console.log(fields);
     postUser(fields);
-    // setFields(initialState.fields);
+    setFields(initialState.fields);
   };
 
   const handleFieldChange = (event) => {

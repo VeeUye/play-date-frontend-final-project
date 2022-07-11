@@ -21,7 +21,6 @@ const CreateEventForm = () => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    console.log(fields);
     setFields(initialState.fields);
   };
 
