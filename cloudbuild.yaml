@@ -11,8 +11,7 @@ steps:
         sed -i "s/process.env.REACT_APP_FIREBASE_STORAGE_BUCKET/$_STORAGE_BUCKET/g" firebase.js && \
         sed -i "s/process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID/$_MESSAGE_SENDER_ID/g" firebase.js && \
         sed -i "s/process.env.REACT_APP_FIREBASE_APP_ID/$_APP_ID/g" firebase.js && \
-        sed -i "s/process.env.REACT_APP_FIREBASE_MEASUREMENT_ID/$_MEASUREMENT_ID/g" firebase.js && \
-        cat firebase.js
+        sed -i "s/process.env.REACT_APP_FIREBASE_MEASUREMENT_ID/$_MEASUREMENT_ID/g" firebase.js
   - name: node
     entrypoint: npm
     args: ["install"]
