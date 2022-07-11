@@ -1,17 +1,17 @@
 steps:
-    name: 'gcr.io/cloud-builders/git'
-    entrypoint: 'bash'
+  - name: "gcr.io/cloud-builders/git"
+    entrypoint: "bash"
     args:
-    - '-c'
-    - |
-      cd src && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_API_KEY/$_API_KEY/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_AUTH_DOMAIN/$_AUTH_DOMAIN/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_PROJECT_ID/$_PROJECT_ID/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_STORAGE_BUCKET/$_STORAGE_BUCKET/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID/$_MESSAGE_SENDER_ID/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_APP_ID/$_APP_ID/g' firebase.js' && \
-      sed -i 's/process.env.REACT_APP_FIREBASE_MEASUREMENT_ID/$_MEASUREMENT_ID/g' firebase.js'
+      - "-c"
+      - |
+        cd src && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_API_KEY/$_API_KEY/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_AUTH_DOMAIN/$_AUTH_DOMAIN/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_PROJECT_ID/$_PROJECT_ID/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_STORAGE_BUCKET/$_STORAGE_BUCKET/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID/$_MESSAGE_SENDER_ID/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_APP_ID/$_APP_ID/g" firebase.js && \
+        sed -i "s/process.env.REACT_APP_FIREBASE_MEASUREMENT_ID/$_MEASUREMENT_ID/g" firebase.js
   - name: node
     entrypoint: npm
     args: ["install"]
