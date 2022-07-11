@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import postUser from "../../requests/postUser";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
@@ -19,7 +20,8 @@ const CreateEventForm = () => {
   const handleCreateEvent = (event) => {
     event.preventDefault();
     console.log(fields);
-    setFields(initialState.fields);
+    postUser(fields);
+    // setFields(initialState.fields);
   };
 
   const handleFieldChange = (event) => {
