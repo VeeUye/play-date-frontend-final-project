@@ -6,7 +6,7 @@ import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
-const CreateEventForm = () => {
+const CreateProfileForm = () => {
   const initialState = {
     fields: {
       name: "test name",
@@ -72,4 +72,4 @@ const CreateEventForm = () => {
   );
 };
 
-export default CreateEventForm;
+export default CreateProfileForm;
