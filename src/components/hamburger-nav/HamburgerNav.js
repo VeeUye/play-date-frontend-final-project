@@ -27,12 +27,7 @@ const HamburgerNav = (props) => {
       <Link id="my-events" className="bm-item" to="/my-events">
         My Events
       </Link>
-      <Link
-        id="sign-out"
-        className="bm-item"
-        onClick={handleLogout}
-        to="/sign-out"
-      >
+      <Link id="sign-out" className="bm-item" onClick={handleLogout} to="/">
         Sign Out
       </Link>
     </Menu>

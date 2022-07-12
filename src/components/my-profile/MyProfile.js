@@ -37,8 +37,8 @@ const MyProfile = () => {
                 </div>
 
                 <div className={myProfileStyles.cardItem}>
-                    <Icon className={myProfileStyles.icon} icon="cil:child" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                <Icon className={myProfileStyles.icon} icon="cil:child" />
+                <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
                 </div>
             </div>
 

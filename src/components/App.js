@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UserAuth } from "../contexts/AuthContext";
 import "../styles/App.css";
 import HamburgerNav from "./hamburger-nav/HamburgerNav";
 import "./hamburger-nav/hamburgernav.css";
@@ -15,15 +16,19 @@ import "../styles/App.css";
 import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
 function App({ events }) {
+  const { user } = UserAuth();
+
   return (
     <div>
       <div id={"App"}>
         <Router>
-          <HamburgerNav
-            className="burgernav"
-            pageWrapId={"page-wrap"}
-            outerContainerId={"App"}
-          />
+          {user && (
+            <HamburgerNav
+              className="burgernav"
+              pageWrapId={"page-wrap"}
+              outerContainerId={"App"}
+            />
+          )}
           <div className="wrapper">
             <Switch>
               <Route exact path="/" component={Splash} />
