@@ -1,40 +1,26 @@
 import React, { useState } from "react";
+import postProfile from "../../requests/profile/postProfile";
 import FormInput from "../atoms/form-input/FormInput";
-import postEvent from "../../requests/events/postEvent";
 import Button from "../atoms/button/Button";
-import formStyles from "./create-event-form.module.css";
+import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
-const CreateEventForm = () => {
+const CreateProfileForm = () => {
   const initialState = {
     fields: {
-      name: "test",
-      description: "",
-      date_start: "",
-      date_end: "",
+      name: "",
+      childName: "",
       location: "",
-      invite: "",
-    },
-  };
-
-  const initialDates = {
-    dates: {
-      date_start: "",
-      date_end: "",
     },
   };
 
   const [fields, setFields] = useState(initialState.fields);
-  const [dates, setDates] = useState(initialDates.dates);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    dates.date_start = new Date(fields.date_start);
-    dates.date_end = new Date(fields.date_end);
-    postEvent(fields, dates);
+    postProfile(fields);
     setFields(initialState.fields);
-    setDates(initialDates.dates);
   };
 
   const handleFieldChange = (event) => {
@@ -48,7 +34,7 @@ const CreateEventForm = () => {
           <div>
             <FormInput
               className={inputStyles.input}
-              label="Event Name"
+              label="Your Name"
               type="text"
               name="name"
               value={fields.name}
@@ -57,28 +43,10 @@ const CreateEventForm = () => {
 
             <FormInput
               className={inputStyles.input}
-              label="Description"
+              label="Child's Name"
               type="text"
-              name="description"
-              value={fields.description}
-              onChange={handleFieldChange}
-            />
-
-            <FormInput
-              className={inputStyles.input}
-              label="Start"
-              type="datetime-local"
-              name="date_start"
-              value={fields.date_start}
-              onChange={handleFieldChange}
-            />
-
-            <FormInput
-              className={inputStyles.input}
-              label="End"
-              type="datetime-local"
-              name="date_end"
-              value={fields.date_end}
+              name="childName"
+              value={fields.childName}
               onChange={handleFieldChange}
             />
 
@@ -91,18 +59,10 @@ const CreateEventForm = () => {
               onChange={handleFieldChange}
             />
 
-            <FormInput
-              className={inputStyles.input}
-              label="Invite"
-              type="email"
-              name="invite"
-              value={fields.invite}
-              onChange={handleFieldChange}
-            />
             <Button
               className={buttonStyles.createEvent}
               type="submit"
-              label="Create Event"
+              label="Create Profile"
             />
           </div>
         </div>
@@ -111,4 +71,4 @@ const CreateEventForm = () => {
   );
 };
 
-export default CreateEventForm;
+export default CreateProfileForm;

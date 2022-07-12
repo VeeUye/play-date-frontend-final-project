@@ -14,3 +14,51 @@
 
   color: #ffffff;
 }
+
+.splash__bigTitle {
+  position: relative;
+  height: 99px;
+  left: -2rem;
+  top: 8rem;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: 99px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.signUp__small {
+  position: relative;
+  width: 19rem;
+  height: 99px;
+  top: 7rem;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.signUp__big {
+  position: relative;
+  width: 19rem;
+  height: 99px;
+  top: 7rem;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}

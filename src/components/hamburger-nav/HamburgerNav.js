@@ -1,26 +1,40 @@
 import React from "react";
 import "./hamburgernav.css";
 import { stack as Menu } from "react-burger-menu";
+import { Link } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext";
 
 const HamburgerNav = (props) => {
+  const { logout } = UserAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   return (
     // Pass on our props
     <Menu {...props} right>
-      <a className="bm-item" href="/">
+      <Link id="home" className="bm-item" to="/my-profile">
         My Profile
-      </a>
-
-      <a className="bm-item" href="/createevent">
+      </Link>
+      <Link id="create-event" className="bm-item" to="/create-event">
         Create Event
-      </a>
-
-      <a className="bm-item" href="/my-events">
+      </Link>
+      <Link id="my-events" className="bm-item" to="/my-events">
         My Events
-      </a>
-
-      <a className="bm-item" href="/signout">
+      </Link>
+      <Link
+        id="sign-out"
+        className="bm-item"
+        onClick={handleLogout}
+        to="/sign-out"
+      >
         Sign Out
-      </a>
+      </Link>
     </Menu>
   );
 };

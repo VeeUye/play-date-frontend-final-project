@@ -1,15 +1,15 @@
-/* TODO: refactor to have a base class then use 'composes' to derive varients */
+/* TODO: refactor to work with screensize hook*/
 
 .default {
-  position: absolute;
-  width: 178px;
+  position: relative;
+  width: max-content;
   height: 40px;
   left: 98px;
   top: 86px;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 1.8rem;
   line-height: 155.4%;
 
   text-align: center;
@@ -17,4 +17,39 @@
   text-transform: uppercase;
 
   color: #ffffff;
+}
+
+.createProfile {
+  position: relative;
+  width: max-content;
+  height: 40px;
+  left: 4rem;
+  top: 86px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 600px) {
+  .default {
+    text-align: left;
+    left: 4rem;
+    top: 10rem;
+    font-size: 2rem;
+    width: max-content;
+  }
+
+  .createProfile {
+    top: 10rem;
+    font-size: 2rem;
+    left: 3rem;
+  }
 }
