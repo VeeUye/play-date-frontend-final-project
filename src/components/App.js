@@ -11,6 +11,7 @@ import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
 import "../styles/App.css";
+import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
 function App({ events }) {
   return (
@@ -28,10 +29,20 @@ function App({ events }) {
               <Route exact path="/sign-up" component={SignUp} />
               <Route exact path="/sign-in" component={SignIn} />
               <Route exact path="/my-profile" />
-              <Route exact path="/create-event" component={CreateEvent} />
-              <Route exact path="/create-profile" component={CreateProfile} />
+              <Route exact path="/create-event">
+                <ProtectedRoute>
+                  <CreateEvent />
+                </ProtectedRoute>
+              </Route>
+              <Route exact path="/create-profile">
+                <ProtectedRoute>
+                  <CreateProfile />
+                </ProtectedRoute>
+              </Route>
               <Route exact path="/my-events">
-                <MyEvents events={events} />
+                <ProtectedRoute>
+                  <MyEvents events={events} />
+                </ProtectedRoute>
               </Route>
               <Route exact path="/sign-out" />
             </Switch>
