@@ -2,18 +2,18 @@ import React from "react";
 import "./hamburgernav.css";
 import { stack as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
-// import { UserAuth } from "../../contexts/AuthContext";
+import { UserAuth } from "../../contexts/AuthContext";
 
 const HamburgerNav = (props) => {
-  // const { logout } = UserAuth();
+  const { logout } = UserAuth();
 
-  // const handleLogout = async () => {
-  //   try {
-  //     await logout();
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
-  // };
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
   return (
     // Pass on our props
@@ -30,7 +30,7 @@ const HamburgerNav = (props) => {
       <Link
         id="sign-out"
         className="bm-item"
-        // onClick={handleLogout}
+        onClick={handleLogout}
         to="/sign-out"
       >
         Sign Out
