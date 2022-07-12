@@ -21,11 +21,9 @@
 
 .avatarImage {
   position: absolute;
-  display: flex;
-  align-items: center;
-  position: absolute;
   width: 6.5rem;
   height: 6.5rem;
+  /* left: 260px; */
   top: 4.5rem;
 }
 
