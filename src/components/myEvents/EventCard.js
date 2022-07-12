@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import eventCardStyles from "./event-card.module.css";
+import "./event-card.module.css"
 
 const EventCard = ({
     owner,
@@ -10,8 +12,7 @@ const EventCard = ({
     friendsInvited
 }) => {
     return (
-        <div className="event-card">
-            Event Card
+        <div className={eventCardStyles.background}>
             <div className="owner">{owner}</div>
             <div className="date">{date}</div>
             <div className="location">{location}</div>

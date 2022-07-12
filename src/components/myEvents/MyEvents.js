@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import EventCard from "./EventCard";
+import myEventsStyles from "./my-events.module.css";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import titleStyles from "../atoms/small-title/small-title.module.css";
+import "./my-events.module.css";
 
 const MyEvents = ({ events }) => {
     return (
-        <div className="myEvents">
-             <SmallTitle className={titleStyles.default} text="My Events" />
+        <div className={myEventsStyles.background}>
+             <SmallTitle className={titleStyles.myEvents} text="My Events" />
             {events.map(events => (
                 <EventCard 
                 key={events.owner}
