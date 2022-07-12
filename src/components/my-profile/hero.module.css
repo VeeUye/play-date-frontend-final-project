@@ -1,0 +1,13 @@
+.hero {
+    position: absolute;
+    width: 100vw;
+    height: 25vh;
+    left: 0rem;
+    top: 0rem;
+    background: black;
+
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; */
+}

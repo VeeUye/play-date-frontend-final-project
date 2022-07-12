@@ -7,6 +7,7 @@ import Splash from "./splash/Splash";
 import SignUp from "./sign-up/SignUp";
 import SignIn from "./sign-in/SignIn";
 import PropTypes from "prop-types";
+import MyProfile from "./my-profile/MyProfile";
 import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
@@ -14,6 +15,7 @@ import "../styles/App.css";
 import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
 function App({ events }) {
+
   return (
     <div>
       <div id={"App"}>
