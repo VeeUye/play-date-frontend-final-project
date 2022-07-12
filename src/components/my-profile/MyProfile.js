@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Image from "../../assets/images/avatar.svg";
 import Image1 from "../../assets/images/friend1.svg";
 import Image2 from "../../assets/images/friend2.svg";
@@ -37,14 +38,19 @@ const MyProfile = () => {
                 </div>
 
                 <div className={myProfileStyles.cardItem}>
-                <Icon className={myProfileStyles.icon} icon="cil:child" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                    <Icon className={myProfileStyles.icon} icon="cil:child" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
                 </div>
             </div>
 
             <div className={myProfileStyles.buttons}>
-                <Button className={buttonStyles.myProfile1} label="CREATE EVENT" />
-                <Button className={buttonStyles.myProfile1} label="MY EVENTS" />
+                <Link to="/create-event">
+                    <Button className={buttonStyles.myProfile1} label="CREATE EVENT" />
+                </Link>
+
+                <Link to="/my-events">
+                    <Button className={buttonStyles.myProfile1} label="MY EVENTS" />
+                </Link>
             </div>
 
             <div className={myProfileStyles.friendAlertCard}>
