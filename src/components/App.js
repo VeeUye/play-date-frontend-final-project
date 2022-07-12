@@ -15,7 +15,6 @@ import "../styles/App.css";
 import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
 function App({ events }) {
-
   return (
     <div>
       <div id={"App"}>
@@ -30,7 +29,11 @@ function App({ events }) {
               <Route exact path="/" component={Splash} />
               <Route exact path="/sign-up" component={SignUp} />
               <Route exact path="/sign-in" component={SignIn} />
-              <Route exact path="/my-profile" />
+              <Route exact path="/my-profile">
+                <ProtectedRoute>
+                  <MyProfile />
+                </ProtectedRoute>
+              </Route>
               <Route exact path="/create-event">
                 <ProtectedRoute>
                   <CreateEvent />
