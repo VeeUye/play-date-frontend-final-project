@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
+import postEvent from "../../requests/events/postEvent";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
@@ -9,20 +10,31 @@ const CreateEventForm = () => {
   const initialState = {
     fields: {
       name: "test",
-      date: "",
-      startTime: "",
-      endTime: "",
+      description: "",
+      date_start: "",
+      date_end: "",
       location: "",
       invite: "",
     },
   };
 
+  const initialDates = {
+    dates: {
+      date_start: "",
+      date_end: "",
+    },
+  };
+
   const [fields, setFields] = useState(initialState.fields);
+  const [dates, setDates] = useState(initialDates.dates);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    console.log(fields);
+    dates.date_start = new Date(fields.date_start);
+    dates.date_end = new Date(fields.date_end);
+    postEvent(fields, dates);
     setFields(initialState.fields);
+    setDates(initialDates.dates);
   };
 
   const handleFieldChange = (event) => {
@@ -45,30 +57,30 @@ const CreateEventForm = () => {
 
             <FormInput
               className={inputStyles.input}
-              label="Date"
-              type="date"
-              name="date"
-              value={fields.date}
+              label="Description"
+              type="text"
+              name="description"
+              value={fields.description}
               onChange={handleFieldChange}
             />
-            <div className={formStyles.splitInput}>
-              <FormInput
-                className={inputStyles.input}
-                label="Start"
-                type="time"
-                name="startTime"
-                value={fields.startTime}
-                onChange={handleFieldChange}
-              />
-              <FormInput
-                className={inputStyles.input}
-                label="End"
-                type="time"
-                name="endTime"
-                value={fields.endTime}
-                onChange={handleFieldChange}
-              />
-            </div>
+
+            <FormInput
+              className={inputStyles.input}
+              label="Start"
+              type="datetime-local"
+              name="date_start"
+              value={fields.date_start}
+              onChange={handleFieldChange}
+            />
+
+            <FormInput
+              className={inputStyles.input}
+              label="End"
+              type="datetime-local"
+              name="date_end"
+              value={fields.date_end}
+              onChange={handleFieldChange}
+            />
 
             <FormInput
               className={inputStyles.input}

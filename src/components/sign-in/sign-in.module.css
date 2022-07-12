@@ -64,7 +64,6 @@
 .waveDiv svg {
   position: relative;
   display: inline-block;
-  width: calc(127% + 1.3px);
   height: 137px;
 }
 

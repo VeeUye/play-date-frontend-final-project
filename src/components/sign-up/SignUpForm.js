@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext";
 import FormInput from "../atoms/form-input/FormInput";
 import screenSize from "../../functions/screenSize";
 import Button from "../atoms/button/Button";
@@ -16,16 +18,29 @@ const SignUpForm = () => {
     },
   };
 
-  const [fields, setFields] = useState(initialState.fields);
+  const { createUser } = UserAuth();
 
-  const handleCreateEvent = (event) => {
+  const [fields, setFields] = useState(initialState.fields);
+  const history = useHistory();
+
+  const handleCreateEvent = async (event) => {
     event.preventDefault();
-    console.log(fields);
     setFields(initialState.fields);
+    try {
+      await createUser(fields.email, fields.password);
+      history.push("/create-profile");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    history.push("/sign-in");
   };
 
   const isSmall = screenSize();
@@ -78,6 +93,7 @@ const SignUpForm = () => {
                 className={buttonStyles.signIn2}
                 type="submit"
                 label="Sign In"
+                onClick={handleSignIn}
               />
             </div>
           </div>
