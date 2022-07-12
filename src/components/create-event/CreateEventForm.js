@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormInput from "../atoms/form-input/FormInput";
+import postEvent from "../../requests/events/postEvent";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
@@ -10,18 +11,30 @@ const CreateEventForm = () => {
     fields: {
       name: "test",
       description: "",
-      startDate: "",
-      endDate: "",
+      date_start: "",
+      date_end: "",
       location: "",
       invite: "",
     },
   };
 
+  const initialDates = {
+    dates: {
+      date_start: "",
+      date_end: "",
+    },
+  };
+
   const [fields, setFields] = useState(initialState.fields);
+  const [dates, setDates] = useState(initialDates.dates);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
+    dates.date_start = new Date(fields.date_start);
+    dates.date_end = new Date(fields.date_end);
+    postEvent(fields, dates);
     setFields(initialState.fields);
+    setDates(initialDates.dates);
   };
 
   const handleFieldChange = (event) => {
@@ -50,25 +63,24 @@ const CreateEventForm = () => {
               value={fields.description}
               onChange={handleFieldChange}
             />
-            {/* <div className={formStyles.splitInput}> */}
+
             <FormInput
-              id="cal"
               className={inputStyles.input}
               label="Start"
               type="datetime-local"
-              name="startDate"
-              value={fields.startDate}
+              name="date_start"
+              value={fields.date_start}
               onChange={handleFieldChange}
             />
+
             <FormInput
               className={inputStyles.input}
               label="End"
               type="datetime-local"
-              name="endDate"
-              value={fields.endDate}
+              name="date_end"
+              value={fields.date_end}
               onChange={handleFieldChange}
             />
-            {/* </div> */}
 
             <FormInput
               className={inputStyles.input}

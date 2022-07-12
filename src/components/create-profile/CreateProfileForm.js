@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import postProfile from "../../requests/postProfile";
+import postProfile from "../../requests/profile/postProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
