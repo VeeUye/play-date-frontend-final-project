@@ -25,10 +25,10 @@ const SignUpForm = () => {
 
   const handleCreateEvent = async (event) => {
     event.preventDefault();
-    console.log(fields);
     setFields(initialState.fields);
     try {
       await createUser(fields.email, fields.password);
+      history.push("/create-profile");
     } catch (e) {
       console.log(e.message);
     }
