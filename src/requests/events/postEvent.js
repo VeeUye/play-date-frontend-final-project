@@ -1,18 +1,17 @@
 import axios from "axios";
 
-const postUser = (fields) => {
+const postEvent = (fields) => {
   axios
     .post(
-      "http://localhost:5001/mc-play-date-scheduler/europe-west2/app/users",
+      "http://localhost:5001/mc-play-date-scheduler/europe-west2/app/events",
       fields
     )
     .then((res) => {
       console.log(res);
-      console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-export default postUser;
+export default postEvent;
