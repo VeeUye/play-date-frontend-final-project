@@ -2,9 +2,10 @@
     "events": [
         {
             "owner": 3,
-            "date": "2022-07-21T11:15:00.000Z",
+            "date": "2022-07-21",
+            "startTime": "11:15",
             "location": "Manchester",
-            "description": "Visit to the MOSI",
+            "name": "Visit to the MOSI",
             "friendsConfirmed": [
                 1, 2, 4
             ],
@@ -14,9 +15,10 @@
         },
         {
             "owner": 5,
-            "date": "2022-08-02T15:30:00.000Z",
+            "date": "2022-08-02",
+            "startTime": "15.30",
             "location": "Atherton",
-            "description": "Playdate at Vee's house",
+            "name": "Playdate at Vee's house",
             "friendsConfirmed": [
                 1
             ],
@@ -24,9 +26,10 @@
         },
         {
             "owner": 2,
-            "date": "2022-08-28T12:45:00:00.000Z",
+            "date": "2022-08-28",
+            "startTime": "12:45",
             "location": "Manchester",
-            "description": "BBQ in Ed's garden",
+            "name": "BBQ in Ed's garden",
             "friendsConfirmed": [
                 3, 5
             ],
@@ -36,9 +39,10 @@
         },
         {
             "owner": 4,
-            "date": "2022-07-08T21:00:00.000Z",
+            "date": "2022-07-08",
+            "startTime": "21:00",
             "location": "Wigan",
-            "description": "Steven's Birthday Drinks",
+            "name": "Steven's Birthday Drinks",
             "friendsConfirmed": [],
             "friendsInvited": [
                 1, 2, 3, 5
@@ -46,9 +50,10 @@
         },
         {
             "owner": 1,
-            "date": "2023-01-01T00:00:00:00.000Z",
+            "date": "2023-01-01",
+            "startTime": "00:00",
             "location": "London",
-            "description": "NYE at Trafalgar Square",
+            "name": "NYE at Trafalgar Square",
             "friendsConfirmed": [
                 5
             ],

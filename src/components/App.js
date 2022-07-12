@@ -63,8 +63,9 @@ App.propTypes = {
     PropTypes.shape({
       owner: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
+      startTime: PropTypes.string.isRequired,
       location: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
       friendsInvited: PropTypes.arrayOf(PropTypes.number),
     })

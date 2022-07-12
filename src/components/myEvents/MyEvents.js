@@ -15,8 +15,9 @@ const MyEvents = ({ events }) => {
                 key={events.owner}
                 owner={events.owner}
                 date={events.date}
+                startTime={events.startTime}
                 location={events.location}
-                description={events.description}
+                name={events.name}
                 friendsConfirmed={events.friendsConfirmed}
                 friendsInvited={events.friendsInvited}
                 />
@@ -30,8 +31,9 @@ MyEvents.propTypes = {
         PropTypes.shape({
             owner: PropTypes.number.isRequired,
             date: PropTypes.string.isRequired,
+            startTime: PropTypes.string.isRequired,
             location: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
             friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
             friendsInvited: PropTypes.arrayOf(PropTypes.number)
         })
