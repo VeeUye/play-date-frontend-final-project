@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const postUser = (fields) => {
+const postProfile = (fields) => {
   axios
     .post(
       "http://localhost:5001/mc-play-date-scheduler/europe-west2/app/users",
@@ -15,4 +15,4 @@ const postUser = (fields) => {
     });
 };
 
-export default postUser;
+export default postProfile;

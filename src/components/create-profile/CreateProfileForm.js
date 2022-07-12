@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import postUser from "../../requests/postUser";
+import postProfile from "../../requests/postProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
@@ -9,9 +9,9 @@ import buttonStyles from "../atoms/button/button.module.css";
 const CreateProfileForm = () => {
   const initialState = {
     fields: {
-      name: "test name",
+      name: "",
       childName: "",
-      Location: "",
+      location: "",
     },
   };
 
@@ -19,8 +19,7 @@ const CreateProfileForm = () => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    // console.log(fields);
-    postUser(fields);
+    postProfile(fields);
     setFields(initialState.fields);
   };
 
@@ -46,8 +45,8 @@ const CreateProfileForm = () => {
               className={inputStyles.input}
               label="Child's Name"
               type="text"
-              name="Child's Name"
-              value={fields.date}
+              name="childName"
+              value={fields.childName}
               onChange={handleFieldChange}
             />
 
