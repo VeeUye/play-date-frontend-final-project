@@ -3,15 +3,14 @@
   flex-direction: column;
   align-items: center;
   background: #f5f5f5;
-  /* height: 100vh;  */
 }
 
 .hero {
   position: absolute;
   width: 100vw;
   height: 20vh;
-  left: 0px;
-  top: 0px;
+  left: 0rem;
+  top: 0rem;
   background: #f0c000;
   overflow: hidden;
   background-repeat: no-repeat;
@@ -22,46 +21,42 @@
   display: flex;
   align-items: center;
   position: absolute;
-  width: 104px;
-  height: 104px;
-  top: 120px;
+  width: 6.5rem;
+  height: 6.5rem;
+  top: 7.5rem;
 }
 
 .profileCard {
-  width: 420px;
-  margin: 10px;
-  padding: 10px;
-  margin-top: 230px;
+  width: 26.25rem;
+  padding: .625rem;
+  margin-top: 14.375rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: 1px solid black;
 }
 
 .card1 {
-  width: 420px;
-  margin: 5px;
-  padding: 10px;
+  width: 26.25rem;
+  margin: .3125rem;
+  padding: .625rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 1.25rem;
   align-items: center;
-
-  border: 1px solid black;
 }
 
 .smallTitle {
   /* position: absolute; */
-  width: 193px;
-  height: 40px;
-  left: 91px;
-  top: 207px;
+  width: 12.0625rem;
+  height: 2.5rem;
+  left: 5.6875rem;
+  top: 12.9375rem;
 
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 1.625rem;
   line-height: 155.4%;
   /* or 40px */
   letter-spacing: 0.02em;
@@ -70,45 +65,49 @@
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
-  left: 203px;
-  top: 275px;
-  margin-left: 30px;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 17.1875rem;
+  margin-left: .9375rem;
   color: #f0c000;
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: .3125rem;
+  align-items: center;
 }
 
 /* BUTTON SECTION */
 .buttons {
-  width: 400px;
-  margin: 5px 0px 20px 0px;
-  padding: 10px;
+  width: 25rem;
+  margin: .3125rem 0rem 1.25rem 0rem;
+  padding: .625rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: space-around;
 }
 
 /* FRIEND ALERT SECTION */
 h2 {
-  margin: 10px 0px 0px 10px;
-  padding: 2px;
+  margin: .625rem 0rem 0rem .625rem;
+  padding: .125rem;
   color: #f5f5f5;
 }
 
 .friendAlertCard {
-  width: 420px;
-  margin: 5px 0px 20px 0px;
-  padding: 10px;
+  width: 26.25rem;
+  margin: .3125rem 0rem .3125rem 0rem;
+  padding: .625rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  border: 1px solid black;
+  justify-content: space-around;
 }
 
 .card {
-  margin-left: 20px;
+  margin-left: 1.25rem;
   background-color: #f0c000;
 }
 
@@ -116,7 +115,7 @@ h2 {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 122.9%;
   /* or 18px */
 
@@ -125,8 +124,8 @@ h2 {
 }
 
 .buttonsAlert {
-  margin-top: 5px;
-  width: 300px;
+  margin-top: .3125rem;
+  width: 18.75rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -134,26 +133,23 @@ h2 {
 
 /* FRIEND LIST SECTION */
 .friendList {
-  margin: 5px 0px 20px 0px;
-  padding: 10px;
-  width: 400px;
+  margin: 0rem 0rem 1.25rem 0rem;
+  width: 26.25rem;
   display: flex;
   flex-direction: column;
-
-  /* border: 1px solid black; */
 }
 
 .smallTitle2 {
-  /* position: absolute; */
-  width: 193px;
-  height: 40px;
-  left: 91px;
-  top: 207px;
+  padding: .625rem;
+  width: 12.0625rem;
+  height: 2.5rem;
+  left: 5.6875rem;
+  top: 12.9375rem;
 
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 155.4%;
   /* or 40px */
   letter-spacing: 0.02em;
@@ -162,18 +158,20 @@ h2 {
 }
 
 .friendImages {
-  padding: 10px;
+  padding: .625rem .625rem 0rem .625rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: .625rem;
   align-items: center;
 }
 
 .friendNames {
-  margin: 0px 15px 10px 10px;
-  padding: 10px;
+  margin: 0rem .9375rem .625rem .625rem;
+  padding: .625rem .625rem 0rem .625rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 2.1875rem;
   align-items: center;
 }

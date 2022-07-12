@@ -31,11 +31,15 @@ const MyProfile = () => {
             </div>
 
             <div className={myProfileStyles.card1}>
-                <Icon className={myProfileStyles.icon} icon="carbon:location-filled" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="Manchester" />
+                <div className={myProfileStyles.cardItem}>
+                    <Icon className={myProfileStyles.icon} icon="carbon:location-filled" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text="Manchester" />
+                </div>
 
-                <Icon className={myProfileStyles.icon} icon="cil:child" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                <div className={myProfileStyles.cardItem}>
+                    <Icon className={myProfileStyles.icon} icon="cil:child" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                </div>
             </div>
 
             <div className={myProfileStyles.buttons}>
