@@ -108,11 +108,11 @@ button {
 
 .myProfile1 {
     position: relative;
-    width: 147px;
-    height: 32px;
+    width: 8.75rem;
+    height: 2rem;
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 155.4%;
   
     text-align: center;
@@ -122,7 +122,7 @@ button {
     color: #835932;
   
     background: #f0c000;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     border: none;
 }
 
