@@ -12,6 +12,7 @@ import MyProfile from "./my-profile/MyProfile";
 import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
+import EditProfile from "./edit-profile/EditProfile";
 import "../styles/App.css";
 import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
@@ -47,6 +48,11 @@ function App({ events }) {
               <Route exact path="/create-profile">
                 <ProtectedRoute>
                   <CreateProfile />
+                </ProtectedRoute>
+              </Route>
+              <Route exact path="/edit-profile">
+                <ProtectedRoute>
+                  <EditProfile />
                 </ProtectedRoute>
               </Route>
               <Route exact path="/my-events">

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
+import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
 import formStyles from "./edit-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
@@ -15,19 +16,26 @@ const EditProfileForm = () => {
       name: "",
       childName: "",
       location: "",
-      userId: "",
+    },
+    alert: {
+      message: "",
+      isSuccess: false,
     },
   };
 
   const [fields, setFields] = useState(initialState.fields);
 
-  useEffect(() => {
-    setFields({ ...fields, ["userId"]: user.uid });
-  }, []);
+  const [alert, setAlert] = useState(initialState.alert);
+
+  // useEffect(() => {
+  //   setFields({ ...fields, ["userId"]: user.uid });
+  // }, []);
 
   const handleEditProfile = (event) => {
     event.preventDefault();
-    editProfile(fields);
+    console.log(fields);
+    console.log(fields.userId);
+    editProfile(fields, user.uid, setAlert);
     setFields(initialState.fields);
   };
 
@@ -66,6 +74,8 @@ const EditProfileForm = () => {
               value={fields.location}
               onChange={handleFieldChange}
             />
+
+            <Alert message={alert.message} success={alert.isSuccess} />
 
             <Button
               className={buttonStyles.createEvent}
