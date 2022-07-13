@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import postProfile from "../../requests/profile/postProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
+import { UserAuth } from "../../contexts/AuthContext";
 
 const CreateProfileForm = () => {
+  const { user } = UserAuth();
+
   const initialState = {
     fields: {
       name: "",
       childName: "",
       location: "",
+      userId: "",
     },
   };
 
   const [fields, setFields] = useState(initialState.fields);
+
+  useEffect(() => {
+    setFields({ ...fields, ["userId"]: user.uid });
+  }, []);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
