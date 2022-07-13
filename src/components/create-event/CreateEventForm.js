@@ -8,16 +8,17 @@ import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
+import { UserAuth } from "../../contexts/AuthContext";
 
 const CreateEventForm = () => {
   const [friends, setFriends] = useState([]);
 
-  const userId = "HcHFq3LIbRHwJEbag2mM";
+  const { user } = UserAuth();
 
   useEffect(() => {
-    getUserFriends(userId).then((result) => {
+    getUserFriends(user.uid).then((result) => {
       const friendsInvite = result.map((friend) => {
-        return { value: friend.id, label: friend.email };
+        return { value: friend.userId, label: friend.name };
       });
       setFriends(friendsInvite);
     });
