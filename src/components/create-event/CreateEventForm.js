@@ -30,7 +30,8 @@ const CreateEventForm = () => {
       date_start: "",
       date_end: "",
       location: "",
-      invite: "",
+      friends_invited: [],
+      owner: "",
     },
     dates: {
       date_start: "",
@@ -66,7 +67,7 @@ const CreateEventForm = () => {
 
   const handleMultiInviteChange = (event) => {
     const selectedFriends = event.map((friend) => friend.value);
-    setFields({ ...fields, ["invite"]: selectedFriends });
+    setFields({ ...fields, ["friends_invited"]: selectedFriends });
   };
 
   return (
