@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const BASE_URL =
-  "http://localhost:5001/mc-play-date-scheduler/europe-west2/app";
+  process.env.REACT_APP_FIREBASE_FIRESTORE_URL ||
+  "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const postProfile = async (fields, setAlert) => {
   try {

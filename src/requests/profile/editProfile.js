@@ -3,7 +3,8 @@ import axios from "axios";
 // user needs to be passed in from EditProfile component (not yet built)
 
 const BASE_URL =
-  "http://localhost:5001/mc-play-date-scheduler/europe-west2/app";
+  process.env.REACT_APP_FIREBASE_FIRESTORE_URL ||
+  "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const editProfile = async (fields, userId) => {
   // const user = fields.userId;
