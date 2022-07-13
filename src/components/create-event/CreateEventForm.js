@@ -3,6 +3,7 @@ import getUserFriends from "../../requests/users/getUserFriends";
 import FormInput from "../atoms/form-input/FormInput";
 import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
 import postEvent from "../../requests/events/postEvent";
+import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
@@ -31,7 +32,13 @@ const CreateEventForm = () => {
       location: "",
       invite: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
+
+  const [alert, setAlert] = useState(initialState.alert);
 
   const initialDates = {
     dates: {
@@ -41,13 +48,15 @@ const CreateEventForm = () => {
   };
 
   const [fields, setFields] = useState(initialState.fields);
+
   const [dates, setDates] = useState(initialDates.dates);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
     dates.date_start = new Date(fields.date_start);
     dates.date_end = new Date(fields.date_end);
-    postEvent(fields, dates);
+    setAlert({ message: "", isSuccess: false });
+    postEvent(fields, dates, setAlert);
     setFields(initialState.fields);
     setDates(initialDates.dates);
   };
@@ -117,6 +126,8 @@ const CreateEventForm = () => {
               onChange={handleMultiInviteChange}
               options={friends}
             />
+
+            <Alert message={alert.message} success={alert.isSuccess} />
 
             <Button
               className={buttonStyles.createEvent}
