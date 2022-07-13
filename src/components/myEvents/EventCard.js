@@ -4,6 +4,7 @@ import eventCardStyles from "./event-card.module.css";
 import "./event-card.module.css";
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
+import { Icon } from '@iconify/react';
 
 const EventCard = ({
     // owner,
@@ -20,7 +21,10 @@ const EventCard = ({
             <div className={eventCardStyles.details}>
             {/* <div className="owner">{owner}</div> */}
             <div className={eventCardStyles.date}>{date}</div>
+            <div className={eventCardStyles.iconLocation}>
+            <Icon className={eventCardStyles.icon} icon="carbon:location-filled" />
             <div className={eventCardStyles.location}>{location}</div>
+            </div>
             <div className={eventCardStyles.startTime}>{startTime} - {endTime}</div>
             <div className={eventCardStyles.name}>{name}</div>
             {/* <div className="friends-confirmed">{friendsConfirmed}</div>
