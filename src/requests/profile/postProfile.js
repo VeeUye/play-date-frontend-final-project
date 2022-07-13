@@ -5,7 +5,7 @@ const BASE_URL =
 
 const postProfile = async (fields) => {
   try {
-    const res = await axios.post(`${BASE_URL}/events`, fields);
+    const res = await axios.post(`${BASE_URL}/users`, fields);
     console.log(res);
   } catch (err) {
     console.log(err);
