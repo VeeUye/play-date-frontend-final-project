@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import getUserFriends from "../../requests/users/getUserFriends";
 import FormInput from "../atoms/form-input/FormInput";
+import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
 import postEvent from "../../requests/events/postEvent";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
@@ -7,6 +9,19 @@ import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = () => {
+  const [friends, setFriends] = useState([]);
+
+  const userId = "HcHFq3LIbRHwJEbag2mM";
+
+  useEffect(() => {
+    getUserFriends(userId).then((result) => {
+      const friendsInvite = result.map((friend) => {
+        return { value: friend.id, label: friend.email };
+      });
+      setFriends(friendsInvite);
+    });
+  }, []);
+
   const initialState = {
     fields: {
       name: "test",
@@ -39,6 +54,11 @@ const CreateEventForm = () => {
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const handleMultiInviteChange = (event) => {
+    const selectedFriends = event.map((friend) => friend.value);
+    setFields({ ...fields, ["invite"]: selectedFriends });
   };
 
   return (
@@ -91,14 +111,13 @@ const CreateEventForm = () => {
               onChange={handleFieldChange}
             />
 
-            <FormInput
-              className={inputStyles.input}
+            <MultiSelectInput
+              styles={inputStyles.input}
               label="Invite"
-              type="email"
-              name="invite"
-              value={fields.invite}
-              onChange={handleFieldChange}
+              onChange={handleMultiInviteChange}
+              options={friends}
             />
+
             <Button
               className={buttonStyles.createEvent}
               type="submit"
