@@ -1,0 +1,12 @@
+.alert {
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.success {
+  color: #ffffff;
+}
+
+.error {
+  color: #e16f24;
+}
