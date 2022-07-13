@@ -25,7 +25,7 @@ const EditProfileForm = () => {
     setFields({ ...fields, ["userId"]: user.uid });
   }, []);
 
-  const handleCreateEvent = (event) => {
+  const handleEditProfile = (event) => {
     event.preventDefault();
     editProfile(fields);
     setFields(initialState.fields);
@@ -37,7 +37,7 @@ const EditProfileForm = () => {
 
   return (
     <>
-      <form onSubmit={handleCreateEvent}>
+      <form onSubmit={handleEditProfile}>
         <div className={formStyles.field1}>
           <div>
             <FormInput
