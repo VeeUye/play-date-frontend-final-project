@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// need to import editProfile request once merged
+import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Button from "../atoms/button/Button";
 import formStyles from "./edit-profile-form.module.css";
