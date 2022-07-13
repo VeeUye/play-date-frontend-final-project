@@ -32,33 +32,30 @@ const CreateEventForm = () => {
       location: "",
       invite: "",
     },
+    dates: {
+      date_start: "",
+      date_end: "",
+    },
     alert: {
       message: "",
       isSuccess: false,
     },
   };
 
-  const [alert, setAlert] = useState(initialState.alert);
-
-  const initialDates = {
-    dates: {
-      date_start: "",
-      date_end: "",
-    },
-  };
-
   const [fields, setFields] = useState(initialState.fields);
 
-  const [dates, setDates] = useState(initialDates.dates);
+  const [dates, setDates] = useState(initialState.dates);
+
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
     dates.date_start = new Date(fields.date_start);
     dates.date_end = new Date(fields.date_end);
     setAlert({ message: "", isSuccess: false });
-    postEvent(fields, dates, setAlert);
+    postEvent(fields, setAlert);
     setFields(initialState.fields);
-    setDates(initialDates.dates);
+    setDates(initialState.dates);
   };
 
   const handleFieldChange = (event) => {
