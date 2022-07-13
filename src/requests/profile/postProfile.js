@@ -1,18 +1,15 @@
 import axios from "axios";
 
-const postProfile = (fields) => {
-  axios
-    .post(
-      "http://localhost:5001/mc-play-date-scheduler/europe-west2/app/users",
-      fields
-    )
-    .then((res) => {
-      console.log(res);
-      // console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+const BASE_URL =
+  "http://localhost:5001/mc-play-date-scheduler/europe-west2/app";
+
+const postProfile = async (fields) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/events`, fields);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export default postProfile;
