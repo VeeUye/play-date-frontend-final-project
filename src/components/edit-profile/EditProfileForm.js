@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
@@ -28,15 +28,15 @@ const EditProfileForm = () => {
 
   const [alert, setAlert] = useState(initialState.alert);
 
-  useEffect(() => {
-    setFields({ ...fields, ["userId"]: user.uid });
-  }, []);
+  // useEffect(() => {
+  //   setFields({ ...fields, ["userId"]: user.uid });
+  // }, []);
 
   const handleEditProfile = (event) => {
     event.preventDefault();
     console.log(fields);
     console.log(fields.userId);
-    editProfile(fields, setAlert);
+    editProfile(fields, user.uid, setAlert);
     setFields(initialState.fields);
   };
 

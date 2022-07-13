@@ -5,11 +5,12 @@ import axios from "axios";
 const BASE_URL =
   "http://localhost:5001/mc-play-date-scheduler/europe-west2/app";
 
-const editProfile = async (fields) => {
-  const user = fields.userId;
-  console.log(fields.userId);
+const editProfile = async (fields, userId) => {
+  // const user = fields.userId;
+  // console.log(fields.userId);
+  console.log(userId);
   try {
-    const res = await axios.put(`${BASE_URL}/users/${user}`, fields);
+    const res = await axios.put(`${BASE_URL}/users/${userId}`, fields);
     console.log(res);
   } catch (err) {
     console.log(err);
