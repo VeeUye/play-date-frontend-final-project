@@ -23,6 +23,7 @@ const CreateProfileForm = () => {
       isSuccess: false,
     },
   };
+
   const [alert, setAlert] = useState(initialState.alert);
 
   const [fields, setFields] = useState(initialState.fields);
