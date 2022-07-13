@@ -16,7 +16,6 @@ const EditProfileForm = () => {
       name: "",
       childName: "",
       location: "",
-      userId: "",
     },
     alert: {
       message: "",
