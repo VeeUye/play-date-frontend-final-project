@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import getUserFriends from "../../requests/users/getUserFriends";
 import FormInput from "../atoms/form-input/FormInput";
-// import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
+import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
 import postEvent from "../../requests/events/postEvent";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 import { UserAuth } from "../../contexts/AuthContext";
-import Select from "react-select";
 
 const CreateEventForm = () => {
   const [friends, setFriends] = useState([]);
@@ -113,10 +112,9 @@ const CreateEventForm = () => {
               onChange={handleFieldChange}
             />
 
-            <Select
-              // styles={inputStyles.input}
+            <MultiSelectInput
+              styles={inputStyles.input}
               label="Invite"
-              isMulti
               onChange={handleMultiInviteChange}
               options={friends}
             />
