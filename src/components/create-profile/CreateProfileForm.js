@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import postProfile from "../../requests/profile/postProfile";
 import FormInput from "../atoms/form-input/FormInput";
+import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
@@ -17,7 +18,13 @@ const CreateProfileForm = () => {
       location: "",
       userId: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
+
+  const [alert, setAlert] = useState(initialState.alert);
 
   const [fields, setFields] = useState(initialState.fields);
 
@@ -27,7 +34,8 @@ const CreateProfileForm = () => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    postProfile(fields);
+    setAlert({ message: "", isSuccess: false });
+    postProfile(fields, setAlert);
     setFields(initialState.fields);
   };
 
@@ -66,7 +74,7 @@ const CreateProfileForm = () => {
               value={fields.location}
               onChange={handleFieldChange}
             />
-
+            <Alert message={alert.message} success={alert.isSuccess} />
             <Button
               className={buttonStyles.createEvent}
               type="submit"
