@@ -69,6 +69,7 @@ App.propTypes = {
       owner: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
       startTime: PropTypes.string.isRequired,
+      endTime: PropTypes.string.isRequired,
       location: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
