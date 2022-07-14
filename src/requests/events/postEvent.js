@@ -1,11 +1,16 @@
 import axios from "axios";
 
-export const BASE_URL =
-  "http://localhost:5001/mc-play-date-scheduler/europe-west2/app";
+const BASE_URL =
+  process.env.REACT_APP_FIREBASE_FIRESTORE_URL ||
+  "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
-const postEvent = async (fields, setAlert) => {
+const postEvent = async (fields, userIdToken, setAlert) => {
+  const tokenResult = await userIdToken;
+
   try {
-    const res = await axios.post(`${BASE_URL}/events`, fields);
+    const res = await axios.post(`${BASE_URL}/users`, fields, {
+      headers: { Authorization: `Bearer ${tokenResult}` },
+    });
     setAlert({
       message: "Event Created",
       isSuccess: true,
