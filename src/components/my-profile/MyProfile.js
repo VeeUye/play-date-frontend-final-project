@@ -22,11 +22,15 @@ const MyProfile = () => {
 
     const handleCreateEvent = () => {
         history.push("/create-event");
-      };
-    
-      const handleMyEvents = () => {
+    };
+
+    const handleMyEvents = () => {
         history.push("/my-events");
-      };
+    };
+
+    const handleEditProfile = () => {
+        history.push("/edit-profile");
+    };
 
     return (
         <div className={myProfileStyles.background}>
@@ -34,10 +38,12 @@ const MyProfile = () => {
             <div className={myProfileStyles.hero}>
             </div>
 
+
             <div className={myProfileStyles.profileCard}>
                 <img className={myProfileStyles.avatarImage} src={Image} alt="user profile picture" />
                 <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
                 <SuperSubHeading className={superSubstyles.myProfile} text="@johnsondoe" />
+                <Button className={buttonStyles.myProfile3} label="EDIT PROFILE" onClick={handleEditProfile}></Button>
             </div>
 
             <div className={myProfileStyles.card1}>
@@ -53,9 +59,9 @@ const MyProfile = () => {
             </div>
 
             <div className={myProfileStyles.buttons}>
-                    <Button className={buttonStyles.myProfile1} label="CREATE EVENT" onClick={handleCreateEvent}></Button>
+                <Button className={buttonStyles.myProfile1} label="CREATE EVENT" onClick={handleCreateEvent}></Button>
 
-                    <Button className={buttonStyles.myProfile1} label="MY EVENTS" onClick={handleMyEvents}></Button>
+                <Button className={buttonStyles.myProfile1} label="MY EVENTS" onClick={handleMyEvents}></Button>
             </div>
 
             <div className={myProfileStyles.friendAlertCard}>
