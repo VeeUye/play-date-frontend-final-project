@@ -21,7 +21,7 @@ const CreateProfileForm = () => {
   const initialState = {
     fields: {
       name: "",
-      childName: "",
+      children: "",
       location: "",
       userId: "",
     },
