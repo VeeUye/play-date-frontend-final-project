@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import postProfile from "../../requests/profile/postProfile";
+import React, { useState } from "react";
+import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
-import formStyles from "./create-profile-form.module.css";
+import formStyles from "./edit-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 import { UserAuth } from "../../contexts/AuthContext";
 
-const CreateProfileForm = () => {
+const EditProfileForm = () => {
   const { user } = UserAuth();
 
   const userIdToken = async () => {
@@ -23,7 +23,6 @@ const CreateProfileForm = () => {
       name: "",
       childName: "",
       location: "",
-      userId: "",
     },
     alert: {
       message: "",
@@ -31,18 +30,19 @@ const CreateProfileForm = () => {
     },
   };
 
-  const [alert, setAlert] = useState(initialState.alert);
-
   const [fields, setFields] = useState(initialState.fields);
 
-  useEffect(() => {
-    setFields({ ...fields, ["userId"]: user.uid });
-  }, []);
+  const [alert, setAlert] = useState(initialState.alert);
 
-  const handleCreateEvent = (event) => {
+  // useEffect(() => {
+  //   setFields({ ...fields, ["userId"]: user.uid });
+  // }, []);
+
+  const handleEditProfile = (event) => {
     event.preventDefault();
-    setAlert({ message: "", isSuccess: false });
-    postProfile(fields, userIdToken(), setAlert);
+    console.log(fields);
+    console.log(fields.userId);
+    editProfile(fields, user.uid, userIdToken(), setAlert);
     setFields(initialState.fields);
   };
 
@@ -52,7 +52,7 @@ const CreateProfileForm = () => {
 
   return (
     <>
-      <form onSubmit={handleCreateEvent}>
+      <form onSubmit={handleEditProfile}>
         <div className={formStyles.field1}>
           <div>
             <FormInput
@@ -81,11 +81,13 @@ const CreateProfileForm = () => {
               value={fields.location}
               onChange={handleFieldChange}
             />
+
             <Alert message={alert.message} success={alert.isSuccess} />
+
             <Button
               className={buttonStyles.createEvent}
               type="submit"
-              label="Create Profile"
+              label="Edit Profile"
             />
           </div>
         </div>
@@ -94,4 +96,4 @@ const CreateProfileForm = () => {
   );
 };
 
-export default CreateProfileForm;
+export default EditProfileForm;

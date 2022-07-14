@@ -12,6 +12,7 @@ import MyProfile from "./my-profile/MyProfile";
 import MyEvents from "./myEvents/MyEvents";
 import CreateEvent from "./create-event/CreateEvent";
 import CreateProfile from "./create-profile/CreateProfile";
+import EditProfile from "./edit-profile/EditProfile";
 import "../styles/App.css";
 import ProtectedRoute from "./protected-routes/ProtectedRoutes";
 
@@ -49,6 +50,11 @@ function App({ events }) {
                   <CreateProfile />
                 </ProtectedRoute>
               </Route>
+              <Route exact path="/edit-profile">
+                <ProtectedRoute>
+                  <EditProfile />
+                </ProtectedRoute>
+              </Route>
               <Route exact path="/my-events">
                 <ProtectedRoute>
                   <MyEvents events={events} />
@@ -69,6 +75,7 @@ App.propTypes = {
       owner: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
       startTime: PropTypes.string.isRequired,
+      endTime: PropTypes.string.isRequired,
       location: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
