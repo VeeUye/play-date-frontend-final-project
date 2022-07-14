@@ -153,7 +153,6 @@ button {
   background-color: #f0c000;
 }
 
-
 .eventCard {
   height: 2rem;
   /* width: auto; */
@@ -177,4 +176,29 @@ button {
 
 .eventCard:hover {
   background-color: #f0c000;
+}
+
+.myProfile3 {
+  position: relative;
+  width: 5.75rem;
+  height: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #835932;
+
+  background: #f0c000;
+  border-radius: 1.25rem;
+  border: none;
+}
+
+.myProfile3:hover {
+  background-color: #f5f5f5;
+  border: 0.125rem solid #f0c000;
 }

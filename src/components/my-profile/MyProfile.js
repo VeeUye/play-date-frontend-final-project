@@ -42,7 +42,6 @@ const MyProfile = () => {
             <div className={myProfileStyles.profileCard}>
                 <img className={myProfileStyles.avatarImage} src={Image} alt="user profile picture" />
                 <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="@johnsondoe" />
                 <Button className={buttonStyles.myProfile3} label="EDIT PROFILE" onClick={handleEditProfile}></Button>
             </div>
 
