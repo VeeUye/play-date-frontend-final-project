@@ -62,10 +62,8 @@ const CreateEventForm = () => {
     dates.date_start = new Date(fields.date_start);
     dates.date_end = new Date(fields.date_end);
     setAlert({ message: "", isSuccess: false });
-    console.log(fields);
-    console.log(dates);
     postEvent(fields, userIdToken(), setAlert);
-    setFields(initialState.fields);
+    setFields({ ...fields, ["owner"]: user.uid });
     setDates(initialState.dates);
   };
 
