@@ -64,7 +64,7 @@ const CreateEventForm = () => {
     setAlert({ message: "", isSuccess: false });
     console.log(fields);
     console.log(dates);
-    postEvent(fields, setAlert);
+    postEvent(fields, userIdToken(), setAlert);
     setFields(initialState.fields);
     setDates(initialState.dates);
   };
