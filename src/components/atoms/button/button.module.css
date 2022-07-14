@@ -155,7 +155,7 @@ button {
 
 .eventCard {
   height: 2rem;
-  width: auto;
+  /* width: auto; */
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   font-style: normal;
