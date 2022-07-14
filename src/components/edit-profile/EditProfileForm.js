@@ -15,13 +15,14 @@ const EditProfileForm = () => {
     const getToken = await user.getIdToken().then((token) => {
       return token;
     });
+
     return getToken;
   };
 
   const initialState = {
     fields: {
       name: "",
-      childName: "",
+      children: "",
       location: "",
     },
     alert: {
@@ -34,15 +35,15 @@ const EditProfileForm = () => {
 
   const [alert, setAlert] = useState(initialState.alert);
 
-  // useEffect(() => {
-  //   setFields({ ...fields, ["userId"]: user.uid });
-  // }, []);
+  // trying to pass the userId to the editProfile req as below.
+  // erroring with 403 bad request
+
+  const userId = user.uid;
+  console.log(userId);
 
   const handleEditProfile = (event) => {
     event.preventDefault();
-    console.log(fields);
-    console.log(fields.userId);
-    editProfile(fields, user.uid, userIdToken(), setAlert);
+    editProfile(fields, userId, userIdToken(), setAlert);
     setFields(initialState.fields);
   };
 
@@ -68,8 +69,8 @@ const EditProfileForm = () => {
               className={inputStyles.input}
               label="Child's Name"
               type="text"
-              name="childName"
-              value={fields.childName}
+              name="children"
+              value={fields.children}
               onChange={handleFieldChange}
             />
 
