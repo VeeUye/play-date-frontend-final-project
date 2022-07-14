@@ -11,6 +11,13 @@ import { UserAuth } from "../../contexts/AuthContext";
 const EditProfileForm = () => {
   const { user } = UserAuth();
 
+  const userIdToken = async () => {
+    const getToken = await user.getIdToken().then((token) => {
+      return token;
+    });
+    return getToken;
+  };
+
   const initialState = {
     fields: {
       name: "",
@@ -35,7 +42,7 @@ const EditProfileForm = () => {
     event.preventDefault();
     console.log(fields);
     console.log(fields.userId);
-    editProfile(fields, user.uid, setAlert);
+    editProfile(fields, user.uid, userIdToken(), setAlert);
     setFields(initialState.fields);
   };
 
