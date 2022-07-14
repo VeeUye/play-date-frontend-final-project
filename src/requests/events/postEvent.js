@@ -8,7 +8,7 @@ const postEvent = async (fields, userIdToken, setAlert) => {
   const tokenResult = await userIdToken;
 
   try {
-    const res = await axios.post(`${BASE_URL}/users`, fields, {
+    const res = await axios.post(`${BASE_URL}/events`, fields, {
       headers: { Authorization: `Bearer ${tokenResult}` },
     });
     setAlert({
