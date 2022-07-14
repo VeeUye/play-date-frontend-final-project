@@ -1,18 +1,29 @@
 import axios from "axios";
 
-const postProfile = (fields) => {
-  axios
-    .post(
-      "http://localhost:5001/mc-play-date-scheduler/europe-west2/app/users",
-      fields
-    )
-    .then((res) => {
-      console.log(res);
-      // console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
+const BASE_URL =
+  process.env.REACT_APP_FIREBASE_FIRESTORE_URL ||
+  "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
+
+const postProfile = async (fields, userIdToken, setAlert) => {
+  const tokenResult = await userIdToken;
+
+  try {
+    const res = await axios.post(`${BASE_URL}/users`, fields, {
+      headers: { Authorization: `Bearer ${tokenResult}` },
     });
+    setAlert({
+      message: "Profile Created",
+      isSuccess: true,
+    });
+    console.log(res);
+    console.log(res.data);
+  } catch (err) {
+    setAlert({
+      message: "Server Error. Please try again later",
+      isSuccess: false,
+    });
+    console.log(err);
+  }
 };
 
 export default postProfile;

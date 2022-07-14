@@ -1,8 +1,45 @@
 .background {
     background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center
+}
+
+.myEvents {
+    max-width: 725px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: center
 }
+
+.img {
+    margin: 1rem;
+    padding: 1rem;
+    width: 400px
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .background {
+        background-color: #ffffff;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column-reverse;
+        align-content: center;
+        align-items: center;
+        justify-content: center
+    }
+  
+    .img {
+        margin: 1rem;
+        padding: 1rem;
+        width: 60%
+    }
+  }

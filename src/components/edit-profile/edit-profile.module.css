@@ -1,0 +1,56 @@
+.background {
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  width: 375px;
+  height: 812px;
+}
+
+.smallScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-left: 1rem; */
+}
+
+.bigScreen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.img {
+  position: relative;
+  left: 15%;
+  bottom: 1rem;
+  transform: rotate(6.81deg);
+
+  width: 20rem;
+}
+
+.img2 {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .img {
+    display: none;
+  }
+
+  .img2 {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 20rem;
+    transform: rotate(6.81deg);
+    position: relative;
+    top: 5rem;
+  }
+}
