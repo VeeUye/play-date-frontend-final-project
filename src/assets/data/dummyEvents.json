@@ -65,46 +65,6 @@
             "friendsInvited": [
                 2, 3
             ]
-        },
-        {
-            "owner": 3,
-            "date": "2022-07-21",
-            "startTime": "11:15",
-            "endTime": "16:00",
-            "location": "Manchester",
-            "name": "Visit to the MOSI",
-            "friendsConfirmed": [
-                1, 2, 4
-            ],
-            "friendsInvited": [
-                5
-            ]
-        },
-        {
-            "owner": 5,
-            "date": "2022-08-02",
-            "startTime": "15.30",
-            "endTime": "17:30",
-            "location": "Atherton",
-            "name": "Playdate at Vee's house",
-            "friendsConfirmed": [
-                1
-            ],
-            "friendsInvited": []
-        },
-        {
-            "owner": 2,
-            "date": "2022-08-28",
-            "startTime": "14:45",
-            "endTime": "19:30",
-            "location": "Manchester",
-            "name": "BBQ in Ed's garden",
-            "friendsConfirmed": [
-                3, 5
-            ],
-            "friendsInvited": [
-                1, 4
-            ]
         }
     ]
 }
