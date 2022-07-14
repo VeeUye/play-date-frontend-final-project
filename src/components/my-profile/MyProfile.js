@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Image from "../../assets/images/avatar.svg";
 import Image1 from "../../assets/images/friend1.svg";
 import Image2 from "../../assets/images/friend2.svg";
@@ -15,19 +16,34 @@ import { Icon } from '@iconify/react';
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 
-// import PropTypes from "prop-types";
 
 const MyProfile = () => {
+    const history = useHistory();
+
+    const handleCreateEvent = () => {
+        history.push("/create-event");
+    };
+
+    const handleMyEvents = () => {
+        history.push("/my-events");
+    };
+
+    const handleEditProfile = () => {
+        history.push("/edit-profile");
+    };
+
     return (
         <div className={myProfileStyles.background}>
 
             <div className={myProfileStyles.hero}>
             </div>
 
+
             <div className={myProfileStyles.profileCard}>
                 <img className={myProfileStyles.avatarImage} src={Image} alt="user profile picture" />
                 <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
                 <SuperSubHeading className={superSubstyles.myProfile} text="@johnsondoe" />
+                <Button className={buttonStyles.myProfile3} label="EDIT PROFILE" onClick={handleEditProfile}></Button>
             </div>
 
             <div className={myProfileStyles.card1}>
@@ -37,14 +53,15 @@ const MyProfile = () => {
                 </div>
 
                 <div className={myProfileStyles.cardItem}>
-                <Icon className={myProfileStyles.icon} icon="cil:child" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                    <Icon className={myProfileStyles.icon} icon="cil:child" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
                 </div>
             </div>
 
             <div className={myProfileStyles.buttons}>
-                <Button className={buttonStyles.myProfile1} label="CREATE EVENT" />
-                <Button className={buttonStyles.myProfile1} label="MY EVENTS" />
+                <Button className={buttonStyles.myProfile1} label="CREATE EVENT" onClick={handleCreateEvent}></Button>
+
+                <Button className={buttonStyles.myProfile1} label="MY EVENTS" onClick={handleMyEvents}></Button>
             </div>
 
             <div className={myProfileStyles.friendAlertCard}>

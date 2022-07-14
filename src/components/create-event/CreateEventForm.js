@@ -15,8 +15,15 @@ const CreateEventForm = () => {
 
   const { user } = UserAuth();
 
+  const userIdToken = async () => {
+    const getToken = await user.getIdToken().then((token) => {
+      return token;
+    });
+    return getToken;
+  };
+
   useEffect(() => {
-    getUserFriends(user.uid).then((result) => {
+    getUserFriends(user.uid, userIdToken()).then((result) => {
       const friendsInvite = result.map((friend) => {
         return { value: friend.userId, label: friend.name };
       });
