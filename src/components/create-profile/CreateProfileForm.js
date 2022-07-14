@@ -11,6 +11,13 @@ import { UserAuth } from "../../contexts/AuthContext";
 const CreateProfileForm = () => {
   const { user } = UserAuth();
 
+  const userIdToken = async () => {
+    const getToken = await user.getIdToken().then((token) => {
+      return token;
+    });
+    return getToken;
+  };
+
   const initialState = {
     fields: {
       name: "",
@@ -35,7 +42,7 @@ const CreateProfileForm = () => {
   const handleCreateEvent = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
-    postProfile(fields, setAlert);
+    postProfile(fields, userIdToken(), setAlert);
     setFields(initialState.fields);
   };
 
