@@ -9,7 +9,7 @@
 }
 
 .myEvents {
-    max-width: 725px;
+    max-width: 900px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,7 +23,7 @@
     width: 400px
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
 
     .background {
         background-color: #ffffff;
@@ -40,6 +40,7 @@
     .img {
         margin: 1rem;
         padding: 1rem;
-        width: 60%
+        width: 60%;
+        max-width: 400px
     }
   }
