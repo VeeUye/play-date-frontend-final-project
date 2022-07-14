@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Image from "../../assets/images/avatar.svg";
 import Image1 from "../../assets/images/friend1.svg";
 import Image2 from "../../assets/images/friend2.svg";
@@ -15,9 +16,18 @@ import { Icon } from '@iconify/react';
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 
-// import PropTypes from "prop-types";
 
 const MyProfile = () => {
+    const history = useHistory();
+
+    const handleCreateEvent = () => {
+        history.push("/create-event");
+      };
+    
+      const handleMyEvents = () => {
+        history.push("/my-events");
+      };
+
     return (
         <div className={myProfileStyles.background}>
 
@@ -37,14 +47,15 @@ const MyProfile = () => {
                 </div>
 
                 <div className={myProfileStyles.cardItem}>
-                <Icon className={myProfileStyles.icon} icon="cil:child" />
-                <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                    <Icon className={myProfileStyles.icon} icon="cil:child" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
                 </div>
             </div>
 
             <div className={myProfileStyles.buttons}>
-                <Button className={buttonStyles.myProfile1} label="CREATE EVENT" />
-                <Button className={buttonStyles.myProfile1} label="MY EVENTS" />
+                    <Button className={buttonStyles.myProfile1} label="CREATE EVENT" onClick={handleCreateEvent}></Button>
+
+                    <Button className={buttonStyles.myProfile1} label="MY EVENTS" onClick={handleMyEvents}></Button>
             </div>
 
             <div className={myProfileStyles.friendAlertCard}>
