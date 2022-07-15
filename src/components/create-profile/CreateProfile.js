@@ -23,7 +23,10 @@ const CreateProfile = () => {
             className={titleStyles.createProfile}
             text="Create Profile"
           />
-          <ProfilePicture />
+          <div className={createProfileStyles.picUpload}>
+            <ProfilePicture />
+          </div>
+
           <CreateProfileForm />
           <img
             className={createProfileStyles.img}
