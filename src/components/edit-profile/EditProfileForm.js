@@ -11,7 +11,6 @@ import { UserAuth } from "../../contexts/AuthContext";
 
 const EditProfileForm = () => {
   const { user } = UserAuth();
-  // const history = useHistory();
 
   const userIdToken = async () => {
     const getToken = await user.getIdToken().then((token) => {
