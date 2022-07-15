@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
@@ -15,40 +16,32 @@ const EditProfileForm = () => {
     const getToken = await user.getIdToken().then((token) => {
       return token;
     });
+
     return getToken;
   };
 
   const initialState = {
-    fields: {
-      name: "",
-      childName: "",
-      location: "",
-    },
     alert: {
       message: "",
       isSuccess: false,
     },
   };
 
-  const [fields, setFields] = useState(initialState.fields);
+  const [fields, setFields] = useState([]);
 
   const [alert, setAlert] = useState(initialState.alert);
 
-  // useEffect(() => {
-  //   setFields({ ...fields, ["userId"]: user.uid });
-  // }, []);
-
   const handleEditProfile = (event) => {
+    const userId = user.uid;
     event.preventDefault();
-    console.log(fields);
-    console.log(fields.userId);
-    editProfile(fields, user.uid, userIdToken(), setAlert);
-    setFields(initialState.fields);
+    editProfile(fields, userId, userIdToken(), setAlert);
   };
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
+
+  const handleClick = () => {};
 
   return (
     <>
@@ -68,8 +61,8 @@ const EditProfileForm = () => {
               className={inputStyles.input}
               label="Child's Name"
               type="text"
-              name="childName"
-              value={fields.childName}
+              name="children"
+              value={fields.children}
               onChange={handleFieldChange}
             />
 
@@ -88,6 +81,7 @@ const EditProfileForm = () => {
               className={buttonStyles.createEvent}
               type="submit"
               label="Edit Profile"
+              onClick={handleClick}
             />
           </div>
         </div>
