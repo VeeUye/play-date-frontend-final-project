@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
@@ -10,6 +11,7 @@ import { UserAuth } from "../../contexts/AuthContext";
 
 const EditProfileForm = () => {
   const { user } = UserAuth();
+  const history = useHistory();
 
   const userIdToken = async () => {
     const getToken = await user.getIdToken().then((token) => {
@@ -20,36 +22,29 @@ const EditProfileForm = () => {
   };
 
   const initialState = {
-    fields: {
-      name: "",
-      children: "",
-      location: "",
-    },
     alert: {
       message: "",
       isSuccess: false,
     },
   };
 
-  const [fields, setFields] = useState(initialState.fields);
+  const [fields, setFields] = useState([]);
 
   const [alert, setAlert] = useState(initialState.alert);
 
-  // trying to pass the userId to the editProfile req as below.
-  // erroring with 403 bad request
-
-  const userId = user.uid;
-  console.log(userId);
-
   const handleEditProfile = (event) => {
+    const userId = user.uid;
     event.preventDefault();
     editProfile(fields, userId, userIdToken(), setAlert);
     setFields(initialState.fields);
+    history.push("/my-profile");
   };
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
+
+  const handleClick = () => {};
 
   return (
     <>
@@ -89,6 +84,7 @@ const EditProfileForm = () => {
               className={buttonStyles.createEvent}
               type="submit"
               label="Edit Profile"
+              onClick={handleClick}
             />
           </div>
         </div>
