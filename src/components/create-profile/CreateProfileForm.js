@@ -68,8 +68,8 @@ const CreateProfileForm = () => {
               className={inputStyles.input}
               label="Child's Name"
               type="text"
-              name="childName"
-              value={fields.childName}
+              name="children"
+              value={fields.children}
               onChange={handleFieldChange}
             />
 
