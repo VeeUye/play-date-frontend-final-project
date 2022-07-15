@@ -1,25 +1,52 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { getStorage } from "firebase/storage";
-// import profilePicStyles from "./profile-picture/module.css";
+import { storage } from "../../firebase";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const ProfilePicture = () => {
-  const storage = getStorage();
+  const [imgUrl, setImgUrl] = useState(null);
+  const [progresspercent, setProgresspercent] = useState(0);
 
-  const allInputs = { imgURL: "" };
-  const [imageAsFile, setImageAsFile] = useState("");
-  const [imageAsUrl, setImageAsUrl] = useState(allInputs);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const file = e.target[0]?.files[0];
+    if (!file) return;
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-  console.log(imageAsFile);
-  const handleImageAsFile = (event) => {
-    const image = event.target.files[0];
-    setImageAsFile((imageFile) => image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgresspercent(progress);
+      },
+      (error) => {
+        alert(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImgUrl(downloadURL);
+        });
+      }
+    );
   };
 
   return (
-    <form>
-      <input type="file" onChange={handleImageAsFile} />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="form">
+        <input type="file" />
+        <button type="submit">Upload</button>
+      </form>
+      {!imgUrl && (
+        <div className="outerbar">
+          <div className="innerbar" style={{ width: `${progresspercent}%` }}>
+            {progresspercent}%
+          </div>
+        </div>
+      )}
+      {imgUrl && <img src={imgUrl} alt="uploaded file" height={200} />}
+    </div>
   );
 };
 
