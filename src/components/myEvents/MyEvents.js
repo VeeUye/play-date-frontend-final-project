@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import getMyEvents from "../../requests/events/getMyEvents";
 import PropTypes from "prop-types";
 import EventCard from "./EventCard";
 import Image from "../../assets/images/papers.svg";

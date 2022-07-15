@@ -19,4 +19,4 @@ const getMyEvents = async(user, userIdToken) => {
     });
 };
 
-export default getMyEvents
+export default getMyEvents;
