@@ -202,3 +202,23 @@ button {
   background-color: #f5f5f5;
   border: 0.125rem solid #f0c000;
 }
+
+.pictureUpload {
+  display: block;
+  height: 2rem;
+  width: 10rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  border-radius: 3rem;
+  border: solid #f0c000;
+  color: #835932;
+  background: #f5f5f5;
+  transition-duration: 0.4s;
+}
