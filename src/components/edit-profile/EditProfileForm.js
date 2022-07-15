@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
@@ -11,7 +11,7 @@ import { UserAuth } from "../../contexts/AuthContext";
 
 const EditProfileForm = () => {
   const { user } = UserAuth();
-  const history = useHistory();
+  // const history = useHistory();
 
   const userIdToken = async () => {
     const getToken = await user.getIdToken().then((token) => {
@@ -36,8 +36,6 @@ const EditProfileForm = () => {
     const userId = user.uid;
     event.preventDefault();
     editProfile(fields, userId, userIdToken(), setAlert);
-    setFields(initialState.fields);
-    history.push("/my-profile");
   };
 
   const handleFieldChange = (event) => {
