@@ -8,6 +8,7 @@ import {
 } from "firebase/storage";
 import screenSize from "../../functions/screenSize";
 import profilePictureStyles from "./profile-picture.module.css";
+import buttonStyles from "../atoms/button/button.module.css";
 import DefaultPic from "../../assets/images/avatar.svg";
 import { Icon } from "@iconify/react";
 
@@ -73,6 +74,9 @@ const ProfilePicture = () => {
           type="file"
           id="profile-upload"
         />
+        <button className={buttonStyles.pictureUpload} type="submit">
+          Set Image
+        </button>
       </form>
     </div>
   );
