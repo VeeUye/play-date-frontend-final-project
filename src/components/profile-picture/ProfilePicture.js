@@ -15,10 +15,13 @@ import { Icon } from "@iconify/react";
 const ProfilePicture = () => {
   const [imgUrl, setImgUrl] = useState(null);
   const storage = getStorage();
-  connectStorageEmulator(storage, "localhost", 9199);
   const imgSrc = imgUrl ? imgUrl : DefaultPic;
   const isSmall = screenSize();
 
+  if (location.hostname === "localhost") {
+    connectStorageEmulator(storage, "localhost", 9199);
+  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const file = event.target[0]?.files[0];
