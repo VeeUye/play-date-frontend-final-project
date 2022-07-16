@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import screenSize from "../../functions/screenSize";
 import ProfilePicture from "../profile-picture/ProfilePicture";
 import CreateProfileForm from "./CreateProfileForm";
@@ -8,6 +8,7 @@ import createProfileStyles from "./create-profile.module.css";
 import titleStyles from "../atoms/small-title/small-title.module.css";
 
 const CreateProfile = () => {
+  const [imgUrl, setImgUrl] = useState(null);
   const isSmall = screenSize();
   return (
     <>
@@ -24,10 +25,10 @@ const CreateProfile = () => {
             text="Create Profile"
           />
           <div className={createProfileStyles.picUpload}>
-            <ProfilePicture />
+            <ProfilePicture imgUrl={imgUrl} setImgUrl={setImgUrl} />
           </div>
 
-          <CreateProfileForm />
+          <CreateProfileForm imgUrl={imgUrl} />
           <img
             className={createProfileStyles.img}
             src={Image}

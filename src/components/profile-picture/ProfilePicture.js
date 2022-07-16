@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   getStorage,
   connectStorageEmulator,
@@ -6,18 +6,21 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import PropTypes from "prop-types";
 import screenSize from "../../functions/screenSize";
 import profilePictureStyles from "./profile-picture.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 import DefaultPic from "../../assets/images/avatar.svg";
 import { Icon } from "@iconify/react";
 
-const ProfilePicture = () => {
-  const [imgUrl, setImgUrl] = useState(null);
+const ProfilePicture = ({imgUrl, setImgUrl}) => {
   const storage = getStorage();
-  connectStorageEmulator(storage, "localhost", 9199);
   const imgSrc = imgUrl ? imgUrl : DefaultPic;
   const isSmall = screenSize();
+
+  if (location.hostname === "localhost") {
+    connectStorageEmulator(storage, "localhost", 9199);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,6 +42,7 @@ const ProfilePicture = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log(downloadURL);
           setImgUrl(downloadURL);
         });
       }
@@ -83,3 +87,8 @@ const ProfilePicture = () => {
 };
 
 export default ProfilePicture;
+
+ProfilePicture.propTypes = {
+  imgUrl: PropTypes.string,
+  setImgUrl: PropTypes.func,
+};
