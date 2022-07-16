@@ -204,13 +204,15 @@ button {
 }
 
 .pictureUpload {
-  display: block;
+  display: relative;
   height: 2rem;
-  width: 10rem;
+  width: 6rem;
+  top: -10.5rem;
+  left: 2rem;
   margin-top: 0.1rem;
   font-style: normal;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 155.4%;
 
   text-align: center;

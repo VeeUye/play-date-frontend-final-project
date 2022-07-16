@@ -6,7 +6,9 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import screenSize from "../../functions/screenSize";
 import profilePictureStyles from "./profile-picture.module.css";
+import buttonStyles from "../atoms/button/button.module.css";
 import DefaultPic from "../../assets/images/avatar.svg";
 import { Icon } from "@iconify/react";
 
@@ -15,6 +17,7 @@ const ProfilePicture = () => {
   const storage = getStorage();
   connectStorageEmulator(storage, "localhost", 9199);
   const imgSrc = imgUrl ? imgUrl : DefaultPic;
+  const isSmall = screenSize();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,7 +47,13 @@ const ProfilePicture = () => {
 
   return (
     <div>
-      <div className={profilePictureStyles.imageContainer}>
+      <div
+        className={
+          isSmall
+            ? profilePictureStyles.imageContainerSmall
+            : profilePictureStyles.imageContainerBig
+        }
+      >
         <label htmlFor="profile-upload">
           <img
             className={profilePictureStyles.profileImg}
@@ -65,6 +74,9 @@ const ProfilePicture = () => {
           type="file"
           id="profile-upload"
         />
+        <button className={buttonStyles.pictureUpload} type="submit">
+          Set Image
+        </button>
       </form>
     </div>
   );

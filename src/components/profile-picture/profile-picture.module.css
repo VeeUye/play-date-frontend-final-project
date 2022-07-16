@@ -14,8 +14,18 @@
   display: none;
 }
 
-.imageContainer {
+.imageContainerSmall {
+  margin-top: -5rem;
+  margin-bottom: 11rem;
   position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.imageContainerBig {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 11rem;
   width: 100%;
   max-width: 400px;
 }
