@@ -1,11 +1,10 @@
 import React from "react";
 import {
-  getStorage,
-  connectStorageEmulator,
+  storage,
   getDownloadURL,
   ref,
   uploadBytesResumable,
-} from "firebase/storage";
+} from "../../firebase"
 import PropTypes from "prop-types";
 import screenSize from "../../functions/screenSize";
 import profilePictureStyles from "./profile-picture.module.css";
@@ -14,13 +13,10 @@ import DefaultPic from "../../assets/images/avatar.svg";
 import { Icon } from "@iconify/react";
 
 const ProfilePicture = ({imgUrl, setImgUrl}) => {
-  const storage = getStorage();
   const imgSrc = imgUrl ? imgUrl : DefaultPic;
   const isSmall = screenSize();
 
-  if (location.hostname === "localhost") {
-    connectStorageEmulator(storage, "localhost", 9199);
-  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();

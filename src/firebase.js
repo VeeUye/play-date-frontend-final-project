@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
-import { getStorage } from "firebase/storage";
+import {
+  getStorage,
+  connectStorageEmulator,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -21,4 +27,8 @@ if (location.hostname === "localhost") {
   connectAuthEmulator(auth, "http://localhost:9099");
 }
 
-export { auth, app, storage };
+if (location.hostname === "localhost") {
+  connectStorageEmulator(storage, "localhost", 9199);
+}
+
+export { auth, app, storage, getDownloadURL, ref, uploadBytesResumable };
