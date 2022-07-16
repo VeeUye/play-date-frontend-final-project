@@ -18,7 +18,6 @@ const EventCard = ( {eventData} ) => {
   const d_end_hours = d_end.getHours();
   const d_end_minutes = d_end.getMinutes();
 
-  console.log(eventData);
   return (
     <div className={eventCardStyles.background}>
       <div className={eventCardStyles.details}>
