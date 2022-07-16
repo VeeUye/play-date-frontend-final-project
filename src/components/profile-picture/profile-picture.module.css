@@ -13,3 +13,24 @@
 .profileUpload {
   display: none;
 }
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cameraIcon {
+  color: white;
+  background-color: lightgray;
+  opacity: 0.9;
+  border-radius: 3rem;
+  padding: 0.3rem;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 85%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

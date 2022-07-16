@@ -7,8 +7,8 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import profilePictureStyles from "./profile-picture.module.css";
-import buttonStyles from "../atoms/button/button.module.css";
 import DefaultPic from "../../assets/images/avatar.svg";
+import { Icon } from "@iconify/react";
 
 const ProfilePicture = () => {
   const [imgUrl, setImgUrl] = useState(null);
@@ -44,14 +44,20 @@ const ProfilePicture = () => {
 
   return (
     <div>
-      <label htmlFor="profile-upload">
-        <img
-          className={profilePictureStyles.profileImg}
-          src={imgSrc}
-          alt="uploaded file"
-          height={200}
-        />
-      </label>
+      <div className={profilePictureStyles.imageContainer}>
+        <label htmlFor="profile-upload">
+          <img
+            className={profilePictureStyles.profileImg}
+            src={imgSrc}
+            alt="uploaded file"
+            height={200}
+          />
+          <Icon
+            className={profilePictureStyles.cameraIcon}
+            icon="ant-design:camera-twotone"
+          />
+        </label>
+      </div>
 
       <form onSubmit={handleSubmit} className="form">
         <input
@@ -59,9 +65,6 @@ const ProfilePicture = () => {
           type="file"
           id="profile-upload"
         />
-        <button className={buttonStyles.pictureUpload} type="submit">
-          Upload
-        </button>
       </form>
     </div>
   );
