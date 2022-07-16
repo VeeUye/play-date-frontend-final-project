@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { storage } from "../../firebase";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  getStorage,
+  connectStorageEmulator,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import profilePictureStyles from "./profile-picture.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const ProfilePicture = () => {
   const [imgUrl, setImgUrl] = useState(null);
   const [progresspercent, setProgresspercent] = useState(0);
+  const storage = getStorage();
+  connectStorageEmulator(storage, "localhost", 9199);
 
   const handleSubmit = (event) => {
     event.preventDefault();
