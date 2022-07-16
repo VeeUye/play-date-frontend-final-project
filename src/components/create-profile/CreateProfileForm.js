@@ -10,14 +10,7 @@ import buttonStyles from "../atoms/button/button.module.css";
 import { UserAuth } from "../../contexts/AuthContext";
 
 const CreateProfileForm = ({imgUrl}) => {
-  const { user } = UserAuth();
-
-  const userIdToken = async () => {
-    const getToken = await user.getIdToken().then((token) => {
-      return token;
-    });
-    return getToken;
-  };
+  const { user, token } = UserAuth();
 
   const initialState = {
     fields: {
@@ -43,7 +36,7 @@ const CreateProfileForm = ({imgUrl}) => {
   const handleCreateEvent = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
-    postProfile(fields, userIdToken(), setAlert);
+    postProfile(fields, token, setAlert);
     setFields(initialState.fields);
   };
 

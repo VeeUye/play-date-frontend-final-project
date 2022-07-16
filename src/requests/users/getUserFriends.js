@@ -6,11 +6,10 @@ const BASE_URL =
   "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const getUserFriends = async (user, userIdToken) => {
-  const tokenResult = await userIdToken;
 
   return axios
     .get(`${BASE_URL}/users/${user}/friends`, {
-      headers: { Authorization: `Bearer ${tokenResult}` },
+      headers: { Authorization: `Bearer ${userIdToken}` },
     })
     .then((res) => {
       return res.data;
