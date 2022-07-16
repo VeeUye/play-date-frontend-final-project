@@ -8,12 +8,13 @@ import {
 } from "firebase/storage";
 import profilePictureStyles from "./profile-picture.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
+import DefaultPic from "../../assets/images/avatar.svg";
 
 const ProfilePicture = () => {
   const [imgUrl, setImgUrl] = useState(null);
-  const [progresspercent, setProgresspercent] = useState(0);
   const storage = getStorage();
   connectStorageEmulator(storage, "localhost", 9199);
+  const imgSrc = imgUrl ? imgUrl : DefaultPic;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +29,7 @@ const ProfilePicture = () => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setProgresspercent(progress);
+        console.log(progress);
       },
       (error) => {
         alert(error);
@@ -43,23 +44,21 @@ const ProfilePicture = () => {
 
   return (
     <div>
-      {!imgUrl && (
-        <div className="outerbar">
-          <div className="innerbar" style={{ width: `${progresspercent}%` }}>
-            {progresspercent}%
-          </div>
-        </div>
-      )}
-      {imgUrl && (
+      <label htmlFor="profile-upload">
         <img
           className={profilePictureStyles.profileImg}
-          src={imgUrl}
+          src={imgSrc}
           alt="uploaded file"
           height={200}
         />
-      )}
+      </label>
+
       <form onSubmit={handleSubmit} className="form">
-        <input type="file" />
+        <input
+          className={profilePictureStyles.profileUpload}
+          type="file"
+          id="profile-upload"
+        />
         <button className={buttonStyles.pictureUpload} type="submit">
           Upload
         </button>
