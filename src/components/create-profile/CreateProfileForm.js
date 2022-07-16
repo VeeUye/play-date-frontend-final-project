@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import postProfile from "../../requests/profile/postProfile";
+import PropTypes from "prop-types";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
@@ -8,7 +9,7 @@ import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 import { UserAuth } from "../../contexts/AuthContext";
 
-const CreateProfileForm = () => {
+const CreateProfileForm = ({imgUrl}) => {
   const { user } = UserAuth();
 
   const userIdToken = async () => {
@@ -47,7 +48,7 @@ const CreateProfileForm = () => {
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({ ...fields, [event.target.name]: event.target.value, ["imgUrl"]: imgUrl});
   };
 
   return (
@@ -95,3 +96,7 @@ const CreateProfileForm = () => {
 };
 
 export default CreateProfileForm;
+
+CreateProfileForm.propTypes = {
+  imgUrl: PropTypes.string,
+};
