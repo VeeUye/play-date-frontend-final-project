@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getAuth, getIdToken, connectAuthEmulator } from "firebase/auth";
 import {
   getStorage,
   connectStorageEmulator,
@@ -31,4 +31,4 @@ if (location.hostname === "localhost") {
   connectStorageEmulator(storage, "localhost", 9199);
 }
 
-export { auth, app, storage, getDownloadURL, ref, uploadBytesResumable };
+export { auth, getIdToken, app, storage, getDownloadURL, ref, uploadBytesResumable };
