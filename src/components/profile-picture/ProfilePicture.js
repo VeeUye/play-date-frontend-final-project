@@ -18,9 +18,9 @@ const ProfilePicture = ({imgUrl, setImgUrl}) => {
 
 
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
     event.preventDefault();
-    const file = event.target[0]?.files[0];
+    const file = event.target.files[0];
     if (!file) return;
     const storageRef = ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -68,7 +68,7 @@ const ProfilePicture = ({imgUrl, setImgUrl}) => {
         </label>
       </div>
 
-      <form onSubmit={handleSubmit} className="form">
+      <form onChange={handleChange} className="form">
         <input
           className={profilePictureStyles.profileUpload}
           type="file"
