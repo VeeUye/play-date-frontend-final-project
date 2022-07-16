@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getAuth, getIdToken, connectAuthEmulator } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -21,4 +21,4 @@ if (location.hostname === "localhost") {
   connectAuthEmulator(auth, "http://localhost:9099");
 }
 
-export { auth, app, storage };
+export { auth, getIdToken, app, storage };
