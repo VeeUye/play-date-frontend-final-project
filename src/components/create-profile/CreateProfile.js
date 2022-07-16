@@ -1,5 +1,6 @@
 import React from "react";
 import screenSize from "../../functions/screenSize";
+import ProfilePicture from "../profile-picture/ProfilePicture";
 import CreateProfileForm from "./CreateProfileForm";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import Image from "../../assets/images/skater.svg";
@@ -22,6 +23,10 @@ const CreateProfile = () => {
             className={titleStyles.createProfile}
             text="Create Profile"
           />
+          <div className={createProfileStyles.picUpload}>
+            <ProfilePicture />
+          </div>
+
           <CreateProfileForm />
           <img
             className={createProfileStyles.img}

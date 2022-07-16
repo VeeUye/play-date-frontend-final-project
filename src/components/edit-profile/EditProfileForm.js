@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
 import editProfile from "../../requests/profile/editProfile";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";

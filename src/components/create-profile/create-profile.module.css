@@ -1,3 +1,10 @@
+.picUpload {
+  position: relative;
+  top: 10rem;
+  left: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .background {
   display: flex;
   flex-shrink: 1;
