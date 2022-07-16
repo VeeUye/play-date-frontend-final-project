@@ -1,7 +1,7 @@
 .field1 {
   flex-shrink: 1;
   position: relative;
-  margin-top: 7rem;
+  margin-top: 8rem;
   margin-bottom: 5rem;
   width: 90vw;
 }
@@ -17,7 +17,7 @@
 @media only screen and (min-width: 600px) {
   .field1 {
     width: 22rem;
-    margin-top: 12rem;
+    /* margin-top: 8rem; */
   }
 
   .splitInput {
