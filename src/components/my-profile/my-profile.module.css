@@ -29,6 +29,7 @@
 
 .profileCard {
   width: 19.75rem;
+  max-width: 400px;
   padding: 0.625rem;
   margin-top: 11.375rem;
   display: flex;
@@ -40,12 +41,12 @@
 
 .card1 {
   width: 19.75rem;
+  max-width: 400px;
   margin: 0.3125rem;
   padding: .3125rem .3125rem .3125rem 0rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 2rem;
   align-items: center;
   /* border is just to see the width of the containers */
   /* border: 2px solid black; */
@@ -53,7 +54,7 @@
 
 .smallTitle {
   /* position: absolute; */
-  width: 12.0625rem;
+  /* width: 12.0625rem; */
   height: 2.5rem;
   left: 5.6875rem;
   top: 12.9375rem;
@@ -73,7 +74,7 @@
   width: 1.25rem;
   height: 1.25rem;
   top: 17.1875rem;
-  margin-left: 0.9375rem;
+  /* margin-left: 0.9375rem; */
   color: #f0c000;
 }
 
@@ -100,6 +101,7 @@
 /* FRIEND ALERT SECTION */
 .friendAlertCard {
   width: 19.75rem;
+  max-width: 400px;
   margin: 1.5rem 0rem 0.3125rem 0rem;
   /* padding: 0.625rem; */
   display: flex;
@@ -147,6 +149,7 @@ p {
 
 /* FRIEND LIST SECTION */
 .friendList {
+  max-width: 400px;
   margin: 1rem 0rem 1.25rem 0rem;
   width: 19.75rem;
   display: flex;
