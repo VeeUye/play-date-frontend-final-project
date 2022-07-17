@@ -7,6 +7,22 @@
   background: #f5f5f5;
 }
 
+figure {
+  margin: 0.3125rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.caption {
+  margin-top: 0.3125rem;
+  color: #835932;
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: 12px;
+}
+
 .hero {
   position: absolute;
   width: 100vw;
@@ -43,7 +59,7 @@
   width: 19.75rem;
   max-width: 400px;
   margin: 0.3125rem;
-  padding: .3125rem .3125rem .3125rem 0rem;
+  padding: 0.3125rem 0.3125rem 0.3125rem 0rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -103,20 +119,24 @@
   width: 19.75rem;
   max-width: 400px;
   margin: 1.5rem 0rem 0.3125rem 0rem;
-  /* padding: 0.625rem; */
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: .625rem;
+  flex-direction: column;
+  align-items: center;
   /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+  /* border: 2px solid #f0c000; */
 }
 
-.friendCardItem {
+.friendAlertItem {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* .friendCardItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
 .eventCard {
   max-width: 13.75rem;
@@ -124,9 +144,10 @@
 }
 
 h2 {
-  margin: 0rem 0rem 0rem .625rem;
+  font-size: 19px;
   padding: 0.125rem;
-  color: #f5f5f5;
+  color: #835932;
+  background-color: #f0c000;
 }
 
 .pBig {
@@ -136,14 +157,14 @@ h2 {
   font-size: 1.125rem;
   line-height: 122.9%;
   /* or 18px */
-
   letter-spacing: 0.02em;
   color: #835932;
 }
 
 p {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
+
 .buttonsAlert {
   margin-top: 0.3125rem;
   width: 13.75rem;
@@ -155,12 +176,12 @@ p {
 /* FRIEND LIST SECTION */
 .friendListContainer {
   max-width: 400px;
-  margin: 1rem 0rem 1.25rem 0rem;
+  margin: 1rem 0rem 3rem 0rem;
   width: 19.75rem;
   display: flex;
   flex-direction: column;
   /* border is just to see the width of the containers */
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .smallTitle2 {
@@ -182,17 +203,20 @@ p {
 }
 
 .friendList {
-  columns: 200px;
   list-style-type: none;
   margin: 10px;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   list-style: none;
   color: #835932;
+}
+
+.friendListItem {
+  font-size: large;
 }
 
 .friendImages {

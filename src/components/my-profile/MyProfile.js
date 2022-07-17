@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
-<<<<<<< HEAD
 import getMyProfile from "../../requests/profile/getMyProfile";
 import getMyEvents from "../../requests/events/getMyEvents"
 import getUserFriends from "../../requests/users/getUserFriends";
-=======
 import LoadSpinner from "../load-spinner/LoadSpinner";
->>>>>>> c50864faa44fe858804da9e213331ae30bb7905b
 
 // import Image from "../../assets/images/avatar.svg";
 // import Image1 from "../../assets/images/friend1.svg";
@@ -16,19 +13,15 @@ import Image2 from "../../assets/images/friend2.svg";
 
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import myEventsStyles from "../myEvents/my-events.module.css";
-
 import EventCard from "../myEvents/EventCard";
 import SuperSubHeading from "../atoms/supersubheading/SuperSubheading";
 import superSubstyles from "../atoms/supersubheading/supersubheading.module.css";
-
 import myProfileStyles from "../my-profile/my-profile.module.css";
+import ProfileImage from "../atoms/profile-image/ProfileImage";
 
 import { Icon } from "@iconify/react";
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
-
-<<<<<<< HEAD
-
 
 const MyProfile = () => {
     const history = useHistory();
@@ -39,7 +32,6 @@ const MyProfile = () => {
     const [userFriend, setUserFriends] = useState([]);
 
     useEffect(() => {
-        // console.log(user.uid);
         getMyProfile(user.uid, token)
             .then((userResults) => {
                 setUserData(userResults)
@@ -53,10 +45,9 @@ const MyProfile = () => {
                 setUserFriends(userFriendResults);
             })
     }, []);
-    // console.log(userFriend);
 
-    // const userChildren = userData.children;
-    // const child = userChildren.join(",");
+    const listFriends = userFriend.map((friend) =>
+        <li className={myProfileStyles.friendListItem} key={friend.id}>{friend.name}</li>);
 
     const handleCreateEvent = () => {
         history.push("/create-event");
@@ -70,218 +61,131 @@ const MyProfile = () => {
         history.push("/edit-profile");
     };
 
+    console.log(userFriend);
+
     return (
-=======
-const MyProfile = () => {
-  const history = useHistory();
-  const { user, token } = UserAuth();
+        <>
+            {!userData ? (
+                <LoadSpinner />
+            ) : (
+                <div className={myProfileStyles.background}>
+                    <div className={myProfileStyles.hero}></div>
 
-  const [userData, setUserData] = useState();
+                    <div className={myProfileStyles.profileCard}>
+                        {/* <img
+                            className={myProfileStyles.avatarImage}
+                            src={Image}
+                            alt="user profile picture"
+                        /> */}
+                        {/* <img className={myProfileStyles.avatarImage} src={userData.profile_pic} alt="user profile picture" /> */}
+                        <ProfileImage src={userData.profile_pic} />
+                        <SmallTitle
+                            className={myProfileStyles.smallTitle}
+                            text={userData.name}
+                        />
+                        <Button
+                            className={buttonStyles.myProfile3}
+                            label="EDIT PROFILE"
+                            onClick={handleEditProfile}
+                        ></Button>
+                    </div>
 
-  useEffect(() => {
-    getMyProfile(user.uid, token).then((userResults) => {
-      setUserData(userResults);
-    });
-  }, [user]);
-
-  const handleCreateEvent = () => {
-    history.push("/create-event");
-  };
-
-  const handleMyEvents = () => {
-    history.push("/my-events");
-  };
-
-  const handleEditProfile = () => {
-    history.push("/edit-profile");
-  };
-
-  return (
-    <>
-      {!userData ? (
-        <LoadSpinner />
-      ) : (
->>>>>>> c50864faa44fe858804da9e213331ae30bb7905b
-        <div className={myProfileStyles.background}>
-          <div className={myProfileStyles.hero}></div>
-
-          <div className={myProfileStyles.profileCard}>
-            <img
-              className={myProfileStyles.avatarImage}
-              src={Image}
-              alt="user profile picture"
-            />
-            <SmallTitle
-              className={myProfileStyles.smallTitle}
-              text={userData.name}
-            />
-            <Button
-              className={buttonStyles.myProfile3}
-              label="EDIT PROFILE"
-              onClick={handleEditProfile}
-            ></Button>
-          </div>
-
-          <div className={myProfileStyles.card1}>
-            <div className={myProfileStyles.cardItem}>
-              <Icon
-                className={myProfileStyles.icon}
-                icon="carbon:location-filled"
-              />
-              <SuperSubHeading
-                className={superSubstyles.myProfile}
-                text={userData.location}
-              />
-            </div>
-
-<<<<<<< HEAD
-
-            <div className={myProfileStyles.profileCard}>
-                {/* <img className={myProfileStyles.avatarImage} src={Image} alt="user profile picture" /> */}
-                <img className={myProfileStyles.avatarImage} src={userData.profile_pic} alt="user profile picture" />
-                <SmallTitle className={myProfileStyles.smallTitle} text={userData.name} />
-                <Button className={buttonStyles.myProfile3} label="EDIT PROFILE" onClick={handleEditProfile}></Button>
-            </div>
-
-            <div className={myProfileStyles.card1}>
-                <div className={myProfileStyles.cardItem}>
-                    <Icon className={myProfileStyles.icon} icon="carbon:location-filled" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text={userData.location} />
-                </div>
-
-                <div className={myProfileStyles.cardItem}>
-                    <Icon className={myProfileStyles.icon} icon="cil:child" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text={userData.children} />
-                </div>
-=======
-            <div className={myProfileStyles.cardItem}>
-              <Icon className={myProfileStyles.icon} icon="cil:child" />
-              <SuperSubHeading
-                className={superSubstyles.myProfile}
-                text={userData.children}
-              />
-            </div>
-          </div>
-
-          <div className={myProfileStyles.buttons}>
-            <Button
-              className={buttonStyles.myProfile1}
-              label="CREATE EVENT"
-              onClick={handleCreateEvent}
-            ></Button>
-
-            <Button
-              className={buttonStyles.myProfile1}
-              label="MY EVENTS"
-              onClick={handleMyEvents}
-            ></Button>
-          </div>
-
-          <div className={myProfileStyles.friendAlertCard}>
-            <img
-              className={myProfileStyles.img2}
-              src={Image2}
-              alt="friend2 profile picture"
-            />
-            <div className={myProfileStyles.card}>
-              <h2>YOU ARE INVITED</h2>
-              <p className={myProfileStyles.pBig}>Seesaw Adventure!</p>
-              <p className={myProfileStyles.p}>16th July 2022 | 9:00 - 12:00</p>
-              <p className={myProfileStyles.p}>Manchester park, Manchester</p>
-              <p className={myProfileStyles.p}>from @bobby1234</p>
-              <div className={myProfileStyles.buttonsAlert}>
-                <Button className={buttonStyles.myProfile2} label="ACCEPT" />
-                <Button className={buttonStyles.myProfile2} label="DECLINE" />
-              </div>
->>>>>>> c50864faa44fe858804da9e213331ae30bb7905b
-            </div>
-          </div>
-
-          <div className={myProfileStyles.friendList}>
-            <SmallTitle
-              className={myProfileStyles.smallTitle2}
-              text="FRIENDS"
-            />
-
-            <div className={myProfileStyles.friendImages}>
-              <img
-                className={myProfileStyles.img1}
-                src={Image1}
-                alt="friend1 profile picture"
-              />
-              <img
-                className={myProfileStyles.img2}
-                src={Image2}
-                alt="friend2 profile picture"
-              />
-              <img
-                className={myProfileStyles.img3}
-                src={Image3}
-                alt="friend3 profile picture"
-              />
-            </div>
-<<<<<<< HEAD
-
-            <div className={myProfileStyles.friendAlertCard}>
-                {/* <h2>YOU ARE INVITED</h2> */}
-                <div className={myProfileStyles.friendCardItem}>
-                    <img className={myProfileStyles.img2} src={Image2} alt="friend2 profile picture" />
-                    <SuperSubHeading className={superSubstyles.myProfile2} text={"Bobby"} />
-                </div>
-                <div className={myProfileStyles.eventCard}>
-                    {events.length > 0 &&
-                        <div className={myEventsStyles.myEvents} >
-                            {events.map((event) => (
-                                <EventCard key={event.uid} eventData={event} />
-                            ))}
+                    <div className={myProfileStyles.card1}>
+                        <div className={myProfileStyles.cardItem}>
+                            <Icon
+                                className={myProfileStyles.icon}
+                                icon="carbon:location-filled"
+                            />
+                            <SuperSubHeading
+                                className={superSubstyles.myProfile}
+                                text={userData.location}
+                            />
                         </div>
-                    }
-                </div>
-            </div>
 
-            <div className={myProfileStyles.friendListContainer}>
-                <SmallTitle className={myProfileStyles.smallTitle2} text="FRIENDS" />
+                        <div className={myProfileStyles.cardItem}>
+                            <Icon className={myProfileStyles.icon} icon="cil:child" />
+                            <SuperSubHeading
+                                className={superSubstyles.myProfile}
+                                text={userData.children}
+                            />
+                        </div>
+                    </div>
 
-                <ul className={myProfileStyles.friendList}>
-                    {userFriend.map(friend => <li className={myProfileStyles.friendListItem} key={friend.name}>{friend.name}</li>)}
-                </ul>
-                {/* <div className={myProfileStyles.friendImages}>
-                    <img className={myProfileStyles.img1} src={Image1} alt="friend1 profile picture" />
-                    <img className={myProfileStyles.img2} src={Image2} alt="friend2 profile picture" />
-                    <img className={myProfileStyles.img3} src={Image3} alt="friend3 profile picture" />
-                </div>
-                <div className={myProfileStyles.friendNames}>
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Maria" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Bobby" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Anna" />
-                </div> */}
-=======
-            <div className={myProfileStyles.friendNames}>
-              <SuperSubHeading
-                className={superSubstyles.myProfile}
-                text="Maria"
-              />
-              <SuperSubHeading
-                className={superSubstyles.myProfile}
-                text="Bobby"
-              />
-              <SuperSubHeading
-                className={superSubstyles.myProfile}
-                text="Anna"
-              />
->>>>>>> c50864faa44fe858804da9e213331ae30bb7905b
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
+                    <div className={myProfileStyles.buttons}>
+                        <Button
+                            className={buttonStyles.myProfile1}
+                            label="CREATE EVENT"
+                            onClick={handleCreateEvent}
+                        ></Button>
+
+                        <Button
+                            className={buttonStyles.myProfile1}
+                            label="MY EVENTS"
+                            onClick={handleMyEvents}
+                        ></Button>
+                    </div>
+
+                    <div className={myProfileStyles.friendAlertCard}>
+                        <div className={myProfileStyles.friendAlertItem}>
+                            <figure>
+                                <img
+                                    className={myProfileStyles.img2}
+                                    src={Image2}
+                                    alt="friend2 profile picture" />
+                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
+                                {/* {userFriend.map(friend => <p key={friend.name}>{friend.name[1]}</p>)} */}
+                            </figure>
+                            <h2>INVITED YOU TO AN EVENT</h2>
+                        </div>
+
+                        <div className={myProfileStyles.eventCard}>
+                            {events.length > 0 &&
+                                <div className={myEventsStyles.myEvents} >
+                                    {events.map((event) => (
+                                        <EventCard key={event.uid} eventData={event} />
+                                    ))}
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div className={myProfileStyles.friendListContainer}>
+                        <SmallTitle
+                            className={myProfileStyles.smallTitle2}
+                            text="FRIENDS" />
+
+                        <ul className={myProfileStyles.friendList}>
+                            {/* IMAGE WITH CAPTION USING LIVE DATA BELOW */}
+                            <li>
+                                <img
+                                    className={myProfileStyles.img2}
+                                    src={Image2}
+                                    alt="friend2 profile picture" />
+                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
+                            </li>
+
+                            <li>
+                                <img
+                                    className={myProfileStyles.img2}
+                                    src={Image2}
+                                    alt="friend2 profile picture" />
+                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
+                            </li>
+
+                            {listFriends}
+                        </ul>
+                    </div>
+                </div >
+            )
+            }
+        </>
+    );
 };
 
 {
-  /* MyProfile.propTypes = {
-    name: PropTypes.string
-}; */
+    /* MyProfile.propTypes = {
+      name: PropTypes.string
+  }; */
 }
 
 export default MyProfile;
