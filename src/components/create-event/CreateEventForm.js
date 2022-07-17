@@ -13,17 +13,10 @@ import { UserAuth } from "../../contexts/AuthContext";
 const CreateEventForm = () => {
   const [friends, setFriends] = useState([]);
 
-  const { user } = UserAuth();
-
-  const userIdToken = async () => {
-    const getToken = await user.getIdToken().then((token) => {
-      return token;
-    });
-    return getToken;
-  };
+  const { user, token } = UserAuth();
 
   useEffect(() => {
-    getUserFriends(user.uid, userIdToken()).then((result) => {
+    getUserFriends(user.uid, token).then((result) => {
       const friendsInvite = result.map((friend) => {
         return { value: friend.userId, label: friend.name };
       });
@@ -62,7 +55,7 @@ const CreateEventForm = () => {
     dates.date_start = new Date(fields.date_start);
     dates.date_end = new Date(fields.date_end);
     setAlert({ message: "", isSuccess: false });
-    postEvent(fields, userIdToken(), setAlert);
+    postEvent(fields, token, setAlert);
     setFields({ ...fields, ["owner"]: user.uid });
     setDates(initialState.dates);
   };

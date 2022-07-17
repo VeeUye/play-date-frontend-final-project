@@ -6,16 +6,22 @@ import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 import { Icon } from "@iconify/react";
 
-const EventCard = ({
-  // owner,
-  //   date,
-  startTime,
-  endTime,
-  location,
-  name,
-  // friendsConfirmed,
-  // friendsInvited
-}) => {
+const EventCard = ( {eventData} ) => {
+  const { date_start, date_end, location } = eventData;
+  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const d_start = new Date(date_start);
+  const d_end = new Date(date_end);
+  const dateStart = {
+    date: d_start.getDate(), 
+    month: d_start.getMonth(), 
+    hours: d_start.getHours(), 
+    minutes: d_start.getMinutes()
+  };
+  const dateEnd = {
+    hours: d_end.getHours(),
+    minutes: d_end.getMinutes()
+  };
+
   return (
     <div className={eventCardStyles.background}>
       <div className={eventCardStyles.details}>
@@ -23,8 +29,8 @@ const EventCard = ({
         {/* Commenting out current date as is not being passed correct format for date */}
         {/* <div className={eventCardStyles.date}>{date}</div> */}
         {/* comment end */}
-        <div className={eventCardStyles.day}>08</div>
-        <div className={eventCardStyles.month}>July</div>
+        <div className={eventCardStyles.day}>{dateStart.date}</div>
+        <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
         <div className={eventCardStyles.iconLocation}>
           <Icon
             className={eventCardStyles.icon}
@@ -35,7 +41,7 @@ const EventCard = ({
         <div className={eventCardStyles.iconTime}>
           <Icon className={eventCardStyles.icon} icon="bx:time-five" />
           <div className={eventCardStyles.startTime}>
-            {startTime} - {endTime}
+            {dateStart.hours}:{dateStart.minutes} - {dateEnd.hours}:{dateEnd.minutes}
           </div>
         </div>
         <div className={eventCardStyles.iconName}>
@@ -57,14 +63,15 @@ const EventCard = ({
 };
 
 EventCard.propTypes = {
-  owner: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
-  startTime: PropTypes.string.isRequired,
-  endTime: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
-  friendsInvited: PropTypes.arrayOf(PropTypes.number),
+  eventData: PropTypes.shape({
+    // owner: PropTypes.string.isRequired,
+    date_start: PropTypes.string.isRequired,
+    date_end: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    // name: PropTypes.string.isRequired,
+    // friendsConfirmed: PropTypes.arrayOf(PropTypes.string),
+    // friendsInvited: PropTypes.arrayOf(PropTypes.string),
+  })
 };
 
 export default EventCard;

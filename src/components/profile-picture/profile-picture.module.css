@@ -1,0 +1,46 @@
+.profileImg {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profileUpload {
+  display: none;
+}
+
+.imageContainerSmall {
+  margin-top: -5rem;
+  margin-bottom: 11rem;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.imageContainerBig {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 11rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cameraIcon {
+  color: white;
+  background-color: lightgray;
+  opacity: 0.9;
+  border-radius: 3rem;
+  padding: 0.3rem;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 85%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

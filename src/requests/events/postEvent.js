@@ -5,11 +5,10 @@ const BASE_URL =
   "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const postEvent = async (fields, userIdToken, setAlert) => {
-  const tokenResult = await userIdToken;
 
   try {
     const res = await axios.post(`${BASE_URL}/events`, fields, {
-      headers: { Authorization: `Bearer ${tokenResult}` },
+      headers: { Authorization: `Bearer ${userIdToken}` },
     });
     setAlert({
       message: "Event Created",
