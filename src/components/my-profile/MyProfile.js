@@ -27,12 +27,16 @@ const MyProfile = () => {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        console.log(user.uid);
+        // console.log(user.uid);
         getMyProfile(user.uid, token)
         .then((userResults) => {
             setUserData(userResults)
         })
+
     }, []);
+
+    const children = userData.children;
+    const child = children.join();
 
     const handleCreateEvent = () => {
         history.push("/create-event");
@@ -67,7 +71,7 @@ const MyProfile = () => {
 
                 <div className={myProfileStyles.cardItem}>
                     <Icon className={myProfileStyles.icon} icon="cil:child" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text={userData.children} />
+                    <SuperSubHeading className={superSubstyles.myProfile} text={child} />
                 </div>
             </div>
 
