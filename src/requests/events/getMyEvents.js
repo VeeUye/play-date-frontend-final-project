@@ -5,18 +5,18 @@ const BASE_URL =
   "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const getMyEvents = async (setEvents, user, userIdToken) => {
-
-      return axios
+  if (user && userIdToken) {
+    return axios
       .get(`${BASE_URL}/events/user-events/${user}`, {
         headers: { Authorization: `Bearer ${userIdToken}` },
       })
-      .then((res)=>{
+      .then((res) => {
         setEvents(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-
+  }
 };
 
-export default getMyEvents
+export default getMyEvents;
