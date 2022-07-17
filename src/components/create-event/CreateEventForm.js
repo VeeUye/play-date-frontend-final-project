@@ -54,12 +54,16 @@ const CreateEventForm = ({ user, token }) => {
     dates.date_end = new Date(fields.date_end);
     setAlert({ message: "", isSuccess: false });
     postEvent(fields, token, setAlert);
-    setFields({ ...fields, ["owner"]: user.uid });
+    setFields(initialState.fields);
     setDates(initialState.dates);
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({
+      ...fields,
+      [event.target.name]: event.target.value,
+      ["owner"]: user.uid,
+    });
   };
 
   const handleMultiInviteChange = (event) => {
