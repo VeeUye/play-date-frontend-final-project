@@ -8,11 +8,8 @@ import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
-import { UserAuth } from "../../contexts/AuthContext";
 
-const CreateProfileForm = ({imgUrl}) => {
-  const { user, token } = UserAuth();
-  
+const CreateProfileForm = ({ imgUrl, user, token }) => {
   const history = useHistory();
 
   const initialState = {
@@ -45,7 +42,11 @@ const CreateProfileForm = ({imgUrl}) => {
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value, ["imgUrl"]: imgUrl});
+    setFields({
+      ...fields,
+      [event.target.name]: event.target.value,
+      ["imgUrl"]: imgUrl,
+    });
   };
 
   return (
@@ -96,4 +97,6 @@ export default CreateProfileForm;
 
 CreateProfileForm.propTypes = {
   imgUrl: PropTypes.string,
+  user: PropTypes.object,
+  token: PropTypes.string,
 };
