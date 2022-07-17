@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import getMyProfile from "../../requests/profile/getMyProfile";
+import { UserAuth } from "../../contexts/AuthContext";
+
 import Image from "../../assets/images/avatar.svg";
 import Image1 from "../../assets/images/friend1.svg";
 import Image2 from "../../assets/images/friend2.svg";
@@ -19,6 +22,17 @@ import buttonStyles from "../atoms/button/button.module.css";
 
 const MyProfile = () => {
     const history = useHistory();
+    const { user, token } = UserAuth();
+
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        console.log(user.uid);
+        getMyProfile(user.uid, token)
+        .then((userResults) => {
+            setUserData(userResults)
+        })
+    }, []);
 
     const handleCreateEvent = () => {
         history.push("/create-event");
@@ -41,19 +55,19 @@ const MyProfile = () => {
 
             <div className={myProfileStyles.profileCard}>
                 <img className={myProfileStyles.avatarImage} src={Image} alt="user profile picture" />
-                <SmallTitle className={myProfileStyles.smallTitle} text="JOHNSON DOE" />
+                <SmallTitle className={myProfileStyles.smallTitle} text={userData.name} />
                 <Button className={buttonStyles.myProfile3} label="EDIT PROFILE" onClick={handleEditProfile}></Button>
             </div>
 
             <div className={myProfileStyles.card1}>
                 <div className={myProfileStyles.cardItem}>
                     <Icon className={myProfileStyles.icon} icon="carbon:location-filled" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Manchester" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text={userData.location} />
                 </div>
 
                 <div className={myProfileStyles.cardItem}>
                     <Icon className={myProfileStyles.icon} icon="cil:child" />
-                    <SuperSubHeading className={superSubstyles.myProfile} text="Sophie and Timmy" />
+                    <SuperSubHeading className={superSubstyles.myProfile} text={userData.children} />
                 </div>
             </div>
 
