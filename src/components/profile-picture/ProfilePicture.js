@@ -8,15 +8,12 @@ import {
 import PropTypes from "prop-types";
 import screenSize from "../../functions/screenSize";
 import profilePictureStyles from "./profile-picture.module.css";
-import buttonStyles from "../atoms/button/button.module.css";
 import DefaultPic from "../../assets/images/avatar.svg";
 import { Icon } from "@iconify/react";
 
 const ProfilePicture = ({imgUrl, setImgUrl}) => {
   const imgSrc = imgUrl ? imgUrl : DefaultPic;
   const isSmall = screenSize();
-
-
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -31,14 +28,14 @@ const ProfilePicture = ({imgUrl, setImgUrl}) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        console.log(progress);
+        console.log('progress->',progress);
       },
       (error) => {
         alert(error);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log(downloadURL);
+          console.log('download->',downloadURL);
           setImgUrl(downloadURL);
         });
       }
@@ -74,9 +71,6 @@ const ProfilePicture = ({imgUrl, setImgUrl}) => {
           type="file"
           id="profile-upload"
         />
-        <button className={buttonStyles.pictureUpload} type="submit">
-          Set Image
-        </button>
       </form>
     </div>
   );
