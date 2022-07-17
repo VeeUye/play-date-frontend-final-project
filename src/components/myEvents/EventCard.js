@@ -21,12 +21,6 @@ const EventCard = ( {eventData} ) => {
     hours: d_end.getHours(),
     minutes: d_end.getMinutes()
   };
-  // const d_start_date = d_start.getDate();
-  // const d_start_month = month[d_start.getMonth()];
-  // const d_start_hours = d_start.getHours();
-  // const d_start_minutes = d_start.getMinutes();
-  // const d_end_hours = d_end.getHours();
-  // const d_end_minutes = d_end.getMinutes();
 
   return (
     <div className={eventCardStyles.background}>
