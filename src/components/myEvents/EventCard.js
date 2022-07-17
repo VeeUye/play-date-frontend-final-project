@@ -11,12 +11,22 @@ const EventCard = ( {eventData} ) => {
   const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const d_start = new Date(date_start);
   const d_end = new Date(date_end);
-  const d_start_date = d_start.getDate();
-  const d_start_month = month[d_start.getMonth()];
-  const d_start_hours = d_start.getHours();
-  const d_start_minutes = d_start.getMinutes();
-  const d_end_hours = d_end.getHours();
-  const d_end_minutes = d_end.getMinutes();
+  const dateStart = {
+    date: d_start.getDate(), 
+    month: d_start.getMonth(), 
+    hours: d_start.getHours(), 
+    minutes: d_start.getMinutes()
+  };
+  const dateEnd = {
+    hours: d_end.getHours(),
+    minutes: d_end.getMinutes()
+  };
+  // const d_start_date = d_start.getDate();
+  // const d_start_month = month[d_start.getMonth()];
+  // const d_start_hours = d_start.getHours();
+  // const d_start_minutes = d_start.getMinutes();
+  // const d_end_hours = d_end.getHours();
+  // const d_end_minutes = d_end.getMinutes();
 
   return (
     <div className={eventCardStyles.background}>
@@ -25,8 +35,8 @@ const EventCard = ( {eventData} ) => {
         {/* Commenting out current date as is not being passed correct format for date */}
         {/* <div className={eventCardStyles.date}>{date}</div> */}
         {/* comment end */}
-        <div className={eventCardStyles.day}>{d_start_date}</div>
-        <div className={eventCardStyles.month}>{d_start_month}</div>
+        <div className={eventCardStyles.day}>{dateStart.date}</div>
+        <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
         <div className={eventCardStyles.iconLocation}>
           <Icon
             className={eventCardStyles.icon}
@@ -37,7 +47,7 @@ const EventCard = ( {eventData} ) => {
         <div className={eventCardStyles.iconTime}>
           <Icon className={eventCardStyles.icon} icon="bx:time-five" />
           <div className={eventCardStyles.startTime}>
-            {d_start_hours}:{d_start_minutes} - {d_end_hours}:{d_end_minutes}
+            {dateStart.hours}:{dateStart.minutes} - {dateEnd.hours}:{dateEnd.minutes}
           </div>
         </div>
         <div className={eventCardStyles.iconName}>
