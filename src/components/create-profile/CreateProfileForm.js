@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import postProfile from "../../requests/profile/postProfile";
 import PropTypes from "prop-types";
 import FormInput from "../atoms/form-input/FormInput";
@@ -11,6 +12,8 @@ import { UserAuth } from "../../contexts/AuthContext";
 
 const CreateProfileForm = ({imgUrl}) => {
   const { user, token } = UserAuth();
+  
+  const history = useHistory();
 
   const initialState = {
     fields: {
@@ -38,6 +41,7 @@ const CreateProfileForm = ({imgUrl}) => {
     setAlert({ message: "", isSuccess: false });
     postProfile(fields, token, setAlert);
     setFields(initialState.fields);
+    history.push("/my-profile");
   };
 
   const handleFieldChange = (event) => {
