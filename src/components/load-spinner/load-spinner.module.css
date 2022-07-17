@@ -1,0 +1,12 @@
+.loadSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  height: 100vh;
+}
+
+.moonLoader {
+  display: "block";
+  margin: "0 auto";
+}
