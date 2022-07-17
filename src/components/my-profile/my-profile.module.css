@@ -112,10 +112,15 @@
   /* border: 2px solid black; */
 }
 
-.card {
+.friendCardItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventCard {
   max-width: 13.75rem;
   min-height: 9.375rem;
-  background-color: #f0c000;
 }
 
 h2 {
@@ -148,14 +153,14 @@ p {
 }
 
 /* FRIEND LIST SECTION */
-.friendList {
+.friendListContainer {
   max-width: 400px;
   margin: 1rem 0rem 1.25rem 0rem;
   width: 19.75rem;
   display: flex;
   flex-direction: column;
   /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+  border: 2px solid black;
 }
 
 .smallTitle2 {
@@ -173,6 +178,20 @@ p {
   /* or 40px */
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  color: #835932;
+}
+
+.friendList {
+  columns: 200px;
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
   color: #835932;
 }
 

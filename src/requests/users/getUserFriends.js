@@ -5,14 +5,15 @@ const BASE_URL =
   process.env.REACT_APP_FIREBASE_FIRESTORE_URL ||
   "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
-const getUserFriends = async (user, userIdToken) => {
+const getUserFriends = async (userId, userIdToken) => {
 
   return axios
-    .get(`${BASE_URL}/users/${user}/friends`, {
+    .get(`${BASE_URL}/users/${userId}/friends`, {
       headers: { Authorization: `Bearer ${userIdToken}` },
     })
     .then((res) => {
       return res.data;
+      // console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
