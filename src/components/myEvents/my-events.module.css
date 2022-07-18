@@ -23,6 +23,22 @@
     width: 400px
 }
 
+.buttons {
+    width: 23rem;
+    max-width: 23rem;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    /* padding: 0.625rem; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center
+    /* border is just to see the width of the containers */
+    /* border: 2px solid black; */
+  }
+
 @media only screen and (max-width: 1200px) {
 
     .background {

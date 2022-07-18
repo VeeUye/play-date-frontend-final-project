@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext";
 import EventCard from "./EventCard";
 import Image from "../../assets/images/papers.svg";
 import myEventsStyles from "./my-events.module.css";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import titleStyles from "../atoms/small-title/small-title.module.css";
-import { UserAuth } from "../../contexts/AuthContext";
+
 import getMyEvents from "../../requests/events/getMyEvents";
 import LoadSpinner from "../load-spinner/LoadSpinner";
 import "./my-events.module.css";
+import Button from "../atoms/button/Button";
+import buttonStyles from "../atoms/button/button.module.css";
 
 const MyEvents = () => {
+  const history = useHistory();
   const [events, setEvents] = useState([]);
   const { user, token } = UserAuth();
 
@@ -19,6 +24,11 @@ const MyEvents = () => {
       setEvents(true);
     }
   }, [user]);
+
+  const handleCreateEvent = () => {
+    history.push("/create-event");
+};
+
   return (
     <div className={myEventsStyles.background}>
       {!user || !token ? (
@@ -35,6 +45,13 @@ const MyEvents = () => {
                 ))}
               </div>
             )}
+            <div className={myEventsStyles.buttons}>
+                        <Button
+                            className={buttonStyles.myEvents}
+                            label="CREATE EVENT"
+                            onClick={handleCreateEvent}
+                        ></Button>
+                    </div>
           </div>
         </>
       )}
