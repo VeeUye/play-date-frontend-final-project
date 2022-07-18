@@ -21,11 +21,21 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  font-size: .75rem;
+  font-size: 1.0625rem;
   line-height: 155.4%;
   /* identical to box height, or 19px */
   
   letter-spacing: 0.02em;
   
+  color: #835932;
+}
+
+.myProfile2 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 155.4%;
+  letter-spacing: 0.02em;
   color: #835932;
 }
