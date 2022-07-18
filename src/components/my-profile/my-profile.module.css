@@ -21,6 +21,7 @@ figure {
   font-family: "Poppins";
   font-style: normal;
   font-size: 12px;
+  text-align: center;
 }
 
 .hero {
@@ -41,6 +42,14 @@ figure {
   height: 6.5rem;
   /* left: 260px; */
   top: 4.5rem;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .profileCard {
@@ -53,7 +62,19 @@ figure {
   align-items: center;
   border: 0.125rem solid #f0c000;
   border-radius: 1rem;
-  box-shadow: .5px 4px 1px 1px #f0c000;
+  box-shadow: 0.5px 4px 1px 1px #f0c000;
+}
+
+.profileImg {
+  width: 6.5rem;
+  height: 6.5rem;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  /* margin-bottom: 1rem; */
 }
 
 .smallTitle {
@@ -115,7 +136,7 @@ figure {
 
 .friendAlertItem {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -156,9 +177,11 @@ p {
   margin: 1rem 0rem 3rem 0rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 0.125rem solid #f0c000;
   border-radius: 1rem;
-  box-shadow: .5px 4px 1px 1px #f0c000;
+  box-shadow: 0.5px 4px 1px 1px #f0c000;
 }
 
 .friendImage {
@@ -181,6 +204,7 @@ p {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #835932;
+  text-align: center;
 }
 
 .friendList {
@@ -190,6 +214,7 @@ p {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.9375rem;
   list-style: none;
   color: #835932;
@@ -199,4 +224,17 @@ p {
 
 .friendListItem {
   font-size: large;
+}
+
+.additionalEvents {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 155.4%;
+  /* identical to box height, or 19px */
+
+  letter-spacing: 0.02em;
+
+  color: #835932;
 }
