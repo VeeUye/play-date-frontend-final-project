@@ -112,7 +112,7 @@ button {
   height: 2rem;
   font-style: normal;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 155.4%;
 
   text-align: center;
@@ -135,7 +135,7 @@ button {
   height: 2.5rem;
   font-style: normal;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 155.4%;
 
   text-align: center;
@@ -179,20 +179,18 @@ button {
 }
 
 .myProfile3 {
+  margin-top: 15px;
   position: relative;
-  width: 5.75rem;
-  height: 1rem;
+  width: 8rem;
+  height: 1.4rem;
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 1.0625rem;
   line-height: 155.4%;
-
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #835932;
-
   background: #f0c000;
   border-radius: 1.25rem;
   border: none;

@@ -6,7 +6,7 @@ import getMyEvents from "../../requests/events/getMyEvents"
 import getUserFriends from "../../requests/users/getUserFriends";
 import LoadSpinner from "../load-spinner/LoadSpinner";
 
-// import Image from "../../assets/images/avatar.svg";
+import Image from "../../assets/images/avatar.svg";
 // import Image1 from "../../assets/images/friend1.svg";
 import Image2 from "../../assets/images/friend2.svg";
 // import Image3 from "../../assets/images/friend3.svg";
@@ -17,11 +17,13 @@ import EventCard from "../myEvents/EventCard";
 import SuperSubHeading from "../atoms/supersubheading/SuperSubheading";
 import superSubstyles from "../atoms/supersubheading/supersubheading.module.css";
 import myProfileStyles from "../my-profile/my-profile.module.css";
-import ProfileImage from "../atoms/profile-image/ProfileImage";
+// import ProfileImage from "../atoms/profile-image/ProfileImage";
 
 import { Icon } from "@iconify/react";
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
+// eslint-disable-next-line no-unused-vars
+import { stringify } from "@firebase/util";
 
 const MyProfile = () => {
     const history = useHistory();
@@ -61,8 +63,6 @@ const MyProfile = () => {
         history.push("/edit-profile");
     };
 
-    console.log(userFriend);
-
     return (
         <>
             {!userData ? (
@@ -71,26 +71,23 @@ const MyProfile = () => {
                 <div className={myProfileStyles.background}>
                     <div className={myProfileStyles.hero}></div>
 
+                    {/* PROFILE SECTION */}
                     <div className={myProfileStyles.profileCard}>
-                        {/* <img
+                        <img
                             className={myProfileStyles.avatarImage}
                             src={Image}
                             alt="user profile picture"
-                        /> */}
+                        />
                         {/* <img className={myProfileStyles.avatarImage} src={userData.profile_pic} alt="user profile picture" /> */}
-                        <ProfileImage src={userData.profile_pic} />
+                        <img src={userData.imgURL} />
                         <SmallTitle
                             className={myProfileStyles.smallTitle}
                             text={userData.name}
                         />
-                        <Button
-                            className={buttonStyles.myProfile3}
-                            label="EDIT PROFILE"
-                            onClick={handleEditProfile}
-                        ></Button>
-                    </div>
-
-                    <div className={myProfileStyles.card1}>
+                        <SuperSubHeading
+                            className={superSubstyles.myProfile}
+                            text={` " ${userData.description} " `}
+                        />
                         <div className={myProfileStyles.cardItem}>
                             <Icon
                                 className={myProfileStyles.icon}
@@ -106,11 +103,17 @@ const MyProfile = () => {
                             <Icon className={myProfileStyles.icon} icon="cil:child" />
                             <SuperSubHeading
                                 className={superSubstyles.myProfile}
-                                text={userData.children}
+                                text={String(userData.children)}
                             />
                         </div>
+                        <Button
+                            className={buttonStyles.myProfile3}
+                            label="EDIT PROFILE"
+                            onClick={handleEditProfile}
+                        ></Button>
                     </div>
-
+                    <hr className="rounded"></hr>
+                    {/* BUTTON SECTION */}
                     <div className={myProfileStyles.buttons}>
                         <Button
                             className={buttonStyles.myProfile1}
@@ -125,6 +128,7 @@ const MyProfile = () => {
                         ></Button>
                     </div>
 
+                    {/* FRIEND INVITATION ALERT SECTION */}
                     <div className={myProfileStyles.friendAlertCard}>
                         <div className={myProfileStyles.friendAlertItem}>
                             <figure>
@@ -149,6 +153,7 @@ const MyProfile = () => {
                         </div>
                     </div>
 
+                    {/* FRIEND LIST SECTION */}
                     <div className={myProfileStyles.friendListContainer}>
                         <SmallTitle
                             className={myProfileStyles.smallTitle2}
@@ -158,7 +163,7 @@ const MyProfile = () => {
                             {/* IMAGE WITH CAPTION USING LIVE DATA BELOW */}
                             <li>
                                 <img
-                                    className={myProfileStyles.img2}
+                                    className={myProfileStyles.friendImage}
                                     src={Image2}
                                     alt="friend2 profile picture" />
                                 <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
@@ -166,12 +171,21 @@ const MyProfile = () => {
 
                             <li>
                                 <img
-                                    className={myProfileStyles.img2}
+                                    className={myProfileStyles.friendImage}
                                     src={Image2}
                                     alt="friend2 profile picture" />
                                 <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
                             </li>
 
+                            <li>
+                                <img
+                                    className={myProfileStyles.friendImage}
+                                    src={Image2}
+                                    alt="friend2 profile picture" />
+                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
+                            </li>
+
+                            {/* Live data with actual Homer's friends but with no picture */}
                             {listFriends}
                         </ul>
                     </div>
