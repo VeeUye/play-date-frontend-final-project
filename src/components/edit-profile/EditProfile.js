@@ -46,7 +46,7 @@ const EditProfile = () => {
           <div className={editProfileStyles.picUpload}>
             <ProfilePicture imgUrl={imgUrl} setImgUrl={setImgUrl} />
           </div>
-          <EditProfileForm imgUrl={imgUrl} user={user} token={token} />
+          <EditProfileForm userData={userData} imgUrl={imgUrl} user={user} token={token} />
           <img className={editProfileStyles.img} src={Image} alt="skater boy" />
         </div>
         <img className={editProfileStyles.img2} src={Image} alt="skater boy" />
