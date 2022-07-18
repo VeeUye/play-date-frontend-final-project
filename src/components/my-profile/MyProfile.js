@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
 import getMyProfile from "../../requests/profile/getMyProfile";
-import getMyEvents from "../../requests/events/getMyPendingEvents";
+import getMyPendingEvents from "../../requests/events/getMyPendingEvents";
 import getUserFriends from "../../requests/users/getUserFriends";
 import LoadSpinner from "../load-spinner/LoadSpinner";
 
@@ -42,7 +42,7 @@ const MyProfile = () => {
     getUserFriends(user.uid, token).then((userFriendResults) => {
       setUserFriends(userFriendResults);
     });
-    getMyEvents(setEvents, user.uid, token).then((eventResults) => {
+    getMyPendingEvents(setEvents, user.uid, token).then((eventResults) => {
       if (eventResults) {
         getUserFriends(user.uid, token)
           .then((userFriendResults) => {
