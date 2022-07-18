@@ -7,8 +7,20 @@ import myEventsStyles from "./my-events.module.css";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import titleStyles from "../atoms/small-title/small-title.module.css";
 import "./my-events.module.css";
+import { UserAuth } from "../../contexts/AuthContext";
 
 const MyEvents = ({ events }) => {
+    const { user } = UserAuth();
+
+    const userIdToken = async () => {
+    const getToken = await user.getIdToken().then((token) => {
+      return token;
+    });
+    return getToken;
+    };
+
+    const allMyEvents = 
+
     return (
         <div className={myEventsStyles.background}>
             <img

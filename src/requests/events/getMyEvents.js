@@ -8,10 +8,11 @@ const getMyEvents = async(user, userIdToken) => {
     const tokenResult = await userIdToken
     
     return axios
-    .get(`${BASE_URL}/events/user-events/${user}/friends`, {
+    .get(`${BASE_URL}/events/user-events/${user}/events`, {
       headers: { Authorization: `Bearer ${tokenResult}` },
     })
     .then((res) => {
+      console.log(res.data);
       return res.data;
     })
     .catch((err) => {
