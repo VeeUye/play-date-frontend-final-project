@@ -37,7 +37,7 @@ const MyEvents = () => {
         <>
           <img className={myEventsStyles.img} src={Image} alt="papers" />
           <div>
-            <SmallTitle className={titleStyles.myEvents} text="My Events" />
+            <SmallTitle className={titleStyles.myEvents1} text="My Events" />
             {events.length > 0 && (
               <div className={myEventsStyles.myEvents}>
                 {events.map((event) => (
@@ -45,6 +45,7 @@ const MyEvents = () => {
                 ))}
               </div>
             )}
+            <SmallTitle className={titleStyles.myEvents2} text="You don't have any events yet..." />
             <div className={myEventsStyles.buttons}>
                         <Button
                             className={buttonStyles.myEvents}

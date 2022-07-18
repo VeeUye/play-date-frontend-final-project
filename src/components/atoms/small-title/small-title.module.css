@@ -38,7 +38,7 @@
   color: #ffffff;
 }
 
-.myEvents {
+.myEvents1 {
   /* position: relative; */
   /* width: max-content; */
   height: 40px;
@@ -54,6 +54,25 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  color: #f0c000;
+}
+
+.myEvents2 {
+  /* position: relative; */
+  /* width: max-content; */
+  height: 40px;
+  left: 4rem;
+  top: 86px;
+  margin: 3rem;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 155.4%;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  /* text-transform: uppercase; */
   color: #f0c000;
 }
 
