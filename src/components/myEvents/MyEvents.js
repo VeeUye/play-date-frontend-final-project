@@ -64,14 +64,14 @@ const MyEvents = () => {
                 ))}
               </div>
             )}
-            <SmallTitle className={titleStyles.myEvents2} text="You don't have any events yet..." />
+            {events.length === 0 && <SmallTitle className={titleStyles.myEvents2} text="You don't have any events yet..." />}
             <div className={myEventsStyles.buttons}>
-                        <Button
-                            className={buttonStyles.myEvents}
-                            label="CREATE EVENT"
-                            onClick={handleCreateEvent}
-                        ></Button>
-                    </div>
+              <Button
+                  className={buttonStyles.myEvents}
+                  label="CREATE EVENT"
+                  onClick={handleCreateEvent}
+              ></Button>
+            </div> 
           </div>
         </>
       )}

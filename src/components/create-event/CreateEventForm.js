@@ -55,6 +55,7 @@ const CreateEventForm = ({ user, token, friends }) => {
       ...fields,
       [event.target.name]: event.target.value,
       ["owner"]: user.uid,
+      ["friends_accepted"]: [user.uid]
     });
   };
 
