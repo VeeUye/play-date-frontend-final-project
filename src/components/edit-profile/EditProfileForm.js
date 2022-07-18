@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import editProfile from "../../requests/profile/editProfile";
+import PropTypes from "prop-types";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
 import formStyles from "./edit-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
-import { UserAuth } from "../../contexts/AuthContext";
+// import { UserAuth } from "../../contexts/AuthContext";
 
-const EditProfileForm = () => {
-  const { user, token } = UserAuth();
-
+const EditProfileForm = ({ imgUrl, user, token}) => {
+  // const { user, token } = UserAuth();
+  
   const initialState = {
     alert: {
       message: "",
@@ -20,16 +21,27 @@ const EditProfileForm = () => {
 
   const [fields, setFields] = useState([]);
 
+  useEffect(() => {
+    if (imgUrl) {
+      setFields({ ...fields, ["imgUrl"]: imgUrl });
+    }
+  }, []);
+
   const [alert, setAlert] = useState(initialState.alert);
 
   const handleEditProfile = (event) => {
     const userId = user.uid;
+    setFields({ ...fields, ["userId"]: user.uid })
     event.preventDefault();
     editProfile(fields, userId, token, setAlert);
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({
+       ...fields, 
+       [event.target.name]: event.target.value,
+       ["imgUrl"]: imgUrl, 
+      });
   };
 
   const handleClick = () => {};
@@ -82,3 +94,9 @@ const EditProfileForm = () => {
 };
 
 export default EditProfileForm;
+
+EditProfileForm.propTypes = {
+  imgUrl: PropTypes.string,
+  user: PropTypes.object,
+  token: PropTypes.string,
+};
