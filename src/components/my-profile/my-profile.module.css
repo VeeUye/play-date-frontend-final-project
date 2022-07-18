@@ -7,6 +7,22 @@
   background: #f5f5f5;
 }
 
+figure {
+  margin: 0.3125rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.caption {
+  margin-top: 0.3125rem;
+  color: #835932;
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: 12px;
+}
+
 .hero {
   position: absolute;
   width: 100vw;
@@ -28,36 +44,22 @@
 }
 
 .profileCard {
-  width: 19.75rem;
-  padding: 0.625rem;
-  margin-top: 11.375rem;
+  width: 21rem;
+  max-width: 23rem;
+  padding: 1rem;
+  margin: 14.5rem 0rem 0.625rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
-}
-
-.card1 {
-  width: 19.75rem;
-  margin: 0.3125rem;
-  padding: .3125rem .3125rem .3125rem 0rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 2rem;
-  align-items: center;
-  /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+  border: 0.125rem solid #f0c000;
+  border-radius: 1rem;
+  box-shadow: .5px 4px 1px 1px #f0c000;
 }
 
 .smallTitle {
-  /* position: absolute; */
-  width: 12.0625rem;
+  position: absolute;
   height: 2.5rem;
-  left: 5.6875rem;
-  top: 12.9375rem;
-
+  top: 11.875rem;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -73,13 +75,14 @@
   width: 1.25rem;
   height: 1.25rem;
   top: 17.1875rem;
-  margin-left: 0.9375rem;
+  /* margin-left: 0.9375rem; */
   color: #f0c000;
 }
 
 .cardItem {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 0.3125rem;
   align-items: center;
@@ -87,8 +90,9 @@
 
 /* BUTTON SECTION */
 .buttons {
-  width: 19.75rem;
-  margin: 0.3125rem 0rem 0.5rem 0rem;
+  width: 23rem;
+  max-width: 23rem;
+  margin: 1rem 0rem 0.5rem 0rem;
   padding: 0.625rem;
   display: flex;
   flex-direction: row;
@@ -99,27 +103,27 @@
 
 /* FRIEND ALERT SECTION */
 .friendAlertCard {
-  width: 19.75rem;
-  margin: 1.5rem 0rem 0.3125rem 0rem;
-  /* padding: 0.625rem; */
+  width: 23rem;
+  max-width: 23rem;
+  margin: 0.9rem 0rem 0.3125rem 0rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: .625rem;
+  flex-direction: column;
+  align-items: center;
   /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+  /* border: 2px solid #f0c000; */
 }
 
-.card {
-  max-width: 13.75rem;
-  min-height: 9.375rem;
-  background-color: #f0c000;
+.friendAlertItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
-  margin: 0rem 0rem 0rem .625rem;
+  font-size: 1.1875rem;
   padding: 0.125rem;
-  color: #f5f5f5;
+  color: #835932;
+  background-color: #f0c000;
 }
 
 .pBig {
@@ -129,14 +133,14 @@ h2 {
   font-size: 1.125rem;
   line-height: 122.9%;
   /* or 18px */
-
   letter-spacing: 0.02em;
   color: #835932;
 }
 
 p {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
+
 .buttonsAlert {
   margin-top: 0.3125rem;
   width: 13.75rem;
@@ -146,22 +150,28 @@ p {
 }
 
 /* FRIEND LIST SECTION */
-.friendList {
-  margin: 1rem 0rem 1.25rem 0rem;
-  width: 19.75rem;
+.friendListContainer {
+  width: 22rem;
+  max-width: 23rem;
+  margin: 1rem 0rem 3rem 0rem;
   display: flex;
   flex-direction: column;
-  /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+  border: 0.125rem solid #f0c000;
+  border-radius: 1rem;
+  box-shadow: .5px 4px 1px 1px #f0c000;
+}
+
+.friendImage {
+  margin: 0.3125rem;
+  width: 5rem;
+  border-radius: 1.25rem;
 }
 
 .smallTitle2 {
   padding: 0.625rem;
   width: 12.0625rem;
   height: 2.5rem;
-  left: 5.6875rem;
   top: 12.9375rem;
-
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -173,24 +183,20 @@ p {
   color: #835932;
 }
 
-.friendImages {
-  padding: 0.625rem 0.625rem 0rem 0.625rem;
+.friendList {
+  margin: 0.625rem;
+  padding: 0.3125rem;
+  list-style-type: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  gap: 0.625rem;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9375rem;
+  list-style: none;
+  color: #835932;
   /* border is just to see the width of the containers */
   /* border: 2px solid black; */
 }
 
-.friendNames {
-  margin: 0.125rem 0.9375rem 0.625rem 0.625rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 2.1875rem;
-  align-items: center;
-  /* border is just to see the width of the containers */
-  /* border: 2px solid black; */
+.friendListItem {
+  font-size: large;
 }

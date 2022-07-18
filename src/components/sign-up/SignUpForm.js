@@ -12,7 +12,6 @@ import buttonStyles from "../atoms/button/button.module.css";
 const SignUpForm = () => {
   const initialState = {
     fields: {
-      username: "test name",
       email: "",
       password: "",
     },
@@ -50,15 +49,6 @@ const SignUpForm = () => {
       <form onSubmit={handleCreateEvent}>
         <div className={formStyles.signUpField1}>
           <div>
-            <FormInput
-              className={inputStyles.inputSignUp}
-              label="Username"
-              type="text"
-              name="name"
-              value={fields.name}
-              onChange={handleFieldChange}
-            />
-
             <FormInput
               className={inputStyles.inputSignUp}
               label="email"

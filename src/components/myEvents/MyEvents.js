@@ -1,67 +1,45 @@
 import React, { useState, useEffect } from "react";
-import getMyEvents from "../../requests/events/getMyEvents";
-import PropTypes from "prop-types";
 import EventCard from "./EventCard";
 import Image from "../../assets/images/papers.svg";
 import myEventsStyles from "./my-events.module.css";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import titleStyles from "../atoms/small-title/small-title.module.css";
-import "./my-events.module.css";
 import { UserAuth } from "../../contexts/AuthContext";
+import getMyEvents from "../../requests/events/getMyEvents";
+import LoadSpinner from "../load-spinner/LoadSpinner";
+import "./my-events.module.css";
 
-const MyEvents = ({ events }) => {
-    const { user } = UserAuth();
+const MyEvents = () => {
+  const [events, setEvents] = useState([]);
+  const { user, token } = UserAuth();
 
-    const userIdToken = async () => {
-    const getToken = await user.getIdToken().then((token) => {
-      return token;
-    });
-    return getToken;
-    };
-
-    const allMyEvents = 
-
-    return (
-        <div className={myEventsStyles.background}>
-            <img
-            className={myEventsStyles.img}
-            src={Image}
-            alt="papers"
-            /><div>
-             <SmallTitle className={titleStyles.myEvents} text="My Events" />
-             <div className={myEventsStyles.myEvents}>
-            {events.map(events => (
-                <EventCard 
-                key={events.owner}
-                owner={events.owner}
-                date={events.date}
-                startTime={events.startTime}
-                endTime={events.endTime}
-                location={events.location}
-                name={events.name}
-                friendsConfirmed={events.friendsConfirmed}
-                friendsInvited={events.friendsInvited}
-                />
-            ))}
-            </div>
-            </div>
-        </div>
-    );
+  useEffect(() => {
+    getMyEvents(setEvents, user.uid, token);
+    if (events.length > 0) {
+      setEvents(true);
+    }
+  }, [user]);
+  return (
+    <div className={myEventsStyles.background}>
+      {!user || !token ? (
+        <LoadSpinner />
+      ) : (
+        <>
+          <img className={myEventsStyles.img} src={Image} alt="papers" />
+          <div>
+            <SmallTitle className={titleStyles.myEvents} text="My Events" />
+            {events.length > 0 && (
+              <div className={myEventsStyles.myEvents}>
+                {events.map((event) => (
+                  <EventCard key={event.id} eventData={event} />
+                ))}
+              </div>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
 };
-
-MyEvents.propTypes = {
-    events: PropTypes.arrayOf(
-        PropTypes.shape({
-            owner: PropTypes.number.isRequired,
-            date: PropTypes.string.isRequired,
-            startTime: PropTypes.string.isRequired,
-            endTime: PropTypes.string.isRequired,
-            location: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            friendsConfirmed: PropTypes.arrayOf(PropTypes.number),
-            friendsInvited: PropTypes.arrayOf(PropTypes.number)
-        })
-    )
-}
 
 export default MyEvents;

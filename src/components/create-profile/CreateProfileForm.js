@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import postProfile from "../../requests/profile/postProfile";
+import PropTypes from "prop-types";
 import FormInput from "../atoms/form-input/FormInput";
 import Alert from "../../requests/alert/Alert";
 import Button from "../atoms/button/Button";
 import formStyles from "./create-profile-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
-import { UserAuth } from "../../contexts/AuthContext";
 
-const CreateProfileForm = () => {
-  const { user } = UserAuth();
-
-  const userIdToken = async () => {
-    const getToken = await user.getIdToken().then((token) => {
-      return token;
-    });
-    return getToken;
-  };
+const CreateProfileForm = ({ imgUrl, user, token }) => {
+  const history = useHistory();
 
   const initialState = {
     fields: {
@@ -42,12 +36,17 @@ const CreateProfileForm = () => {
   const handleCreateEvent = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
-    postProfile(fields, userIdToken(), setAlert);
+    postProfile(fields, token, setAlert);
     setFields(initialState.fields);
+    history.push("/my-profile");
   };
 
   const handleFieldChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({
+      ...fields,
+      [event.target.name]: event.target.value,
+      ["imgUrl"]: imgUrl,
+    });
   };
 
   return (
@@ -95,3 +94,9 @@ const CreateProfileForm = () => {
 };
 
 export default CreateProfileForm;
+
+CreateProfileForm.propTypes = {
+  imgUrl: PropTypes.string,
+  user: PropTypes.object,
+  token: PropTypes.string,
+};

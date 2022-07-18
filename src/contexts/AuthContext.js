@@ -5,13 +5,14 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, getIdToken } from "../firebase";
 
 const UserContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [token, setToken] = useState("");
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -27,16 +28,21 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setUser(currentUser);
+      if (currentUser) {
+      getIdToken(currentUser).then((token) => {
+        setToken(token)
+      })
+    }
     });
+
     return () => {
       unsubscribe();
     };
   }, []);
 
   return (
-    <UserContext.Provider value={{ createUser, user, logout, signIn }}>
+    <UserContext.Provider value={{ createUser, user, logout, signIn, token }}>
       {children}
     </UserContext.Provider>
   );
