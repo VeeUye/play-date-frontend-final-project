@@ -12,6 +12,7 @@ const getMyEvents = async (setEvents, user, userIdToken) => {
       })
       .then((res) => {
         setEvents(res.data);
+        return(res.data);
       })
       .catch((err) => {
         console.log(err);

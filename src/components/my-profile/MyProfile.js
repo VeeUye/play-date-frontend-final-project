@@ -2,28 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
 import getMyProfile from "../../requests/profile/getMyProfile";
-import getMyEvents from "../../requests/events/getMyEvents"
+import getMyEvents from "../../requests/events/getMyEvents";
 import getUserFriends from "../../requests/users/getUserFriends";
 import LoadSpinner from "../load-spinner/LoadSpinner";
 
-import Image from "../../assets/images/avatar.svg";
+// import Image from "../../assets/images/avatar.svg";
 // import Image1 from "../../assets/images/friend1.svg";
-import Image2 from "../../assets/images/friend2.svg";
+// import Image2 from "../../assets/images/friend2.svg";
 // import Image3 from "../../assets/images/friend3.svg";
 
 import SmallTitle from "../atoms/small-title/SmallTitle";
-import myEventsStyles from "../myEvents/my-events.module.css";
+// import myEventsStyles from "../myEvents/my-events.module.css";
 import EventCard from "../myEvents/EventCard";
 import SuperSubHeading from "../atoms/supersubheading/SuperSubheading";
 import superSubstyles from "../atoms/supersubheading/supersubheading.module.css";
 import myProfileStyles from "../my-profile/my-profile.module.css";
-// import ProfileImage from "../atoms/profile-image/ProfileImage";
+import ProfileImage from "../atoms/profile-image/ProfileImage";
 
 import { Icon } from "@iconify/react";
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
-// eslint-disable-next-line no-unused-vars
-import { stringify } from "@firebase/util";
 
 const MyProfile = () => {
     const history = useHistory();
@@ -32,24 +30,48 @@ const MyProfile = () => {
     const [userData, setUserData] = useState([]);
     const [events, setEvents] = useState([]);
     const [userFriend, setUserFriends] = useState([]);
+    const [eventFriends, setEventFriends] = useState([]);
 
     useEffect(() => {
         getMyProfile(user.uid, token)
             .then((userResults) => {
                 setUserData(userResults)
-            })
-        getMyEvents(setEvents, user.uid, token)
-        if (events.length > 0) {
-            setEvents(true);
-        }
+            });
         getUserFriends(user.uid, token)
             .then((userFriendResults) => {
                 setUserFriends(userFriendResults);
-            })
-    }, []);
+            });
+        getMyEvents(setEvents, user.uid, token).then((eventResults) => {
+            if (eventResults) {
+                getUserFriends(user.uid, token)
+                    .then((userFriendResults) => {
+                        const friendsEventsArray = [];
+                        if (userFriendResults) {
+                            setUserFriends(userFriendResults);
+                            userFriendResults.map((friend) => {
+                                eventResults.map((event) => {
+                                    if (friend.userId === event.owner) {
+                                        friendsEventsArray.push({
+                                            ["friend"]: friend,
+                                            ["event"]: event,
+                                        });
+                                    }
+                                });
+                            });
+                        }
+                        return friendsEventsArray;
+                    })
+                    .then((friendsEvents) => {
+                        setEventFriends(friendsEvents);
+                    });
+            }
+        });
+    }, [user]);
 
-    const listFriends = userFriend.map((friend) =>
-        <li className={myProfileStyles.friendListItem} key={friend.id}>{friend.name}</li>);
+    // const listFriends = userFriend.map((friend) =>
+    //     <li className={myProfileStyles.friendListItem} key={friend.id}>{friend.name}</li>);
+
+    console.log(eventFriends);
 
     const handleCreateEvent = () => {
         history.push("/create-event");
@@ -65,7 +87,7 @@ const MyProfile = () => {
 
     return (
         <>
-            {!userData ? (
+            {!userData || !userFriend || !eventFriends ? (
                 <LoadSpinner />
             ) : (
                 <div className={myProfileStyles.background}>
@@ -73,13 +95,12 @@ const MyProfile = () => {
 
                     {/* PROFILE SECTION */}
                     <div className={myProfileStyles.profileCard}>
-                        <img
+                        {/* <img
                             className={myProfileStyles.avatarImage}
                             src={Image}
                             alt="user profile picture"
-                        />
-                        {/* <img className={myProfileStyles.avatarImage} src={userData.profile_pic} alt="user profile picture" /> */}
-                        <img src={userData.imgURL} />
+                        /> */}
+                        <ProfileImage src={userData.imgUrl} />
                         <SmallTitle
                             className={myProfileStyles.smallTitle}
                             text={userData.name}
@@ -130,27 +151,26 @@ const MyProfile = () => {
 
                     {/* FRIEND INVITATION ALERT SECTION */}
                     <div className={myProfileStyles.friendAlertCard}>
-                        <div className={myProfileStyles.friendAlertItem}>
-                            <figure>
-                                <img
-                                    className={myProfileStyles.img2}
-                                    src={Image2}
-                                    alt="friend2 profile picture" />
-                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
-                                {/* {userFriend.map(friend => <p key={friend.name}>{friend.name[1]}</p>)} */}
-                            </figure>
-                            <h2>INVITED YOU TO AN EVENT</h2>
-                        </div>
-
-                        <div className={myProfileStyles.eventCard}>
-                            {events.length > 0 &&
-                                <div className={myEventsStyles.myEvents} >
-                                    {events.map((event) => (
-                                        <EventCard key={event.uid} eventData={event} />
-                                    ))}
-                                </div>
-                            }
-                        </div>
+                        {events.length > 0 && (
+                            <div className={myProfileStyles.eventCard}>
+                                {eventFriends.map((event, index) => (
+                                    <div key={index} className={myProfileStyles.friendAlertItem}>
+                                        <figure>
+                                            <img
+                                                className={myProfileStyles.profileImg}
+                                                src={event.friend.imgUrl}
+                                                alt="friend2 profile picture"
+                                            />
+                                            <figcaption className={myProfileStyles.caption}>
+                                                {event.friend.name}
+                                            </figcaption>
+                                        </figure>
+                                        <h2>INVITED YOU TO AN EVENT</h2>
+                                        <EventCard key={index} eventData={event.event} />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     {/* FRIEND LIST SECTION */}
@@ -161,45 +181,25 @@ const MyProfile = () => {
 
                         <ul className={myProfileStyles.friendList}>
                             {/* IMAGE WITH CAPTION USING LIVE DATA BELOW */}
-                            <li>
-                                <img
-                                    className={myProfileStyles.friendImage}
-                                    src={Image2}
-                                    alt="friend2 profile picture" />
-                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
-                            </li>
 
-                            <li>
-                                <img
-                                    className={myProfileStyles.friendImage}
-                                    src={Image2}
-                                    alt="friend2 profile picture" />
-                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
-                            </li>
-
-                            <li>
-                                <img
-                                    className={myProfileStyles.friendImage}
-                                    src={Image2}
-                                    alt="friend2 profile picture" />
-                                <figcaption className={myProfileStyles.caption}>{userData.name}</figcaption>
-                            </li>
-
-                            {/* Live data with actual Homer's friends but with no picture */}
-                            {listFriends}
+                            {userFriend.map((friend, index) => (
+                                <li className={myProfileStyles.friendListItem} key={index}>
+                                    <img
+                                        className={myProfileStyles.profileImg}
+                                        src={friend.imgUrl}
+                                        alt="friend2 profile picture"
+                                    />
+                                    <figcaption className={myProfileStyles.caption}>
+                                        {friend.name}
+                                    </figcaption>
+                                </li>
+                            ))}
                         </ul>
                     </div>
-                </div >
-            )
-            }
+                </div>
+            )}
         </>
     );
 };
-
-{
-    /* MyProfile.propTypes = {
-      name: PropTypes.string
-  }; */
-}
 
 export default MyProfile;
