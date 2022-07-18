@@ -6,17 +6,18 @@ const BASE_URL =
   "https://europe-west2-mc-play-date-scheduler.cloudfunctions.net/app";
 
 const getUserFriends = async (user, userIdToken) => {
-
-  return axios
-    .get(`${BASE_URL}/users/${user}/friends`, {
-      headers: { Authorization: `Bearer ${userIdToken}` },
-    })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  if (user && userIdToken) {
+    return axios
+      .get(`${BASE_URL}/users/${user}/friends`, {
+        headers: { Authorization: `Bearer ${userIdToken}` },
+      })
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 };
 
 export default getUserFriends;

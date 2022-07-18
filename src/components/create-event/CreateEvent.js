@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import getUserFriends from "../../requests/users/getUserFriends";
 import screenSize from "../../functions/screenSize";
 import SmallTitle from "../atoms/small-title/SmallTitle";
 import CreateEventForm from "./CreateEventForm";
@@ -14,9 +15,22 @@ const CreateEvent = () => {
 
   const { user, token } = UserAuth();
 
+  const [friends, setFriends] = useState([]);
+
+  useEffect(() => {
+    getUserFriends(user.uid, token).then((result) => {
+      if (result) {
+        const friendsInvite = result.map((friend) => {
+          return { value: friend.userId, label: friend.name };
+        });
+        setFriends(friendsInvite);
+      }
+    });
+  }, [user]);
+
   return (
     <>
-      {!user || !token ? (
+      {!user || !token || !friends ? (
         <LoadSpinner />
       ) : (
         <div
@@ -28,7 +42,7 @@ const CreateEvent = () => {
         >
           <div className="background">
             <SmallTitle className={titleStyles.default} text="Create Event" />
-            <CreateEventForm user={user} token={token} />
+            <CreateEventForm user={user} token={token} friends={friends} />
             <img
               className={createEventStyles.img}
               src={Image}

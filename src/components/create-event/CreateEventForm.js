@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import getUserFriends from "../../requests/users/getUserFriends";
 import FormInput from "../atoms/form-input/FormInput";
 import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
 import postEvent from "../../requests/events/postEvent";
@@ -10,18 +9,7 @@ import formStyles from "./create-event-form.module.css";
 import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
-const CreateEventForm = ({ user, token }) => {
-  const [friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    getUserFriends(user.uid, token).then((result) => {
-      const friendsInvite = result.map((friend) => {
-        return { value: friend.userId, label: friend.name };
-      });
-      setFriends(friendsInvite);
-    });
-  }, []);
-
+const CreateEventForm = ({ user, token, friends }) => {
   const initialState = {
     fields: {
       name: "test",
@@ -147,4 +135,10 @@ export default CreateEventForm;
 CreateEventForm.propTypes = {
   user: PropTypes.object,
   token: PropTypes.string,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
 };
