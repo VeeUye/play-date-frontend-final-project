@@ -15,8 +15,11 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
   const initialState = {
     fields: {
       name: "",
+      description: "",
       children: "",
       location: "",
+      friends: ["firstFriend"],
+      imgUrl: imgUrl,
       userId: "",
     },
     alert: {
@@ -35,8 +38,10 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
+    const childrenArray = fields.children.replace(/\s+/g,"").split(",");
+    const fields2 = {...fields, children: childrenArray};
     setAlert({ message: "", isSuccess: false });
-    postProfile(fields, token, setAlert);
+    postProfile(fields2, token, setAlert);
     setFields(initialState.fields);
     history.push("/my-profile");
   };
@@ -45,7 +50,7 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
     setFields({
       ...fields,
       [event.target.name]: event.target.value,
-      ["imgUrl"]: imgUrl,
+      imgUrl: imgUrl
     });
   };
 
@@ -65,9 +70,19 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
 
             <FormInput
               className={inputStyles.input}
-              label="Child's Name"
+              label="About You"
+              type="text"
+              name="description"
+              value={fields.description}
+              onChange={handleFieldChange}
+            />
+
+            <FormInput
+              className={inputStyles.input}
+              label="Child/Children's name"
               type="text"
               name="children"
+              placeholder="Bart, Lisa, Maggie"
               value={fields.children}
               onChange={handleFieldChange}
             />
