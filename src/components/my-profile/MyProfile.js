@@ -17,7 +17,7 @@ import EventCard from "../myEvents/EventCard";
 import SuperSubHeading from "../atoms/supersubheading/SuperSubheading";
 import superSubstyles from "../atoms/supersubheading/supersubheading.module.css";
 import myProfileStyles from "../my-profile/my-profile.module.css";
-import ProfileImage from "../atoms/profile-image/ProfileImage";
+// import ProfileImage from "../atoms/profile-image/ProfileImage";
 
 import { Icon } from "@iconify/react";
 import Button from "../atoms/button/Button";
@@ -68,9 +68,6 @@ const MyProfile = () => {
         });
     }, [user]);
 
-    // const listFriends = userFriend.map((friend) =>
-    //     <li className={myProfileStyles.friendListItem} key={friend.id}>{friend.name}</li>);
-
     console.log(eventFriends);
 
     const handleCreateEvent = () => {
@@ -95,12 +92,12 @@ const MyProfile = () => {
 
                     {/* PROFILE SECTION */}
                     <div className={myProfileStyles.profileCard}>
-                        {/* <img
+                        <img
                             className={myProfileStyles.avatarImage}
-                            src={Image}
+                            src={userData.imgUrl}
                             alt="user profile picture"
-                        /> */}
-                        <ProfileImage src={userData.imgUrl} />
+                        />
+                        {/* <ProfileImage src={userData.imgUrl} alt="user profile picture" /> */}
                         <SmallTitle
                             className={myProfileStyles.smallTitle}
                             text={userData.name}
