@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import FormInput from "../atoms/form-input/FormInput";
 import MultiSelectInput from "../atoms/form-input/MultiSelectInput";
@@ -10,9 +11,11 @@ import inputStyles from "../atoms/form-input/form-input.module.css";
 import buttonStyles from "../atoms/button/button.module.css";
 
 const CreateEventForm = ({ user, token, friends }) => {
+  const history = useHistory();
+
   const initialState = {
     fields: {
-      name: "test",
+      name: "",
       description: "",
       date_start: "",
       date_end: "",
@@ -44,6 +47,7 @@ const CreateEventForm = ({ user, token, friends }) => {
     postEvent(fields, token, setAlert);
     setFields(initialState.fields);
     setDates(initialState.dates);
+    history.push("/my-profile");
   };
 
   const handleFieldChange = (event) => {
@@ -69,6 +73,7 @@ const CreateEventForm = ({ user, token, friends }) => {
               label="Event Name"
               type="text"
               name="name"
+              placeholder="Event name"
               value={fields.name}
               onChange={handleFieldChange}
             />
