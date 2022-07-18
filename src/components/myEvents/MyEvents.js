@@ -19,10 +19,9 @@ const MyEvents = () => {
       setEvents(true);
     }
   }, [user]);
-
   return (
     <div className={myEventsStyles.background}>
-      {user == "" || token == "" ? (
+      {!user || !token ? (
         <LoadSpinner />
       ) : (
         <>
