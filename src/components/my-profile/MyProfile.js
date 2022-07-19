@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
+import { InviteResponse } from "../../contexts/InviteContext";
 import getMyProfile from "../../requests/profile/getMyProfile";
 import getMyPendingEvents from "../../requests/events/getMyPendingEvents";
 import getUserFriends from "../../requests/users/getUserFriends";
 import LoadSpinner from "../load-spinner/LoadSpinner";
+import acceptEvent from "../../requests/events/putAcceptEvent";
 
 // import Image from "../../assets/images/avatar.svg";
 // import Image1 from "../../assets/images/friend1.svg";
@@ -26,22 +28,25 @@ import buttonStyles from "../atoms/button/button.module.css";
 const MyProfile = () => {
   const history = useHistory();
   const { user, token } = UserAuth();
-
+  const { acceptedResponse, setAcceptedResponse } = InviteResponse();
   const [userData, setUserData] = useState([]);
   const [events, setEvents] = useState([]);
   const [userFriend, setUserFriends] = useState([]);
   const [eventFriends, setEventFriends] = useState([]);
+  const [cardRemoved, setCardRemoved] = useState(0);
 
   useEffect(() => {
     getMyProfile(user.uid, token).then((userResults) => {
       if (userResults) {
-        console.log(userResults);
         setUserData(userResults);
       }
     });
     getUserFriends(user.uid, token).then((userFriendResults) => {
       setUserFriends(userFriendResults);
     });
+  }, [user]);
+
+  useEffect(() => {
     getMyPendingEvents(setEvents, user.uid, token).then((eventResults) => {
       if (eventResults) {
         getUserFriends(user.uid, token)
@@ -67,9 +72,12 @@ const MyProfile = () => {
           });
       }
     });
-  }, [user]);
+  }, [user, cardRemoved]);
 
-  console.log(eventFriends);
+  useEffect(() => {
+    acceptEvent(acceptedResponse, token);
+    setCardRemoved((previous) => previous + 1);
+  }, [acceptedResponse]);
 
   const handleCreateEvent = () => {
     history.push("/create-event");
@@ -164,7 +172,12 @@ const MyProfile = () => {
                         {event.friend.name}
                       </figcaption>
                     </figure>
-                    <EventCard key={index} eventData={event.event} />
+                    <EventCard
+                      key={index}
+                      eventData={event.event}
+                      userId={userData.userId}
+                      setInviteResponse={setAcceptedResponse}
+                    />
                   </div>
                 ))}
               </div>
