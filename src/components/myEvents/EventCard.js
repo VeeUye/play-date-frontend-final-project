@@ -13,7 +13,7 @@ const EventCard = ({
   setAcceptedResponse,
   setDeclinedResponse,
 }) => {
-  const { date_start, date_end, location, name} = eventData;
+  const { date_start, date_end, location, name } = eventData;
   const month = [
     "January",
     "February",
@@ -62,8 +62,11 @@ const EventCard = ({
         {/* Commenting out current date as is not being passed correct format for date */}
         {/* <div className={eventCardStyles.date}>{date}</div> */}
         {/* comment end */}
+        <div className={eventCardStyles.date}>
         <div className={eventCardStyles.day}>{dateStart.date}</div>
         <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
+        </div>
+        <div className={eventCardStyles.name}>{name}</div>
         <div className={eventCardStyles.iconLocation}>
           <Icon
             className={eventCardStyles.icon}
@@ -83,7 +86,6 @@ const EventCard = ({
             className={eventCardStyles.icon}
             icon="carbon:pedestrian-child"
           />
-          <div className={eventCardStyles.name}>{name}</div>
         </div>
         {/* <div className="friends-confirmed">{friendsConfirmed}</div>
             <div className="friends-invited">{friendsInvited}</div> */}
