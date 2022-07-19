@@ -13,20 +13,11 @@ import acceptEvent from "../../requests/events/putAcceptEvent";
 import declineEvent from "../../requests/events/putDeclineEvent";
 import addButton from "../../assets/images/circle-button.svg";
 import Alert from "../../requests/alert/Alert";
-
-// import Image from "../../assets/images/avatar.svg";
-// import Image1 from "../../assets/images/friend1.svg";
-// import Image2 from "../../assets/images/friend2.svg";
-// import Image3 from "../../assets/images/friend3.svg";
-
 import SmallTitle from "../atoms/small-title/SmallTitle";
-// import myEventsStyles from "../myEvents/my-events.module.css";
 import EventCard from "../myEvents/EventCard";
 import SuperSubHeading from "../atoms/supersubheading/SuperSubheading";
 import superSubstyles from "../atoms/supersubheading/supersubheading.module.css";
 import myProfileStyles from "../my-profile/my-profile.module.css";
-// import ProfileImage from "../atoms/profile-image/ProfileImage";
-
 import { Icon } from "@iconify/react";
 import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
@@ -50,7 +41,6 @@ const MyProfile = () => {
   const [userData, setUserData] = useState([]);
   const [events, setEvents] = useState([]);
   const [userFriend, setUserFriends] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [addFriends, setAddFriends] = useState([]);
   const [eventFriends, setEventFriends] = useState([]);
   const [cardRemoved, setCardRemoved] = useState(0);
@@ -81,12 +71,7 @@ const MyProfile = () => {
                       !userFriendResults.some((o2) => o1.userId === o2.userId)
                   )
                   .map((friend) => {
-                    // console.log(friend);
-                    // console.log(userResults);
-                    // if (friend.userId !== userResults.userId) {
-                    // console.log(friend);
                     return { value: friend.userId, label: friend.name };
-                    // }
                   });
 
                 setAddFriends(filterUsers);
@@ -147,7 +132,6 @@ const MyProfile = () => {
   };
 
   const handleSelectFriend = (event) => {
-    // console.log(event);
     setSelectedFriend({ event });
   };
 
@@ -155,7 +139,6 @@ const MyProfile = () => {
     const fields = {
       ["friends"]: [selectedFriend.event.value, ...userData.friends],
     };
-    console.log(fields);
     editProfile(fields, userData.userId, token, setAlert);
     setSelectedFriend({});
   };
@@ -175,7 +158,6 @@ const MyProfile = () => {
               src={userData.imgUrl}
               alt="user profile picture"
             />
-            {/* <ProfileImage src={userData.imgUrl} alt="user profile picture" /> */}
             <SmallTitle
               className={myProfileStyles.smallTitle}
               text={userData.name}
