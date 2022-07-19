@@ -7,7 +7,12 @@ import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 import { Icon } from "@iconify/react";
 
-const EventCard = ({ eventData, userId, setInviteResponse }) => {
+const EventCard = ({
+  eventData,
+  userId,
+  setAcceptedResponse,
+  setDeclinedResponse,
+}) => {
   const { date_start, date_end, location } = eventData;
   const month = [
     "January",
@@ -37,7 +42,14 @@ const EventCard = ({ eventData, userId, setInviteResponse }) => {
   };
 
   const handleAcceptInvite = () => {
-    setInviteResponse({
+    setAcceptedResponse({
+      ["eventId"]: eventData.id,
+      ["userId"]: userId,
+    });
+  };
+
+  const handleDeclineInvite = () => {
+    setDeclinedResponse({
       ["eventId"]: eventData.id,
       ["userId"]: userId,
     });
@@ -82,7 +94,11 @@ const EventCard = ({ eventData, userId, setInviteResponse }) => {
           onClick={handleAcceptInvite}
           label="Accept"
         />
-        <Button className={buttonStyles.eventCard} label="Decline" />
+        <Button
+          className={buttonStyles.eventCard}
+          onClick={handleDeclineInvite}
+          label="Decline"
+        />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import getMyPendingEvents from "../../requests/events/getMyPendingEvents";
 import getUserFriends from "../../requests/users/getUserFriends";
 import LoadSpinner from "../load-spinner/LoadSpinner";
 import acceptEvent from "../../requests/events/putAcceptEvent";
+import declineEvent from "../../requests/events/putDeclineEvent";
 
 // import Image from "../../assets/images/avatar.svg";
 // import Image1 from "../../assets/images/friend1.svg";
@@ -28,7 +29,12 @@ import buttonStyles from "../atoms/button/button.module.css";
 const MyProfile = () => {
   const history = useHistory();
   const { user, token } = UserAuth();
-  const { acceptedResponse, setAcceptedResponse } = InviteResponse();
+  const {
+    acceptedResponse,
+    setAcceptedResponse,
+    declinedResponse,
+    setDeclinedResponse,
+  } = InviteResponse();
   const [userData, setUserData] = useState([]);
   const [events, setEvents] = useState([]);
   const [userFriend, setUserFriends] = useState([]);
@@ -78,6 +84,11 @@ const MyProfile = () => {
     acceptEvent(acceptedResponse, token);
     setCardRemoved((previous) => previous + 1);
   }, [acceptedResponse]);
+
+  useEffect(() => {
+    declineEvent(declinedResponse, token);
+    setCardRemoved((previous) => previous + 1);
+  }, [declinedResponse]);
 
   const handleCreateEvent = () => {
     history.push("/create-event");
@@ -176,7 +187,8 @@ const MyProfile = () => {
                       key={index}
                       eventData={event.event}
                       userId={userData.userId}
-                      setInviteResponse={setAcceptedResponse}
+                      setAcceptedResponse={setAcceptedResponse}
+                      setDeclinedResponse={setDeclinedResponse}
                     />
                   </div>
                 ))}
