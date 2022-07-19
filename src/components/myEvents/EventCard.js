@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 import eventCardStyles from "./event-card.module.css";
@@ -6,20 +7,40 @@ import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 import { Icon } from "@iconify/react";
 
-const EventCard = ( {eventData} ) => {
+const EventCard = ({ eventData, userId, setInviteResponse }) => {
   const { date_start, date_end, location } = eventData;
-  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const d_start = new Date(date_start);
   const d_end = new Date(date_end);
   const dateStart = {
-    date: d_start.getDate(), 
-    month: d_start.getMonth(), 
-    hours: d_start.getHours(), 
-    minutes: d_start.getMinutes()
+    date: d_start.getDate(),
+    month: d_start.getMonth(),
+    hours: d_start.getHours(),
+    minutes: d_start.getMinutes(),
   };
   const dateEnd = {
     hours: d_end.getHours(),
-    minutes: d_end.getMinutes()
+    minutes: d_end.getMinutes(),
+  };
+
+  const handleAcceptInvite = () => {
+    setInviteResponse({
+      ["eventId"]: eventData.id,
+      ["userId"]: userId,
+    });
   };
 
   return (
@@ -41,7 +62,8 @@ const EventCard = ( {eventData} ) => {
         <div className={eventCardStyles.iconTime}>
           <Icon className={eventCardStyles.icon} icon="bx:time-five" />
           <div className={eventCardStyles.startTime}>
-            {dateStart.hours}:{dateStart.minutes} - {dateEnd.hours}:{dateEnd.minutes}
+            {dateStart.hours}:{dateStart.minutes} - {dateEnd.hours}:
+            {dateEnd.minutes}
           </div>
         </div>
         <div className={eventCardStyles.iconName}>
@@ -55,7 +77,11 @@ const EventCard = ( {eventData} ) => {
             <div className="friends-invited">{friendsInvited}</div> */}
       </div>
       <div className={eventCardStyles.buttons}>
-        <Button className={buttonStyles.eventCard} label="Accept" />
+        <Button
+          className={buttonStyles.eventCard}
+          onClick={handleAcceptInvite}
+          label="Accept"
+        />
         <Button className={buttonStyles.eventCard} label="Decline" />
       </div>
     </div>
@@ -71,7 +97,7 @@ EventCard.propTypes = {
     // name: PropTypes.string.isRequired,
     // friendsConfirmed: PropTypes.arrayOf(PropTypes.string),
     // friendsInvited: PropTypes.arrayOf(PropTypes.string),
-  })
+  }),
 };
 
 export default EventCard;
