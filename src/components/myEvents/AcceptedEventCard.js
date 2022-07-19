@@ -7,10 +7,10 @@ import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 import { Icon } from "@iconify/react";
 
-const EventCard = ({
+const AcceptedEventCard = ({
   eventData,
   userId,
-  setAcceptedResponse,
+  // setAcceptedResponse,
   setDeclinedResponse,
 }) => {
   const { date_start, date_end, location, name } = eventData;
@@ -41,12 +41,12 @@ const EventCard = ({
     minutes: d_end.getMinutes(),
   };
 
-  const handleAcceptInvite = () => {
-    setAcceptedResponse({
-      ["eventId"]: eventData.id,
-      ["userId"]: userId,
-    });
-  };
+  // const handleAcceptInvite = () => {
+  //   setAcceptedResponse({
+  //     ["eventId"]: eventData.id,
+  //     ["userId"]: userId,
+  //   });
+  // };
 
   const handleDeclineInvite = () => {
     setDeclinedResponse({
@@ -91,22 +91,22 @@ const EventCard = ({
             <div className="friends-invited">{friendsInvited}</div> */}
       </div>
       <div className={eventCardStyles.buttons}>
-        <Button
+        {/* <Button
           className={buttonStyles.eventCard}
           onClick={handleAcceptInvite}
           label="Accept"
-        />
+        /> */}
         <Button
           className={buttonStyles.eventCard}
           onClick={handleDeclineInvite}
-          label="Decline"
+          label="Leave event"
         />
       </div>
     </div>
   );
 };
 
-EventCard.propTypes = {
+AcceptedEventCard.propTypes = {
   eventData: PropTypes.shape({
     // owner: PropTypes.string.isRequired,
     date_start: PropTypes.string.isRequired,
@@ -118,4 +118,4 @@ EventCard.propTypes = {
   }),
 };
 
-export default EventCard;
+export default AcceptedEventCard;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
 import EventCard from "./EventCard";
+import AcceptedEventCard from "./AcceptedEventCard";
 import Image from "../../assets/images/papers.svg";
 import myEventsStyles from "./my-events.module.css";
 import SmallTitle from "../atoms/small-title/SmallTitle";
@@ -60,11 +61,11 @@ const MyEvents = () => {
             {events.length > 0 && (
               <div className={myEventsStyles.myEvents}>
                 {events.map((event) => (
-                  <EventCard key={event.id} eventData={event} />
+                  <AcceptedEventCard key={event.id} eventData={event} />
                 ))}
               </div>
             )}
-            {events.length === 0 && <SmallTitle className={titleStyles.myEventsNoEvents} text="You don't have any events yet..." />}
+            {pendingEvents.length === 0 && events.length === 0 && <SmallTitle className={titleStyles.myEventsNoEvents} text="You don't have any events yet..." />}
             <div className={myEventsStyles.buttons}>
               <Button
                   className={buttonStyles.myEvents}
