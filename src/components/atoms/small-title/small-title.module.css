@@ -38,7 +38,7 @@
   color: #ffffff;
 }
 
-.myEvents1 {
+.myEvents {
   /* position: relative; */
   /* width: max-content; */
   height: 40px;
@@ -57,9 +57,7 @@
   color: #f0c000;
 }
 
-.myEvents2 {
-  /* position: relative; */
-  /* width: max-content; */
+.myEventsNoEvents {
   height: 40px;
   left: 4rem;
   top: 86px;
@@ -72,17 +70,15 @@
 
   text-align: center;
   letter-spacing: 0.02em;
-  /* text-transform: uppercase; */
   color: #f0c000;
 }
 
-.myEvents3 {
-  /* position: relative; */
-  /* width: max-content; */
+.myPendingEvents {
   height: 40px;
   left: 4rem;
   top: 86px;
-  margin: 1rem;
+  /* margin: 0.5rem; */
+  padding: 0.5rem;
 
   font-style: normal;
   font-weight: 600;
@@ -91,7 +87,6 @@
 
   text-align: center;
   letter-spacing: 0.02em;
-  /* text-transform: uppercase; */
   color: #f0c000;
 }
 
