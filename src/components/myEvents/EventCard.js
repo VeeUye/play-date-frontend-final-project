@@ -13,7 +13,7 @@ const EventCard = ({
   setAcceptedResponse,
   setDeclinedResponse,
 }) => {
-  const { date_start, date_end, location } = eventData;
+  const { date_start, date_end, location, name} = eventData;
   const month = [
     "January",
     "February",

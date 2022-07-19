@@ -79,6 +79,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
+  letter-spacing: 0.02em;
 }
 
 .startTime {
@@ -95,8 +96,9 @@
   color: #835932;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
 }
 
 .buttons {
