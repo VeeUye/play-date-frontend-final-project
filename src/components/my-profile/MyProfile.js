@@ -45,6 +45,7 @@ const MyProfile = () => {
   const [eventFriends, setEventFriends] = useState();
   const [cardRemoved, setCardRemoved] = useState(0);
   const [selectedFriend, setSelectedFriend] = useState({});
+  const [allUsers, setAllUsers] = useState();
   const [alert, setAlert] = useState(initialState.alert);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const MyProfile = () => {
 
       const getAddFriendsData = await getAddFriends(token);
       if (getAddFriendsData && getUserFriendsData) {
+        setAllUsers(getAddFriendsData);
         const filterUsers = getAddFriendsData
           .filter(
             (o1) => !getUserFriendsData.some((o2) => o1.userId === o2.userId)
@@ -144,7 +146,19 @@ const MyProfile = () => {
     const fields = {
       ["friends"]: [selectedFriend.event.value, ...userData.friends],
     };
-    editProfile(fields, userData.userId, token, setAlert);
+
+    const getFriend = async () => {
+      const filterFriend = allUsers.filter((friend) => {
+        return selectedFriend.event.value === friend.userId;
+      });
+
+      const friendsFriend = {
+        ["friends"]: [userData.userId, ...filterFriend[0].friends],
+      };
+      await editProfile(fields, userData.userId, token, setAlert);
+      await editProfile(friendsFriend, filterFriend[0].userId, token, setAlert);
+    };
+    getFriend();
     setSelectedFriend({});
   };
 
