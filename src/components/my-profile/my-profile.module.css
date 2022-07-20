@@ -184,6 +184,22 @@ p {
   box-shadow: 0.5px 4px 1px 1px #f0c000;
 }
 
+.friendAddContainer {
+  padding-top: 1rem;
+  width: 22rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.friendSearch {
+  width: 18rem;
+  /* display: inline-block; */
+}
+
+.friendAdd {
+  /* display: inline-block; */
+}
+
 .friendImage {
   margin: 0.3125rem;
   width: 5rem;
@@ -237,4 +253,24 @@ p {
   letter-spacing: 0.02em;
 
   color: #835932;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background: #ffffff;
+  border: none;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 92.4%;
+
+  color: #da4848;
 }
