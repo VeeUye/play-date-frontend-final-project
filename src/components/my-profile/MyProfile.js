@@ -38,11 +38,11 @@ const MyProfile = () => {
     declinedResponse,
     setDeclinedResponse,
   } = InviteResponse();
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState();
   const [events, setEvents] = useState([]);
-  const [userFriend, setUserFriends] = useState([]);
-  const [addFriends, setAddFriends] = useState([]);
-  const [eventFriends, setEventFriends] = useState([]);
+  const [userFriend, setUserFriends] = useState();
+  const [addFriends, setAddFriends] = useState();
+  const [eventFriends, setEventFriends] = useState();
   const [cardRemoved, setCardRemoved] = useState(0);
   const [selectedFriend, setSelectedFriend] = useState({});
   const [alert, setAlert] = useState(initialState.alert);
@@ -118,7 +118,7 @@ const MyProfile = () => {
 
   useEffect(() => {
     const declineEventResponse = async () => {
-      await declineEvent(acceptedResponse, token);
+      await declineEvent(declinedResponse, token);
       setCardRemoved((previous) => previous + 1);
     };
     declineEventResponse();
