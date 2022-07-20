@@ -7,12 +7,7 @@ import Button from "../atoms/button/Button";
 import buttonStyles from "../atoms/button/button.module.css";
 import { Icon } from "@iconify/react";
 
-const AcceptedEventCard = ({
-  eventData,
-  userId,
-  // setAcceptedResponse,
-  setDeclinedResponse,
-}) => {
+const AcceptedEventCard = ({ eventData, userId, setDeclinedResponse }) => {
   const { date_start, date_end, location, name } = eventData;
   const month = [
     "January",
@@ -41,13 +36,6 @@ const AcceptedEventCard = ({
     minutes: d_end.getMinutes(),
   };
 
-  // const handleAcceptInvite = () => {
-  //   setAcceptedResponse({
-  //     ["eventId"]: eventData.id,
-  //     ["userId"]: userId,
-  //   });
-  // };
-
   const handleDeclineInvite = () => {
     setDeclinedResponse({
       ["eventId"]: eventData.id,
@@ -63,8 +51,8 @@ const AcceptedEventCard = ({
         {/* <div className={eventCardStyles.date}>{date}</div> */}
         {/* comment end */}
         <div className={eventCardStyles.date}>
-        <div className={eventCardStyles.day}>{dateStart.date}</div>
-        <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
+          <div className={eventCardStyles.day}>{dateStart.date}</div>
+          <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
         </div>
         <div className={eventCardStyles.name}>{name}</div>
         <div className={eventCardStyles.iconLocation}>
@@ -87,15 +75,8 @@ const AcceptedEventCard = ({
             icon="carbon:pedestrian-child"
           />
         </div>
-        {/* <div className="friends-confirmed">{friendsConfirmed}</div>
-            <div className="friends-invited">{friendsInvited}</div> */}
       </div>
       <div className={eventCardStyles.buttons}>
-        {/* <Button
-          className={buttonStyles.eventCard}
-          onClick={handleAcceptInvite}
-          label="Accept"
-        /> */}
         <Button
           className={buttonStyles.eventCard}
           onClick={handleDeclineInvite}
