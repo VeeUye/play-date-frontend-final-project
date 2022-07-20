@@ -110,13 +110,19 @@ const MyProfile = () => {
   }, [user, cardRemoved]);
 
   useEffect(() => {
-    acceptEvent(acceptedResponse, token);
-    setCardRemoved((previous) => previous + 1);
+    const acceptEventResponse = async () => {
+      await acceptEvent(acceptedResponse, token);
+      setCardRemoved((previous) => previous + 1);
+    };
+    acceptEventResponse();
   }, [acceptedResponse]);
 
   useEffect(() => {
-    declineEvent(declinedResponse, token);
-    setCardRemoved((previous) => previous + 1);
+    const declineEventResponse = async () => {
+      await declineEvent(acceptedResponse, token);
+      setCardRemoved((previous) => previous + 1);
+    };
+    declineEventResponse();
   }, [declinedResponse]);
 
   const handleCreateEvent = () => {
