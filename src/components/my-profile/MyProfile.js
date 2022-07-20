@@ -118,7 +118,7 @@ const MyProfile = () => {
 
   useEffect(() => {
     const declineEventResponse = async () => {
-      await declineEvent(acceptedResponse, token);
+      await declineEvent(declinedResponse, token);
       setCardRemoved((previous) => previous + 1);
     };
     declineEventResponse();
