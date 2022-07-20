@@ -14,7 +14,7 @@
 
 .bgBottomBig {
   position: absolute;
-  top: 20.7rem;
+  top: 19.5rem;
   bottom: -2rem;
   width: 100vw;
   height: 70vh;
@@ -53,7 +53,7 @@
 
 .waveDiv {
   position: relative;
-  bottom: -6rem;
+  bottom: -4.8rem;
   left: 0;
   width: 100%;
   overflow: hidden;
