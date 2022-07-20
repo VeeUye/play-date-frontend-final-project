@@ -26,14 +26,14 @@ const AcceptedEventCard = ({ eventData, userId, setDeclinedResponse }) => {
   const d_start = new Date(date_start);
   const d_end = new Date(date_end);
   const dateStart = {
-    date: d_start.getDate(),
+    date: (d_start.getDate() <10) ? `0${d_start.getDate()}` : `${d_start.getDate()}`,
     month: d_start.getMonth(),
-    hours: d_start.getHours(),
-    minutes: d_start.getMinutes(),
+    hours: (d_start.getHours() <10) ? `0${d_start.getHours()}` : `${d_start.getHours()}`,
+    minutes: (d_start.getMinutes() < 10) ? (`0${d_start.getMinutes()}`) : (`${d_start.getMinutes()}`),  
   };
   const dateEnd = {
-    hours: d_end.getHours(),
-    minutes: d_end.getMinutes(),
+    hours: (d_end.getHours() <10) ? `0${d_end.getHours()}` : `${d_end.getHours()}`,
+    minutes: (d_end.getMinutes() < 10) ? (`0${d_end.getMinutes()}`) : (`${d_end.getMinutes()}`),
   };
 
   const handleDeclineInvite = () => {
