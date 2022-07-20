@@ -35,6 +35,10 @@
   background: none;
 }
 
+.input[type="datetime-local"] {
+  padding: 0.1rem;
+}
+
 .inputSignUp {
   display: block;
   width: 100%;
