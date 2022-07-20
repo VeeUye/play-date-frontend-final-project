@@ -48,65 +48,64 @@ const MyProfile = () => {
   const [alert, setAlert] = useState(initialState.alert);
 
   useEffect(() => {
-    getMyProfile(user.uid, token)
-      .then((userResults) => {
-        if (userResults) {
-          setUserData(userResults);
-          return userResults;
-        }
-      })
-      // eslint-disable-next-line no-unused-vars
-      .then((userResults) => {
-        getUserFriends(user.uid, token)
-          .then((userFriendResults) => {
-            setUserFriends(userFriendResults);
-            return userFriendResults;
-          })
-          .then((userFriendResults) => {
-            getAddFriends(token).then((result) => {
-              if (result && userFriendResults) {
-                const filterUsers = result
-                  .filter(
-                    (o1) =>
-                      !userFriendResults.some((o2) => o1.userId === o2.userId)
-                  )
-                  .map((friend) => {
-                    return { value: friend.userId, label: friend.name };
-                  });
+    const getUserFriendData = async () => {
+      const getMyProfileData = await getMyProfile(user.uid, token);
+      if (getMyProfileData) {
+        setUserData(getMyProfileData);
+      }
 
-                setAddFriends(filterUsers);
-              }
-            });
+      const getUserFriendsData = await getUserFriends(user.uid, token);
+      if (getUserFriendsData) {
+        setUserFriends(getUserFriendsData);
+      }
+
+      const getAddFriendsData = await getAddFriends(token);
+      if (getAddFriendsData && getUserFriendsData) {
+        const filterUsers = getAddFriendsData
+          .filter(
+            (o1) => !getUserFriendsData.some((o2) => o1.userId === o2.userId)
+          )
+          .map((friend) => {
+            return { value: friend.userId, label: friend.name };
           });
-      });
+
+        setAddFriends(filterUsers);
+      }
+    };
+
+    getUserFriendData();
   }, [user, selectedFriend]);
 
   useEffect(() => {
-    getMyPendingEvents(setEvents, user.uid, token).then((eventResults) => {
-      if (eventResults) {
-        getUserFriends(user.uid, token)
-          .then((userFriendResults) => {
-            const friendsEventsArray = [];
-            if (userFriendResults) {
-              setUserFriends(userFriendResults);
-              userFriendResults.map((friend) => {
-                eventResults.map((event) => {
-                  if (friend.userId === event.owner) {
-                    friendsEventsArray.push({
-                      ["friend"]: friend,
-                      ["event"]: event,
-                    });
-                  }
+    const getUserEventsData = async () => {
+      const getMyPendingEventsData = await getMyPendingEvents(
+        setEvents,
+        user.uid,
+        token
+      );
+
+      const getUserFriendsData = await getUserFriends(user.uid, token);
+
+      if (getUserFriendsData) {
+        const friendsEventsArray = [];
+        if (getUserFriendsData) {
+          setUserFriends(getUserFriendsData);
+          getUserFriendsData.map((friend) => {
+            getMyPendingEventsData.map((event) => {
+              if (friend.userId === event.owner) {
+                friendsEventsArray.push({
+                  ["friend"]: friend,
+                  ["event"]: event,
                 });
-              });
-            }
-            return friendsEventsArray;
-          })
-          .then((friendsEvents) => {
-            setEventFriends(friendsEvents);
+              }
+            });
           });
+          setEventFriends(friendsEventsArray);
+        }
       }
-    });
+    };
+
+    getUserEventsData();
   }, [user, cardRemoved]);
 
   useEffect(() => {
