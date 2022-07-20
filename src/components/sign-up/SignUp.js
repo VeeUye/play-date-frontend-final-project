@@ -5,8 +5,6 @@ import Title from "../atoms/title/Title";
 import signUpStyles from "./sign-up.module.css";
 import title from "../atoms/title/title.module.css";
 
-// TODO remove inline svg and import
-
 const SignUp = () => {
   const isSmall = screenSize();
   return (
@@ -21,7 +19,7 @@ const SignUp = () => {
           />
           <div className={signUpStyles.waveDiv}>
             <svg
-              width="2000px"
+              width="6000px"
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1000 150"
