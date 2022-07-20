@@ -19,7 +19,7 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
       children: "",
       location: "",
       friends: ["firstFriend"],
-      imgUrl: imgUrl,
+      imgUrl: "",
       userId: "",
     },
     alert: {
@@ -38,8 +38,8 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
 
   const handleCreateEvent = (event) => {
     event.preventDefault();
-    const childrenArray = fields.children.replace(/\s+/g,"").split(",");
-    const fields2 = {...fields, children: childrenArray};
+    const childrenArray = fields.children.replace(/\s+/g, "").split(",");
+    const fields2 = { ...fields, children: childrenArray, ["imgUrl"]: imgUrl };
     setAlert({ message: "", isSuccess: false });
     postProfile(fields2, token, setAlert);
     setFields(initialState.fields);
@@ -50,7 +50,6 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
     setFields({
       ...fields,
       [event.target.name]: event.target.value,
-      imgUrl: imgUrl
     });
   };
 

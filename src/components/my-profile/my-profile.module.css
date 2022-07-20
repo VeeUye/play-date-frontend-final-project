@@ -193,11 +193,14 @@ p {
 
 .friendSearch {
   width: 18rem;
-  /* display: inline-block; */
 }
 
 .friendAdd {
-  /* display: inline-block; */
+  padding-left: 0.2rem;
+}
+
+.friendAdd > img {
+  cursor: pointer;
 }
 
 .friendImage {
