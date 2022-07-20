@@ -41,9 +41,12 @@ const CreateProfileForm = ({ imgUrl, user, token }) => {
     const childrenArray = fields.children.replace(/\s+/g, "").split(",");
     const fields2 = { ...fields, children: childrenArray, ["imgUrl"]: imgUrl };
     setAlert({ message: "", isSuccess: false });
-    postProfile(fields2, token, setAlert);
-    setFields(initialState.fields);
-    history.push("/my-profile");
+    const createUserRequest = async () => {
+      await postProfile(fields2, token, setAlert);
+      setFields(initialState.fields);
+      history.push("/my-profile");
+    };
+    createUserRequest();
   };
 
   const handleFieldChange = (event) => {
