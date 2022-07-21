@@ -21,7 +21,7 @@ A playdate scheduling app for parents.
 
 ## Concept
 
-Peer play is crucial for the social development of young children. But for many parents and guardians, managing the social diaries of their kids is yet another pressure on already on a mountain of other responsibilites.
+Peer play is crucial for the social development of young children. But for many parents and guardians, managing the social diaries of their kids is yet another pressure on a mountain of other responsibilites.
 
 Playdate makes it super easy for parents to connect with other parents for the purpose of arranging playdates, sleepovers, and other fun activities for their children.
 
