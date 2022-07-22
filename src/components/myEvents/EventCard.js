@@ -13,7 +13,7 @@ const EventCard = ({
   setAcceptedResponse,
   setDeclinedResponse,
 }) => {
-  const { date_start, date_end, location, name } = eventData;
+  const { date_start, date_end, description, location, name} = eventData;
   const month = [
     "January",
     "February",
@@ -67,6 +67,7 @@ const EventCard = ({
         <div className={eventCardStyles.month}>{month[dateStart.month]}</div>
         </div>
         <div className={eventCardStyles.name}>{name}</div>
+        <div className={eventCardStyles.description}>{description}</div>
         <div className={eventCardStyles.iconLocation}>
           <Icon
             className={eventCardStyles.icon}
@@ -81,12 +82,12 @@ const EventCard = ({
             {dateEnd.minutes}
           </div>
         </div>
-        <div className={eventCardStyles.iconName}>
+        {/* <div className={eventCardStyles.iconName}>
           <Icon
             className={eventCardStyles.icon}
             icon="carbon:pedestrian-child"
           />
-        </div>
+        </div> */}
         {/* <div className="friends-confirmed">{friendsConfirmed}</div>
             <div className="friends-invited">{friendsInvited}</div> */}
       </div>
