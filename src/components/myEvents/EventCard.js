@@ -31,14 +31,14 @@ const EventCard = ({
   const d_start = new Date(date_start);
   const d_end = new Date(date_end);
   const dateStart = {
-    date: (d_start.getDate() <10) ? `0${d_start.getDate()}` : `${d_start.getDate()}`,
-    month: d_start.getMonth(),
-    hours: (d_start.getHours() <10) ? `0${d_start.getHours()}` : `${d_start.getHours()}`,
-    minutes: (d_start.getMinutes() < 10) ? (`0${d_start.getMinutes()}`) : (`${d_start.getMinutes()}`),  
+    date: (d_start.getUTCDate() <10) ? `0${d_start.getUTCDate()}` : `${d_start.getUTCDate()}`,
+    month: d_start.getUTCMonth(),
+    hours: (d_start.getUTCHours() <10) ? `0${d_start.getUTCHours()}` : `${d_start.getUTCHours()}`,
+    minutes: (d_start.getUTCMinutes() < 10) ? (`0${d_start.getUTCMinutes()}`) : (`${d_start.getUTCMinutes()}`),  
   };
   const dateEnd = {
-    hours: (d_end.getHours() <10) ? `0${d_end.getHours()}` : `${d_end.getHours()}`,
-    minutes: (d_end.getMinutes() < 10) ? (`0${d_end.getMinutes()}`) : (`${d_end.getMinutes()}`),
+    hours: (d_end.getUTCHours() <10) ? `0${d_end.getUTCHours()}` : `${d_end.getUTCHours()}`,
+    minutes: (d_end.getUTCMinutes() < 10) ? (`0${d_end.getUTCMinutes()}`) : (`${d_end.getUTCMinutes()}`),
   };
 
   const handleAcceptInvite = () => {
